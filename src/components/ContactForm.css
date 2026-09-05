@@ -1,0 +1,77 @@
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.contact-modal-scrim {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(6, 8, 6, 0.78);
+  cursor: pointer;
+}
+
+.contact-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(32rem, 100%);
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form-modal,
+.contact-form-panel {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  background: #141914;
+}
+
+.contact-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-form-header h2,
+.contact-form-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.contact-form-ok {
+  margin: 0;
+  color: var(--accent-strong);
+  line-height: 1.5;
+}
+
+.contact-form .form-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  background: rgba(12, 15, 12, 0.7);
+  color: var(--fg);
+  font: inherit;
+}

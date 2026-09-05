@@ -1,0 +1,137 @@
+.landing {
+  min-height: 100vh;
+  padding: 0 clamp(1.25rem, 4vw, 3rem) 4rem;
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(143, 179, 154, 0.16), transparent 55%),
+    radial-gradient(700px 400px at 90% 0%, rgba(90, 110, 98, 0.2), transparent 50%),
+    linear-gradient(180deg, #121612 0%, #101410 50%, #0c0f0c 100%);
+}
+
+.landing-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+}
+
+.landing-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.2rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.landing-actions a:hover,
+.landing-actions a:focus-visible {
+  color: var(--fg);
+}
+
+.text-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.text-btn:hover,
+.text-btn:focus-visible {
+  color: var(--fg);
+}
+
+.landing-hero {
+  max-width: 40rem;
+  padding: clamp(3rem, 12vh, 7rem) 0 3rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.landing-kicker {
+  color: var(--accent-strong);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.landing-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.landing-lede,
+.landing-section p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.landing-warn {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(200, 140, 90, 0.35);
+  background: rgba(200, 140, 90, 0.08);
+  color: #e6d2b8;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.landing-warn code {
+  font-size: 0.88em;
+}
+
+.landing-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.landing-section {
+  max-width: 40rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.landing-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.landing-steps {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.shell-status,
+.page-status {
+  min-height: 50vh;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  padding: 2rem;
+}
+
+.empty-note {
+  color: var(--muted);
+}
