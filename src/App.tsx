@@ -1,8 +1,7 @@
 import { works, experience } from './data'
 import './App.css'
 
-const heroImage =
-  'https://images.unsplash.com/photo-1485846234645-a62644f84781?auto=format&fit=crop&w=2400&q=80'
+const heroImage = '/media/hero.jpg'
 
 function App() {
   return (

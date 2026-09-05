@@ -21,36 +21,32 @@ export const works: WorkItem[] = [
     title: 'Northline Frames',
     role: 'Direction & edit',
     year: '2025',
-    image:
-      'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80',
-    alt: 'Camera lens catching golden light against a dark backdrop',
+    image: '/media/work-1.jpg',
+    alt: 'Film crew operating a cinema camera on location',
   },
   {
     id: 'harbor',
     title: 'Harbor Still',
     role: 'Photography',
     year: '2024',
-    image:
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
-    alt: 'Misty coastline at dawn with soft layered hills',
+    image: '/media/work-2.jpg',
+    alt: 'Misty forest hills under soft light',
   },
   {
     id: 'atelier',
     title: 'Atelier Notes',
     role: 'Brand film',
     year: '2024',
-    image:
-      'https://images.unsplash.com/photo-1516035069371-29a1b824cc32?auto=format&fit=crop&w=1600&q=80',
-    alt: 'Vintage camera resting on a wooden surface',
+    image: '/media/work-3.jpg',
+    alt: 'Vintage camera on a wooden table',
   },
   {
     id: 'signal',
     title: 'Signal Room',
     role: 'Motion design',
     year: '2023',
-    image:
-      'https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=1600&q=80',
-    alt: 'Film projector casting light in a dark screening room',
+    image: '/media/work-4.jpg',
+    alt: 'Audience watching a projected film in a dark theater',
   },
 ]
 
