@@ -5,15 +5,41 @@ import './MediaViewer.css'
 
 type Props = {
   asset: ViewerAsset | null
+  assets?: ViewerAsset[]
+  assetIndex?: number | null
   allowDownloads: boolean
   onClose: () => void
+  onNavigate?: (index: number) => void
 }
 
-export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
+export function MediaViewer({
+  asset,
+  assets,
+  assetIndex = null,
+  allowDownloads,
+  onClose,
+  onNavigate,
+}: Props) {
+  const carousel = Boolean(assets && assets.length > 1 && onNavigate && assetIndex !== null)
+  const total = assets?.length ?? 0
+  const current = assetIndex ?? 0
+
   useEffect(() => {
     if (!asset) return
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (!carousel || !assets || !onNavigate) return
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault()
+        onNavigate((current - 1 + total) % total)
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault()
+        onNavigate((current + 1) % total)
+      }
     }
     document.addEventListener('keydown', onKey)
     const prev = document.body.style.overflow
@@ -22,7 +48,7 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = prev
     }
-  }, [asset, onClose])
+  }, [asset, carousel, assets, onNavigate, onClose, current, total])
 
   if (!asset) return null
 
@@ -43,8 +69,36 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
           <div>
             <h2>{asset.title}</h2>
             {asset.subtitle ? <p>{asset.subtitle}</p> : null}
+            {carousel ? (
+              <p className="viewer-count">
+                {current + 1} / {total}
+                <span className="viewer-keys"> · ← → to browse · Esc to close</span>
+              </p>
+            ) : (
+              <p className="viewer-count">
+                <span className="viewer-keys">Esc to close</span>
+              </p>
+            )}
           </div>
           <div className="viewer-actions">
+            {carousel && assets && onNavigate ? (
+              <>
+                <button
+                  type="button"
+                  className="cta ghost"
+                  onClick={() => onNavigate((current - 1 + total) % total)}
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  className="cta ghost"
+                  onClick={() => onNavigate((current + 1) % total)}
+                >
+                  Next
+                </button>
+              </>
+            ) : null}
             {canDownload && downloadHref ? (
               <a className="cta ghost" href={downloadHref} download target="_blank" rel="noreferrer">
                 Download
@@ -78,6 +132,7 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
 
           {kind === 'video' && asset.fileUrl ? (
             <video
+              key={asset.fileUrl}
               className="viewer-video"
               src={asset.fileUrl}
               controls

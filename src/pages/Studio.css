@@ -1,7 +1,110 @@
+.studio-layout {
+  display: grid;
+  gap: 1.5rem;
+  padding: 0 clamp(0.75rem, 2vw, 1.5rem) 3rem;
+}
+
 .studio-shell {
   max-width: 52rem;
+  width: 100%;
   margin: 0 auto;
-  padding: 1.25rem clamp(1.25rem, 4vw, 2rem) 4rem;
+  padding: 1.25rem clamp(0.5rem, 2vw, 1rem) 2rem;
+}
+
+.studio-preview-rail {
+  display: none;
+}
+
+.studio-preview-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.studio-preview-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.studio-preview-head a {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.studio-preview-head a:hover,
+.studio-preview-head a:focus-visible {
+  color: var(--fg);
+}
+
+.studio-preview-frame {
+  height: min(78vh, 860px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #0c0f0c;
+}
+
+.studio-preview-scale {
+  width: 200%;
+  height: 200%;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.accent-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.accent-row input[type='color'] {
+  width: 2.75rem;
+  height: 2.5rem;
+  padding: 0.15rem;
+  cursor: pointer;
+}
+
+.accent-row input[type='text'],
+.accent-row input:not([type='color']) {
+  flex: 1;
+  min-width: 10rem;
+}
+
+.form-grid select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  background: rgba(12, 15, 12, 0.7);
+  color: var(--fg);
+  font: inherit;
+}
+
+@media (min-width: 1180px) {
+  .studio-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+    align-items: start;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .studio-shell {
+    margin: 0;
+    max-width: none;
+  }
+
+  .studio-preview-rail {
+    display: block;
+    position: sticky;
+    top: 1rem;
+    padding-top: 1.25rem;
+  }
 }
 
 .studio-header {
@@ -102,7 +205,8 @@
 }
 
 .form-grid input:focus,
-.form-grid textarea:focus {
+.form-grid textarea:focus,
+.form-grid select:focus {
   outline: 1px solid var(--accent);
   border-color: var(--accent);
 }

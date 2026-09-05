@@ -29,6 +29,8 @@ function DemoPortfolio({ slug }: { slug: string }) {
         cta_secondary_label: 'Email me',
         allow_downloads: false,
         resume_file_path: null,
+        accent_color: '',
+        display_font: 'syne',
         is_admin: false,
         created_at: '',
         updated_at: '',

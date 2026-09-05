@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { PortfolioView } from '../components/PortfolioView'
 import { deleteMedia, mediaUrl, uploadMedia } from '../lib/api'
 import { requireSupabase } from '../lib/supabase'
 import { isValidSlug, normalizeSlug } from '../lib/slug'
+import { DISPLAY_FONTS, type DisplayFontKey } from '../lib/theme'
 import type { Experience, Profile, Work } from '../lib/types'
 import './Studio.css'
 
@@ -20,6 +22,8 @@ function emptyProfileFields(profile: Profile): Profile {
     cta_secondary_label: profile.cta_secondary_label ?? '',
     allow_downloads: Boolean(profile.allow_downloads),
     resume_file_path: profile.resume_file_path ?? null,
+    accent_color: profile.accent_color ?? '',
+    display_font: profile.display_font || 'syne',
   }
 }
 
@@ -74,6 +78,10 @@ export function StudioPage() {
       if (!isValidSlug(cleanSlug)) {
         throw new Error('Slug must be 2–48 characters: lowercase letters, numbers, hyphens.')
       }
+      const accent = draft.accent_color.trim()
+      if (accent && !/^#[0-9A-Fa-f]{6}$/.test(accent)) {
+        throw new Error('Accent color must be a hex value like #8fb39a, or left blank.')
+      }
       const { error: updateError } = await requireSupabase()
         .from('profiles')
         .update({
@@ -91,6 +99,8 @@ export function StudioPage() {
           cta_primary_label: draft.cta_primary_label,
           cta_secondary_label: draft.cta_secondary_label,
           allow_downloads: draft.allow_downloads,
+          accent_color: accent,
+          display_font: draft.display_font || 'syne',
         })
         .eq('id', user.id)
       if (updateError) throw updateError
@@ -325,7 +335,8 @@ export function StudioPage() {
   const resumePreview = mediaUrl(draft.resume_file_path)
 
   return (
-    <div className="studio-shell">
+    <div className="studio-layout">
+      <div className="studio-shell">
       <header className="studio-header">
         <Link to="/" className="studio-brand">
           Portfolio Studio
@@ -342,7 +353,7 @@ export function StudioPage() {
       <h1>Studio</h1>
       <p className="muted">
         Your public page only shows the copy and media you set here — no Portfolio Studio
-        branding.
+        branding. Live preview updates as you edit.
       </p>
 
       {message ? <p className="form-ok">{message}</p> : null}
@@ -405,6 +416,45 @@ export function StudioPage() {
             onChange={(e) => setDraft({ ...draft, cta_secondary_label: e.target.value })}
             placeholder="e.g. Contact me"
           />
+        </label>
+        <label>
+          Accent color
+          <div className="accent-row">
+            <input
+              type="color"
+              value={draft.accent_color && /^#[0-9A-Fa-f]{6}$/.test(draft.accent_color) ? draft.accent_color : '#8fb39a'}
+              onChange={(e) => setDraft({ ...draft, accent_color: e.target.value })}
+              aria-label="Pick accent color"
+            />
+            <input
+              value={draft.accent_color}
+              onChange={(e) => setDraft({ ...draft, accent_color: e.target.value })}
+              placeholder="#8fb39a (blank = default sage)"
+            />
+            <button
+              type="button"
+              className="cta ghost"
+              onClick={() => setDraft({ ...draft, accent_color: '' })}
+            >
+              Reset
+            </button>
+          </div>
+          <span className="field-hint">Hex like #8fb39a, or leave blank for the default sage.</span>
+        </label>
+        <label>
+          Display font
+          <select
+            value={draft.display_font || 'syne'}
+            onChange={(e) =>
+              setDraft({ ...draft, display_font: e.target.value as DisplayFontKey })
+            }
+          >
+            {(Object.keys(DISPLAY_FONTS) as DisplayFontKey[]).map((key) => (
+              <option key={key} value={key}>
+                {DISPLAY_FONTS[key].label}
+              </option>
+            ))}
+          </select>
         </label>
         <label className="checkbox-row">
           <input
@@ -730,6 +780,24 @@ export function StudioPage() {
           ))}
         </ul>
       </section>
+      </div>
+
+      <aside className="studio-preview-rail" aria-label="Live portfolio preview">
+        <div className="studio-preview-head">
+          <h2>Live preview</h2>
+          <Link to={`/u/${draft.slug}`}>Open /u/{draft.slug}</Link>
+        </div>
+        <div className="studio-preview-frame">
+          <div className="studio-preview-scale">
+            <PortfolioView
+              profile={draft}
+              works={works}
+              experience={experience}
+              mode="preview"
+            />
+          </div>
+        </div>
+      </aside>
     </div>
   )
 }

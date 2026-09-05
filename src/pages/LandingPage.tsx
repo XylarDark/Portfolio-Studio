@@ -17,12 +17,12 @@ export function LandingPage() {
   return (
     <div className="landing">
       <header className="landing-nav">
-        <span className="landing-brand">Portfolio Studio</span>
+        <span className="landing-brand-nav">Studio</span>
         <div className="landing-actions">
           {user ? (
             <>
               {profile ? <Link to={`/u/${profile.slug}`}>My portfolio</Link> : null}
-              <Link to="/studio">Studio</Link>
+              <Link to="/studio">Open studio</Link>
               {profile?.is_admin ? <Link to="/studio/invites">Invites</Link> : null}
               <button type="button" className="text-btn" onClick={() => void signOut()}>
                 Sign out
@@ -41,38 +41,60 @@ export function LandingPage() {
         </div>
       </header>
 
-      <main className="landing-hero">
-        <p className="landing-kicker">Invite-only media resumes</p>
-        <h1>Your portfolio. Their portfolio. One studio.</h1>
-        <p className="landing-lede">
-          Host personal media-resume sites with Google sign-in, invite links, and
-          per-user uploads — without paying for a custom backend.
-        </p>
-        {!configured ? (
-          <p className="landing-warn">
-            Supabase is not configured yet. Add <code>VITE_SUPABASE_URL</code> and{' '}
-            <code>VITE_SUPABASE_ANON_KEY</code> (see README), then restart the dev
-            server.
+      <main className="landing-hero-plane" aria-label="Portfolio Studio">
+        <div className="landing-hero-visual" aria-hidden="true">
+          <div className="landing-mock">
+            <div className="landing-mock-nav">
+              <span>Alex Rivera</span>
+              <span>Work · Resume · Contact</span>
+            </div>
+            <div className="landing-mock-hero">
+              <p className="landing-mock-brand">Alex Rivera</p>
+              <p className="landing-mock-line">Director of photography</p>
+            </div>
+            <div className="landing-mock-grid">
+              <figure />
+              <figure className="offset" />
+              <figure />
+              <figure className="offset" />
+            </div>
+          </div>
+          <div className="landing-hero-veil" />
+        </div>
+
+        <div className="landing-hero-copy">
+          <p className="landing-brand">Portfolio Studio</p>
+          <h1>Invite-only media resumes</h1>
+          <p className="landing-lede">
+            Host personal media-resume sites with Google sign-in, invite links, and
+            per-user uploads — without paying for a custom backend.
           </p>
-        ) : null}
-        <div className="landing-cta-row">
-          {user && profile ? (
-            <Link className="cta primary" to="/studio">
-              Open studio
-            </Link>
-          ) : (
-            <button
-              type="button"
-              className="cta primary"
-              onClick={() => void handleSignIn()}
-              disabled={!configured || loading}
-            >
-              Sign in with Google
-            </button>
-          )}
-          <a className="cta ghost" href="#how">
-            How invites work
-          </a>
+          {!configured ? (
+            <p className="landing-warn">
+              Supabase is not configured yet. Add <code>VITE_SUPABASE_URL</code> and{' '}
+              <code>VITE_SUPABASE_ANON_KEY</code> (see README), then restart the dev
+              server.
+            </p>
+          ) : null}
+          <div className="landing-cta-row">
+            {user && profile ? (
+              <Link className="cta primary" to="/studio">
+                Open studio
+              </Link>
+            ) : (
+              <button
+                type="button"
+                className="cta primary"
+                onClick={() => void handleSignIn()}
+                disabled={!configured || loading}
+              >
+                Sign in with Google
+              </button>
+            )}
+            <a className="cta ghost" href="#how">
+              How invites work
+            </a>
+          </div>
         </div>
       </main>
 

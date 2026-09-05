@@ -16,6 +16,8 @@ export type Profile = {
   cta_secondary_label: string
   allow_downloads: boolean
   resume_file_path: string | null
+  accent_color: string
+  display_font: string
   is_admin: boolean
   created_at: string
   updated_at: string

@@ -26,11 +26,17 @@
   gap: 1rem;
 }
 
-.contact-form-modal,
-.contact-form-panel {
+.contact-form-modal {
   padding: 1.25rem;
   border: 1px solid var(--line);
   background: #141914;
+}
+
+.contact-form-panel {
+  padding: 1.5rem 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
 }
 
 .contact-form-header {
