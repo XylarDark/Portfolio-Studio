@@ -6,11 +6,12 @@ import { InvitePage, SetupPage } from './pages/InvitePage'
 import { PortfolioPage } from './pages/PortfolioPage'
 import { StudioPage } from './pages/StudioPage'
 import { InvitesPage } from './pages/InvitesPage'
+import { routerBasename } from './lib/urls'
 
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename()}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/invite/:token" element={<InvitePage />} />

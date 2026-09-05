@@ -8,6 +8,7 @@ import { useAuth } from '../context/AuthContext'
 import { requireSupabase } from '../lib/supabase'
 import { isValidSlug, normalizeSlug } from '../lib/slug'
 import type { Invite } from '../lib/types'
+import { absoluteAppUrl } from '../lib/urls'
 import './Studio.css'
 
 type InviteStatus = 'loading' | 'valid' | 'invalid' | 'expired' | 'redeemed'
@@ -81,7 +82,7 @@ export function InvitePage() {
   async function handleGoogle() {
     setPendingInviteToken(token)
     try {
-      await signInWithGoogle(`${window.location.origin}/invite/${token}`)
+      await signInWithGoogle(absoluteAppUrl(`/invite/${token}`))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign-in failed')
     }

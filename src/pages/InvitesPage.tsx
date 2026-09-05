@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import { randomInviteToken } from '../lib/slug'
 import { requireSupabase } from '../lib/supabase'
 import type { Invite } from '../lib/types'
+import { absoluteAppUrl } from '../lib/urls'
 import './Studio.css'
 
 const INVITE_DAYS = 7
@@ -57,7 +58,7 @@ export function InvitesPage() {
   }
 
   function inviteUrl(token: string) {
-    return `${window.location.origin}/invite/${token}`
+    return absoluteAppUrl(`/invite/${token}`)
   }
 
   async function copyLink(invite: Invite) {

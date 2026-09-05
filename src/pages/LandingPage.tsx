@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import './LandingPage.css'
+import { absoluteAppUrl } from '../lib/urls'
 
 export function LandingPage() {
   const { configured, loading, user, profile, signInWithGoogle, signOut } = useAuth()
 
   async function handleSignIn() {
     try {
-      await signInWithGoogle(`${window.location.origin}/studio`)
+      await signInWithGoogle(absoluteAppUrl('/studio'))
     } catch (err) {
       alert(err instanceof Error ? err.message : 'Sign-in failed')
     }

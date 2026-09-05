@@ -11,6 +11,7 @@ import type { Session, User } from '@supabase/supabase-js'
 import type { Profile } from '../lib/types'
 import { fetchOwnProfile } from '../lib/api'
 import { isSupabaseConfigured, requireSupabase } from '../lib/supabase'
+import { absoluteAppUrl } from '../lib/urls'
 
 type AuthState = {
   loading: boolean
@@ -91,7 +92,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: redirectTo ?? `${window.location.origin}/studio`,
+        redirectTo: redirectTo ?? absoluteAppUrl('/studio'),
       },
     })
     if (error) throw error

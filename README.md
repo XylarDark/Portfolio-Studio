@@ -60,22 +60,34 @@ Give each repo its own fixed port in `vite.config.ts` (`server.port` + `strictPo
 
 ## Deploy (free)
 
-### Cloudflare Pages
+This repo deploys automatically to **GitHub Pages** (free) on every push to `main`.
 
-1. Connect the GitHub repo.
-2. Build command: `npm run build`
-3. Output directory: `dist`
-4. Add env vars `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
-5. SPA fallback is provided by [`public/_redirects`](public/_redirects).
+**Live URL:** https://xylardark.github.io/Portfolio-Studio/
 
-### Vercel
+### One-time hosting setup
 
-1. Import the repo.
-2. Framework preset: Vite (or other; build `npm run build`, output `dist`).
-3. Add the same env vars.
-4. [`vercel.json`](vercel.json) rewrites all routes to `index.html`.
+1. Repo secrets (already used by Actions):
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+2. GitHub → **Settings → Pages → Build and deployment → Source: GitHub Actions**
+3. After the first successful workflow, open the live URL above.
 
-After deploy, add the production URL to Supabase redirect allow-list and Google OAuth settings.
+### Required OAuth / Auth URLs (production)
+
+Add these after the site is live:
+
+| Place | Value |
+|-------|--------|
+| Supabase Site URL | `https://xylardark.github.io/Portfolio-Studio` |
+| Supabase Redirect URLs | `https://xylardark.github.io/Portfolio-Studio/**` |
+| Google JS origins | `https://xylardark.github.io` |
+| Google redirect URI | `https://cnxnnmhmlqenjlfeloyl.supabase.co/auth/v1/callback` (unchanged) |
+
+Keep the local `http://127.0.0.1:5280` entries too for development.
+
+### Cloudflare Pages / Vercel (optional)
+
+Also free. Connect the GitHub repo, set the same two `VITE_*` env vars, build `npm run build`, output `dist`. For those hosts the site is at the domain root (no `/Portfolio-Studio/` base path), so leave `VITE_BASE_PATH` unset.
 
 ## Customize sample media
 
