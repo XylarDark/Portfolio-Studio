@@ -60,7 +60,8 @@ export function PortfolioView({
   const contactTitle = profile.contact_section_title.trim()
   const contactBlurb = profile.contact_section_blurb.trim()
   const ctaPrimary = profile.cta_primary_label.trim()
-  const ctaSecondary = profile.cta_secondary_label.trim() || 'Contact me'
+  const ctaSecondary = profile.cta_secondary_label.trim()
+  const showHeroCtas = Boolean(ctaPrimary || ctaSecondary)
 
   const resumeFileUrl = mediaUrl(profile.resume_file_path)
   const resumeKind = detectKind(profile.resume_file_path)
@@ -120,20 +121,24 @@ export function PortfolioView({
             {brand ? <h1 className="brand">{brand}</h1> : null}
             {headline ? <p className="hero-headline">{headline}</p> : null}
             {bio ? <p className="lede">{bio}</p> : null}
-            <div className="cta-row">
-              {ctaPrimary && showWork ? (
-                <a className="cta primary" href="#work">
-                  {ctaPrimary}
-                </a>
-              ) : null}
-              <button
-                type="button"
-                className="cta ghost"
-                onClick={() => setContactOpen(true)}
-              >
-                {ctaSecondary}
-              </button>
-            </div>
+            {showHeroCtas ? (
+              <div className="cta-row">
+                {ctaPrimary && showWork ? (
+                  <a className="cta primary" href="#work">
+                    {ctaPrimary}
+                  </a>
+                ) : null}
+                {ctaSecondary ? (
+                  <button
+                    type="button"
+                    className="cta ghost"
+                    onClick={() => setContactOpen(true)}
+                  >
+                    {ctaSecondary}
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
           </div>
         </section>
 
