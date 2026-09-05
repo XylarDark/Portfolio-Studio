@@ -25,3 +25,5 @@ npm run preview
 ## Customize
 
 Edit sample work and resume entries in `src/data.ts`, and update copy in `src/App.tsx`.
+
+Sample photography in `public/media/` is from [Pexels](https://www.pexels.com/) for placeholder use.

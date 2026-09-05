@@ -22,7 +22,7 @@ export const works: WorkItem[] = [
     role: 'Direction & edit',
     year: '2025',
     image: '/media/work-1.jpg',
-    alt: 'Film crew operating a cinema camera on location',
+    alt: 'Film crew operating a RED cinema camera on a city street',
   },
   {
     id: 'harbor',
@@ -46,7 +46,7 @@ export const works: WorkItem[] = [
     role: 'Motion design',
     year: '2023',
     image: '/media/work-4.jpg',
-    alt: 'Audience watching a projected film in a dark theater',
+    alt: 'Lush green foliage lit for a motion still',
   },
 ]
 
