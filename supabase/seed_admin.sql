@@ -25,7 +25,7 @@ select
   email,
   '',
   '',
-  'Selected work',
+  'Multimedia & External Links',
   'Resume',
   'Contact',
   true

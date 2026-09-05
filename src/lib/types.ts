@@ -70,5 +70,6 @@ export type ViewerAsset = {
   imageUrl?: string | null
   fileUrl?: string | null
   linkUrl?: string | null
-  kind: 'image' | 'pdf' | 'video' | 'link' | 'unknown'
+  embedUrl?: string | null
+  kind: 'image' | 'pdf' | 'video' | 'link' | 'embed' | 'unknown'
 }

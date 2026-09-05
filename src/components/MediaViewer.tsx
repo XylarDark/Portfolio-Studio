@@ -26,13 +26,14 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
 
   if (!asset) return null
 
+  const kind = asset.kind === 'unknown' && asset.imageUrl ? 'image' : asset.kind
   const canDownload =
     allowDownloads &&
-    Boolean(asset.fileUrl || (asset.kind === 'image' && asset.imageUrl)) &&
-    isDownloadableKind(asset.kind === 'unknown' && asset.imageUrl ? 'image' : asset.kind)
+    Boolean(asset.fileUrl || (kind === 'image' && asset.imageUrl)) &&
+    isDownloadableKind(kind)
 
   const downloadHref =
-    asset.fileUrl || (asset.kind === 'image' || asset.imageUrl ? asset.imageUrl : null)
+    asset.fileUrl || (kind === 'image' || asset.imageUrl ? asset.imageUrl : null)
 
   return (
     <div className="viewer-backdrop" role="dialog" aria-modal="true" aria-label={asset.title}>
@@ -61,11 +62,21 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
         </header>
 
         <div className="viewer-stage">
-          {asset.kind === 'pdf' && asset.fileUrl ? (
+          {kind === 'embed' && asset.embedUrl ? (
+            <iframe
+              title={asset.title}
+              src={asset.embedUrl}
+              className="viewer-frame viewer-embed"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : null}
+
+          {kind === 'pdf' && asset.fileUrl ? (
             <iframe title={asset.title} src={asset.fileUrl} className="viewer-frame" />
           ) : null}
 
-          {asset.kind === 'video' && asset.fileUrl ? (
+          {kind === 'video' && asset.fileUrl ? (
             <video
               className="viewer-video"
               src={asset.fileUrl}
@@ -75,7 +86,8 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
             />
           ) : null}
 
-          {(asset.kind === 'image' || (!asset.fileUrl && asset.imageUrl)) && asset.imageUrl ? (
+          {(kind === 'image' || (!asset.fileUrl && !asset.embedUrl && asset.imageUrl)) &&
+          asset.imageUrl ? (
             <img
               className="viewer-image"
               src={asset.imageUrl}
@@ -84,9 +96,9 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
             />
           ) : null}
 
-          {asset.kind === 'link' && !asset.imageUrl ? (
+          {kind === 'link' && !asset.imageUrl ? (
             <div className="viewer-link-card">
-              <p>Open this piece in a new tab for the best view.</p>
+              <p>Open this link in a new tab for the best view.</p>
               {asset.linkUrl ? (
                 <a className="cta primary" href={asset.linkUrl} target="_blank" rel="noreferrer">
                   Open link
@@ -95,7 +107,7 @@ export function MediaViewer({ asset, allowDownloads, onClose }: Props) {
             </div>
           ) : null}
 
-          {asset.kind === 'unknown' && asset.fileUrl ? (
+          {kind === 'unknown' && asset.fileUrl ? (
             <iframe title={asset.title} src={asset.fileUrl} className="viewer-frame" />
           ) : null}
         </div>

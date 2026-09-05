@@ -152,7 +152,7 @@ export function StudioPage() {
     try {
       const { error: insertError } = await requireSupabase().from('works').insert({
         owner_id: user.id,
-        title: 'New work',
+        title: 'New item',
         role: '',
         year: String(new Date().getFullYear()),
         alt: '',
@@ -441,6 +441,7 @@ export function StudioPage() {
           <input
             value={draft.work_section_title}
             onChange={(e) => setDraft({ ...draft, work_section_title: e.target.value })}
+            placeholder="Multimedia & External Links"
           />
         </label>
         <label>
@@ -501,11 +502,15 @@ export function StudioPage() {
 
       <section className="studio-card">
         <div className="studio-section-head">
-          <h2>Work</h2>
+          <h2>Multimedia &amp; External Links</h2>
           <button type="button" className="cta ghost" onClick={() => void addWork()} disabled={busy}>
-            Add work
+            Add item
           </button>
         </div>
+        <p className="muted small">
+          Each item can be an image, image + link, link-only, uploaded video/PDF, or an
+          embeddable URL (YouTube, Vimeo).
+        </p>
         <ul className="studio-list">
           {works.map((work) => (
             <li key={work.id} className="studio-list-item">
@@ -563,7 +568,7 @@ export function StudioPage() {
                   />
                 </label>
                 <label>
-                  External link (optional)
+                  External or embed link (optional)
                   <input
                     value={work.link_url ?? ''}
                     onChange={(e) =>
@@ -573,11 +578,11 @@ export function StudioPage() {
                         ),
                       )
                     }
-                    placeholder="https://"
+                    placeholder="https://… (YouTube, Vimeo, or any URL)"
                   />
                 </label>
                 <label>
-                  Cover image
+                  Cover image (optional)
                   <input
                     type="file"
                     accept="image/*"
@@ -590,7 +595,7 @@ export function StudioPage() {
                   <img className="studio-thumb" src={mediaUrl(work.image_path)!} alt="" />
                 ) : null}
                 <label>
-                  Viewable file (PDF, video, etc.)
+                  Uploaded file (optional video/PDF/image)
                   <input
                     type="file"
                     accept=".pdf,image/*,video/*"

@@ -79,6 +79,13 @@
   background: #fff;
 }
 
+.viewer-embed {
+  background: #000;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: min(60vh, 640px);
+}
+
 .viewer-link-card {
   display: grid;
   gap: 1rem;
@@ -108,6 +115,29 @@
   text-align: left;
   width: 100%;
   cursor: zoom-in;
+}
+
+.work-figure-fallback {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  gap: 0.35rem;
+  background: var(--bg-soft);
+  color: var(--muted);
+  padding: 1rem;
+  text-align: center;
+}
+
+.work-figure-fallback strong {
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.work-figure-fallback span {
+  font-size: 0.9rem;
+  word-break: break-all;
 }
 
 .resume-file-row {

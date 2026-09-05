@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import type { Experience, Profile, ViewerAsset, Work } from '../lib/types'
 import { mediaUrl } from '../lib/supabase'
-import { detectKind } from '../lib/files'
+import { detectKind, getEmbedSrc } from '../lib/files'
 import { MediaViewer } from './MediaViewer'
 import { ContactForm } from './ContactForm'
 import '../App.css'
@@ -18,16 +18,15 @@ function workViewerAsset(work: Work): ViewerAsset | null {
   const imageUrl = mediaUrl(work.image_path)
   const fileUrl = mediaUrl(work.file_path)
   const linkUrl = work.link_url?.trim() || null
+  const embedUrl = getEmbedSrc(linkUrl)
 
   if (!imageUrl && !fileUrl && !linkUrl) return null
 
-  const kind = fileUrl
-    ? detectKind(work.file_path)
-    : imageUrl
-      ? 'image'
-      : linkUrl
-        ? 'link'
-        : 'unknown'
+  let kind: ViewerAsset['kind'] = 'unknown'
+  if (fileUrl) kind = detectKind(work.file_path)
+  else if (embedUrl) kind = 'embed'
+  else if (imageUrl) kind = 'image'
+  else if (linkUrl) kind = 'link'
 
   return {
     title: work.title,
@@ -35,8 +34,19 @@ function workViewerAsset(work: Work): ViewerAsset | null {
     imageUrl,
     fileUrl: fileUrl ?? (kind === 'image' ? imageUrl : null),
     linkUrl,
-    kind: kind === 'unknown' && imageUrl ? 'image' : kind,
+    embedUrl,
+    kind,
   }
+}
+
+function workCardHint(work: Work): string {
+  if (work.file_path && detectKind(work.file_path) === 'video') return 'Video'
+  if (work.file_path && detectKind(work.file_path) === 'pdf') return 'Document'
+  if (getEmbedSrc(work.link_url)) return 'Embed'
+  if (work.link_url && work.image_path) return 'Image + link'
+  if (work.link_url) return 'External link'
+  if (work.image_path) return 'Image'
+  return 'Media'
 }
 
 export function PortfolioView({
@@ -152,12 +162,15 @@ export function PortfolioView({
             )}
 
             {works.length === 0 ? (
-              <p className="empty-note">Nothing published in this section yet.</p>
+              <p className="empty-note">
+                Add images, videos, files, embeds, or external links from Studio.
+              </p>
             ) : (
               <ul className="work-list">
                 {works.map((item, index) => {
                   const image = mediaUrl(item.image_path)
                   const asset = workViewerAsset(item)
+                  const hint = workCardHint(item)
                   return (
                     <li
                       key={item.id}
@@ -181,13 +194,17 @@ export function PortfolioView({
                             />
                           ) : (
                             <div className="work-figure-fallback">
-                              <span>{item.title}</span>
+                              <strong>{item.title}</strong>
+                              <span>{hint}</span>
+                              {item.link_url ? <span>{item.link_url}</span> : null}
                             </div>
                           )}
                         </figure>
                         <div className="work-meta">
                           <h3>{item.title}</h3>
-                          <p>{[item.role, item.year].filter(Boolean).join(' · ')}</p>
+                          <p>
+                            {[hint, item.role, item.year].filter(Boolean).join(' · ')}
+                          </p>
                         </div>
                       </button>
                     </li>
