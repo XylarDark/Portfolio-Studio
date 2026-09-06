@@ -75,3 +75,16 @@ export type ViewerAsset = {
   embedUrl?: string | null
   kind: 'image' | 'pdf' | 'video' | 'link' | 'embed' | 'unknown'
 }
+
+/** Normalized job opening for the swipe / find-work UX. */
+export type JobListing = {
+  id: string
+  title: string
+  company: string
+  location: string
+  remote: 'remote' | 'hybrid' | 'onsite'
+  blurb: string
+  source: string
+  applyUrl: string
+  tags?: string[]
+}

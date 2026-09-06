@@ -19,6 +19,7 @@ export function LandingPage() {
       <header className="landing-nav">
         <span className="landing-brand-nav">Studio</span>
         <div className="landing-actions">
+          <Link to="/swipe">Find work</Link>
           {user ? (
             <>
               {profile ? <Link to={`/u/${profile.slug}`}>My portfolio</Link> : null}
@@ -64,10 +65,12 @@ export function LandingPage() {
 
         <div className="landing-hero-copy">
           <p className="landing-brand">Portfolio Studio</p>
+          <p className="landing-fpbp">For People, By People</p>
           <h1>Invite-only media resumes</h1>
           <p className="landing-lede">
             Host personal media-resume sites with Google sign-in, invite links, and
-            per-user uploads — without paying for a custom backend.
+            per-user uploads — then swipe curated job openings when you&apos;re ready
+            to find work.
           </p>
           {!configured ? (
             <p className="landing-warn">
@@ -91,6 +94,9 @@ export function LandingPage() {
                 Sign in with Google
               </button>
             )}
+            <Link className="cta ghost" to="/swipe">
+              Swipe jobs
+            </Link>
             <a className="cta ghost" href="#how">
               How invites work
             </a>

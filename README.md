@@ -2,6 +2,8 @@
 
 Invite-only, multi-tenant media-resume sites. Each person signs in with Google (via an invite link), creates a public portfolio at `/u/{slug}`, and uploads their own media.
 
+Part of **For People, By People** — the first product wedge adds an API-fed **swipe jobs** experience (`/swipe`) alongside portfolios. See [`docs/WEDGE.md`](docs/WEDGE.md) and [`docs/BUSINESS_DESIGN.md`](docs/BUSINESS_DESIGN.md).
+
 ## Stack
 
 - Vite + React 19 + TypeScript
@@ -88,6 +90,24 @@ Keep the local `http://127.0.0.1:5280` entries too for development.
 ### Cloudflare Pages / Vercel (optional)
 
 Also free. Connect the GitHub repo, set the same two `VITE_*` env vars, build `npm run build`, output `dist`. For those hosts the site is at the domain root (no `/Portfolio-Studio/` base path), so leave `VITE_BASE_PATH` unset.
+
+## Swipe jobs (first wedge)
+
+Route: **`/swipe`** (also `/find-work`). Mobile-friendly cards: swipe or tap **Interested** / **Pass**. Interested IDs persist in `localStorage` for the browser session.
+
+### Mock data (default)
+
+`fetchJobs()` in `src/lib/jobs.ts` returns curated listings from `src/data/jobs.ts` when no API is configured. No scrapers.
+
+### Optional live API
+
+Set in `.env` (see `.env.example`):
+
+```bash
+VITE_JOBS_API_URL=https://example.com/api/jobs
+```
+
+The endpoint should return JSON as either `JobListing[]` or `{ "jobs": JobListing[] }`. On failure, the app falls back to mocks.
 
 ## Customize sample media
 

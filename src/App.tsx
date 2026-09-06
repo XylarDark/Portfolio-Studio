@@ -6,6 +6,7 @@ import { InvitePage, SetupPage } from './pages/InvitePage'
 import { PortfolioPage } from './pages/PortfolioPage'
 import { StudioPage } from './pages/StudioPage'
 import { InvitesPage } from './pages/InvitesPage'
+import { SwipeJobsPage } from './pages/SwipeJobsPage'
 import { routerBasename } from './lib/urls'
 
 export default function App() {
@@ -24,6 +25,8 @@ export default function App() {
             }
           />
           <Route path="/u/:slug" element={<PortfolioPage />} />
+          <Route path="/swipe" element={<SwipeJobsPage />} />
+          <Route path="/find-work" element={<SwipeJobsPage />} />
           <Route
             path="/studio"
             element={

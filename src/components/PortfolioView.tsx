@@ -193,6 +193,7 @@ export function PortfolioView({
               {item.label}
             </a>
           ))}
+          {!preview ? <Link to="/swipe">Find work</Link> : null}
           {showStudioLink && !preview ? <Link to="/studio">Studio</Link> : null}
         </nav>
       </header>

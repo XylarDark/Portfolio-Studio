@@ -180,6 +180,15 @@
   animation: rise 1s var(--ease) 0.08s both;
 }
 
+.landing-fpbp {
+  margin: -0.35rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  animation: rise 1s var(--ease) 0.14s both;
+}
+
 .landing-hero-copy h1 {
   margin: 0;
   font-family: var(--font-display);
