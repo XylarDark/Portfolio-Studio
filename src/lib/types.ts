@@ -76,15 +76,44 @@ export type ViewerAsset = {
   kind: 'image' | 'pdf' | 'video' | 'link' | 'embed' | 'unknown'
 }
 
-/** Normalized job opening for the swipe / find-work UX. */
+/** Opportunity type for Iteration 0 filters. */
+export type JobKind = 'job' | 'gig' | 'project'
+
+/** Craft buckets for creatives / entrepreneurs. */
+export type JobCraft =
+  | 'design'
+  | 'photo'
+  | 'film'
+  | 'writing'
+  | 'illustration'
+  | 'product'
+  | 'founding'
+
+/** Normalized opening for the Iteration 0 swipe loop (mocks only). */
 export type JobListing = {
   id: string
   title: string
   company: string
   location: string
   remote: 'remote' | 'hybrid' | 'onsite'
+  kind: JobKind
+  craft: JobCraft
   blurb: string
   source: string
   applyUrl: string
   tags?: string[]
 }
+
+export type JobFilters = {
+  kinds: JobKind[]
+  crafts: JobCraft[]
+  remotes: Array<JobListing['remote']>
+}
+
+/** Iteration 0 pace knobs — keep in sync with docs/ITERATION-0.md */
+export const ITERATION_0 = {
+  deckSize: 10,
+  dailyBudget: 15,
+  cooldownMs: 4000,
+  unlockEvery: 5,
+} as const

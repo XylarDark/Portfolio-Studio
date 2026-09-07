@@ -82,11 +82,126 @@
   font-size: 0.98rem;
 }
 
+.swipe-meters {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-strong);
+}
+
+.swipe-filters,
+.swipe-unlock {
+  display: grid;
+  gap: 1rem;
+}
+
+.swipe-filters h2,
+.swipe-unlock h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.swipe-filters-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.swipe-filters fieldset,
+.swipe-unlock fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.swipe-filters legend,
+.swipe-unlock legend {
+  padding: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.swipe-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.swipe-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.swipe-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.swipe-chip.is-on {
+  border-color: rgba(143, 179, 154, 0.55);
+  color: var(--fg);
+  background: rgba(143, 179, 154, 0.12);
+}
+
+.swipe-unlock-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.swipe-unlock-choices .cta.is-selected {
+  border-color: var(--accent-strong);
+  color: var(--fg);
+  background: rgba(143, 179, 154, 0.12);
+}
+
+.swipe-unlock-panel {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.swipe-unlock-panel label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.swipe-unlock-panel textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 4.5rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line);
+  background: rgba(242, 239, 232, 0.03);
+  color: var(--fg);
+  font: inherit;
+  line-height: 1.45;
+}
+
+.swipe-unlock-panel textarea:focus-visible {
+  outline: 1px solid var(--accent);
+  border-color: var(--accent);
+}
+
 .swipe-status {
   margin: 0;
   color: var(--muted);
   text-align: center;
   padding: 2rem 0;
+  font-size: 1.05rem;
 }
 
 .swipe-error {
@@ -115,13 +230,6 @@
     transform 0.28s var(--ease),
     opacity 0.28s var(--ease),
     border-color 0.2s ease;
-}
-
-.swipe-card-next {
-  transform: scale(0.96) translateY(0.65rem);
-  opacity: 0.55;
-  pointer-events: none;
-  filter: blur(0.2px);
 }
 
 .swipe-card-active {

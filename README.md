@@ -2,7 +2,7 @@
 
 Invite-only, multi-tenant media-resume sites. Each person signs in with Google (via an invite link), creates a public portfolio at `/u/{slug}`, and uploads their own media.
 
-Part of **For People, By People** — the first product wedge adds an API-fed **swipe jobs** experience (`/swipe`) alongside portfolios. See [`docs/WEDGE.md`](docs/WEDGE.md) and [`docs/BUSINESS_DESIGN.md`](docs/BUSINESS_DESIGN.md).
+Part of **For People, By People** — Iteration 0 adds a **filtered one-card swipe** at `/swipe` (mocks only). See [`docs/ITERATION-0.md`](docs/ITERATION-0.md) and [`docs/WEDGE.md`](docs/WEDGE.md).
 
 ## Stack
 
@@ -91,23 +91,14 @@ Keep the local `http://127.0.0.1:5280` entries too for development.
 
 Also free. Connect the GitHub repo, set the same two `VITE_*` env vars, build `npm run build`, output `dist`. For those hosts the site is at the domain root (no `/Portfolio-Studio/` base path), so leave `VITE_BASE_PATH` unset.
 
-## Swipe jobs (first wedge)
+## Find work (Iteration 0)
 
-Route: **`/swipe`** (also `/find-work`). Mobile-friendly cards: swipe or tap **Interested** / **Pass**. Interested IDs persist in `localStorage` for the browser session.
+Route: **`/swipe`** (also `/find-work`). Filtered one-card swipe — not an infinite feed.
 
-### Mock data (default)
-
-`fetchJobs()` in `src/lib/jobs.ts` returns curated listings from `src/data/jobs.ts` when no API is configured. No scrapers.
-
-### Optional live API
-
-Set in `.env` (see `.env.example`):
-
-```bash
-VITE_JOBS_API_URL=https://example.com/api/jobs
-```
-
-The endpoint should return JSON as either `JobListing[]` or `{ "jobs": JobListing[] }`. On failure, the app falls back to mocks.
+- Filters → finite deck (≤10) → Interested / Pass
+- ~4s cooldown between cards · 15 swipes/day · unlock every 5 (portfolio pulse or filter tweak)
+- Mocks only (`src/data/jobs.ts`), biased to creatives & entrepreneurs
+- Spec: [`docs/ITERATION-0.md`](docs/ITERATION-0.md)
 
 ## Customize sample media
 

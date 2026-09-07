@@ -1,78 +1,48 @@
-import type { JobListing } from './types'
+import type { JobFilters, JobListing } from './types'
+import { ITERATION_0 } from './types'
 import { MOCK_JOBS } from '../data/jobs'
 
-/**
- * Fetch job listings for the swipe UX.
- *
- * Default: returns curated mocks from `src/data/jobs.ts`.
- * Optional: set `VITE_JOBS_API_URL` to a JSON endpoint that returns
- * `{ jobs: JobListing[] }` or a bare `JobListing[]`. No scrapers.
- */
-export async function fetchJobs(): Promise<JobListing[]> {
-  const apiUrl = (import.meta.env.VITE_JOBS_API_URL as string | undefined)?.trim()
+/** Iteration 0: mocks only — no live API. */
+export function fetchJobs(): JobListing[] {
+  return MOCK_JOBS
+}
 
-  if (!apiUrl) {
-    return MOCK_JOBS
-  }
-
-  try {
-    const res = await fetch(apiUrl)
-    if (!res.ok) {
-      console.warn(`[jobs] API ${res.status}; falling back to mocks`)
-      return MOCK_JOBS
-    }
-    const data: unknown = await res.json()
-    const jobs = normalizeJobsPayload(data)
-    if (!jobs.length) {
-      console.warn('[jobs] API returned no jobs; falling back to mocks')
-      return MOCK_JOBS
-    }
-    return jobs
-  } catch (err) {
-    console.warn('[jobs] API fetch failed; falling back to mocks', err)
-    return MOCK_JOBS
+export function defaultFilters(): JobFilters {
+  return {
+    kinds: ['job', 'gig', 'project'],
+    crafts: ['design', 'photo', 'film', 'writing', 'illustration', 'product', 'founding'],
+    remotes: ['remote', 'hybrid', 'onsite'],
   }
 }
 
-function normalizeJobsPayload(data: unknown): JobListing[] {
-  if (Array.isArray(data)) {
-    return data.filter(isJobListing)
-  }
-  if (data && typeof data === 'object' && 'jobs' in data) {
-    const jobs = (data as { jobs: unknown }).jobs
-    if (Array.isArray(jobs)) return jobs.filter(isJobListing)
-  }
-  return []
-}
+/** Build a finite filtered deck (Iteration 0: max 10). */
+export function buildDeck(all: JobListing[], filters: JobFilters, size = ITERATION_0.deckSize): JobListing[] {
+  const kinds = new Set(filters.kinds)
+  const crafts = new Set(filters.crafts)
+  const remotes = new Set(filters.remotes)
 
-function isJobListing(row: unknown): row is JobListing {
-  if (!row || typeof row !== 'object') return false
-  const j = row as Record<string, unknown>
-  const remoteOk = j.remote === 'remote' || j.remote === 'hybrid' || j.remote === 'onsite'
-  const tagsOk =
-    j.tags === undefined ||
-    (Array.isArray(j.tags) && j.tags.every((t): t is string => typeof t === 'string'))
-  return (
-    typeof j.id === 'string' &&
-    typeof j.title === 'string' &&
-    typeof j.company === 'string' &&
-    typeof j.location === 'string' &&
-    typeof j.blurb === 'string' &&
-    typeof j.source === 'string' &&
-    typeof j.applyUrl === 'string' &&
-    remoteOk &&
-    tagsOk
+  const matched = all.filter(
+    (j) => kinds.has(j.kind) && crafts.has(j.craft) && remotes.has(j.remote),
   )
+
+  const shuffled = [...matched]
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled.slice(0, size)
 }
 
 const INTERESTED_KEY = 'fpbp.interestedJobs'
+const DAILY_KEY = 'fpbp.dailySwipes'
+const PULSE_KEY = 'fpbp.portfolioPulse'
 
 export function loadInterestedIds(): string[] {
   try {
     const raw = localStorage.getItem(INTERESTED_KEY)
     if (!raw) return []
     const parsed: unknown = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string') : []
+    return Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string' && id.length > 0) : []
   } catch {
     return []
   }
@@ -93,3 +63,48 @@ export function clearInterestedIds(): void {
     // ignore
   }
 }
+
+function todayKey(): string {
+  const d = new Date()
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+}
+
+export function loadDailySwipeCount(): number {
+  try {
+    const raw = localStorage.getItem(DAILY_KEY)
+    if (!raw) return 0
+    const parsed: unknown = JSON.parse(raw)
+    if (!parsed || typeof parsed !== 'object') return 0
+    const row = parsed as { date?: unknown; count?: unknown }
+    if (row.date !== todayKey()) return 0
+    return typeof row.count === 'number' && row.count >= 0 ? row.count : 0
+  } catch {
+    return 0
+  }
+}
+
+export function saveDailySwipeCount(count: number): void {
+  try {
+    localStorage.setItem(DAILY_KEY, JSON.stringify({ date: todayKey(), count }))
+  } catch {
+    // ignore
+  }
+}
+
+export function loadPortfolioPulse(): string {
+  try {
+    return localStorage.getItem(PULSE_KEY) ?? ''
+  } catch {
+    return ''
+  }
+}
+
+export function savePortfolioPulse(text: string): void {
+  try {
+    localStorage.setItem(PULSE_KEY, text)
+  } catch {
+    // ignore
+  }
+}
+
+export { ITERATION_0 }

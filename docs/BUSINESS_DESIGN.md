@@ -11,16 +11,16 @@
 | | |
 |---|---|
 | **Name** | For People, By People |
-| **One-liner** | A place people come to look for jobs, level up skills, or create companies — and where businesses find people fast. |
+| **One-liner** | For creatives and entrepreneurs: show your work, swipe into jobs & projects, level up, and find people to build with — so studios and startups can hire craft talent fast. |
 | **Essence** | Get people employed ASAP · help businesses hire ASAP · help people level up · connect entrepreneurs with people. |
 | **Core systems** | (1) Portfolio management (2) Entrepreneur incubation (3) Job openings advertised to seekers (API-fed listings) |
-| **Signature UX idea** | Tinder-like swipe for jobs / projects |
+| **Signature UX idea** | Filtered Tinder-like swipe for jobs / projects — **not** an infinite social feed; rate-limited (interactive + timed) |
 
 ### Problem
-Job seeking, skill-building, portfolio proof, and founding are split across disconnected products. Speed to “employed / matched / shipping” is slow because people context-switch between boards, course sites, portfolio tools, and founder networks.
+Creatives and early founders live in a fragmented stack: Behance/Dribbble for proof, Indeed/LinkedIn for jobs that ignore craft, Skillshare/Coursera for skills, and Discord/Indie Hackers for finding people. Nothing connects **portfolio → opportunity → collaboration** at swipe speed.
 
 ### Solution (intended)
-One human-centered hub that **orchestrates** those journeys — pulling listings from existing APIs (e.g. Indeed and peers), showcasing work, guiding skill gaps, and connecting founders with collaborators — without trying to own every underlying marketplace.
+A hub **for creatives and entrepreneurs** that orchestrates those journeys — media portfolio as identity, API-fed jobs/projects biased to craft and early-stage work, light skills routing, and founder↔people matching — without owning the world’s job inventory or becoming a selective accelerator.
 
 ---
 
@@ -39,6 +39,7 @@ One human-centered hub that **orchestrates** those journeys — pulling listings
 - **Not** a full university/credential catalog (Coursera / edX own depth)
 - **Not** scraping-as-core-IP if partner APIs / licensed feeds exist
 - **Not** fancy UI for its own sake — simple, fast, human
+- **Not** an infinite social-style swipe/scroll feed — filtered decks with intentional pace
 
 ---
 
@@ -58,21 +59,24 @@ One human-centered hub that **orchestrates** those journeys — pulling listings
 
 ## 3b. Primary personas — **LOCKED** (2026-09-06)
 
-Specialize the product for **creatives** and **entrepreneurs** (not general mass-market job seekers).
+Specialize for **creatives** and **entrepreneurs** (not general mass-market job seekers).
 
-| Persona | What they need on FPBP | Why this differentiates |
-|---------|------------------------|-------------------------|
-| **Creatives** | Portfolio-first identity, project/gigs/jobs that respect craft, media-rich proof | Behance/Dribbble don’t hire fast; Indeed doesn’t showcase work |
-| **Entrepreneurs** | Find collaborators / early talent / project partners; show what they’re building | YC is exclusive; LinkedIn is noisy; Indie Hackers isn’t a hiring loop |
+| Persona | Who (examples) | What they need on FPBP | Why this differentiates |
+|---------|----------------|------------------------|-------------------------|
+| **Creatives** | Designers, filmmakers, photographers, illustrators, writers, musicians, 3D/game artists, creative technologists | Portfolio-first identity; gigs/roles that respect craft; media-rich proof | Behance/Dribbble don’t hire fast; Indeed doesn’t showcase work |
+| **Entrepreneurs** | Solo founders, creative studio owners, indie makers, early startup teams | Show what’s building; find collaborators / early craft talent / project partners | YC is exclusive; LinkedIn is noisy; Indie Hackers isn’t a hiring loop |
 
-### Implications for the wedge
-- Swipe feed bias: creative roles, studio/gigs, project collabs, early-stage startup roles — not generic warehouse/office volume
-- Portfolio is the **default identity** (media resume), not an optional CV attach
-- “Projects” in swipe = briefs, collabs, founder asks — not only W-2 postings
-- Later incubation + skills routing should serve these two personas first
+### Overlap (the sweet spot)
+Many users are **both**: a designer founding a studio, a filmmaker launching a brand, a maker hiring their first collaborator. FPBP should feel natural when someone switches modes (seek work ↔ post a project ↔ grow skills) without changing products.
+
+### Employer / buyer ICP (who pays later)
+- Creative studios and agencies needing freelancers or juniors who can *show* work
+- Early startups hiring first designer / content / brand / product craft roles
+- Founders seeking collaborators (equity/project) more than posting 500 warehouse jobs
 
 ### Still out of scope for v1
 - Competing as a general-purpose job board for every industry
+- Enterprise ATS replacement
 
 ## 4. Product pillars
 
@@ -213,20 +217,175 @@ Differentiation principles:
 **Portfolio + swipe jobs (API-fed)** for **creatives and entrepreneurs** (primary personas).
 Prove speed-to-interest, then add skills routing and founder matching.
 
-Status: **shipped** in Portfolio Studio (`/swipe` + `/find-work`, mock job feed + `fetchJobs()`, existing `/u/:slug` portfolio). See [`docs/WEDGE.md`](./WEDGE.md).
+Status: **Iteration 0 implementing** on `feat/fpbp-swipe-wedge` — filtered deck, pace limits, mocks only. Audit via [`docs/ITERATION-0.md`](./ITERATION-0.md).
 
 ---
 
 ## 10. Near-term roadmap
-1. ~~Lock positioning / first wedge~~ **done**  
-2. ~~Ship swipe jobs UX + mock/API abstraction on Portfolio Studio~~ **done**  
-3. Wire optional real jobs API via env (no scrapers)  
-4. Employer “post an opening” thin slice  
-5. Skills: curated links from gap analysis → Coursera/LinkedIn Learning (no course hosting yet)  
-6. Founder matching: lightweight profiles + swipe on projects/people  
+1. ~~Lock positioning / first wedge + creatives/entrepreneurs personas~~ **done**  
+2. Finish Iteration 0 Find work loop (Cursor) — see [`ITERATION-0.md`](./ITERATION-0.md)  
+3. Wire optional real jobs API via env (filter/bias to creative + startup sources) — **after** Iteration 0 audit  
+4. Employer / founder “post a role or project” thin slice (studio + startup ICP)  
+5. Skills: curated links → Skillshare / Coursera creative paths (no course hosting)  
+6. Founder↔creative matching: swipe on projects/people  
 
 ---
 
+
+## 11. Journeys (creatives & entrepreneurs)
+
+### Creative seeker
+1. Land → see elegant portfolio examples  
+2. Create / claim media portfolio (proof first)  
+3. Swipe **Find work** — craft roles, studio gigs, freelance briefs  
+4. Save interested → apply via source link (deep-link)  
+5. Later: skill gap hints from saved roles → curated courses → portfolio updates  
+
+### Entrepreneur / studio founder
+1. Portfolio shows the venture or studio body of work  
+2. Post or swipe for **people & projects** (collaborators, first hire, co-maker)  
+3. Review interested creatives via their portfolios (not résumés alone)  
+4. Later: light incubation prompts (milestones, intros) — not a YC clone  
+
+### Hiring studio / startup (buyer)
+1. Advertise a craft role or project brief to FPBP audience  
+2. Receive interest from people with real work attached  
+3. Metric: time-to-first-qualified-interest, not impressions  
+
+---
+
+## 12. Opportunity taxonomy (what appears in swipe)
+
+Prefer these categories in feeds and mocks:
+
+| Type | Examples | Persona pull |
+|------|----------|--------------|
+| Craft employment | Product designer, motion, brand, content, creative producer | Creatives |
+| Studio / freelance gigs | Short briefs, retainer creative, shoot days | Creatives |
+| Project collabs | “Need a designer co-founder”, game jam, album art | Both |
+| Early-stage startup roles | First designer, founding content, creative eng | Both |
+| Entrepreneur asks | Looking for technical co-maker, studio partner | Entrepreneurs |
+
+**Deprioritize / exclude from default feed:** generic high-volume non-craft roles (unless user opts into “broader jobs”).
+
+---
+
+## 13. Positioning & messaging
+
+### Positioning statement
+For **creatives and entrepreneurs** who are tired of juggling portfolio sites and soul-crushing job boards, **For People, By People** is the place where your work is your identity and opportunities (jobs, gigs, projects, people) show up at swipe speed — without pretending to be Indeed or Y Combinator.
+
+### Message pillars
+1. **Your work first** — portfolio is the profile  
+2. **Decide fast** — swipe jobs *and* projects  
+3. **Build with people** — founders and creatives in one loop  
+4. **We don’t own the ocean** — we orchestrate; apply where the job lives  
+
+### Names (open)
+- Brand: For People, By People  
+- Current codebase: Portfolio Studio (portfolio pillar)  
+- Consider: keep Portfolio Studio as the portfolio product name under the FPBP brand, or converge naming later  
+
+---
+
+## 14. Design refinement log
+
+| Date | Decision |
+|------|----------|
+| 2026-09-06 | First wedge = portfolio + API-fed swipe jobs |
+| 2026-09-06 | Primary personas = creatives + entrepreneurs |
+| 2026-09-06 | Pause Cursor Agent coding; refine business design |
+| 2026-09-06 | Journeys, taxonomy, messaging added (this section) |
+| 2026-09-06 | Swipe = filtered deck + timed + interactive rate limiters (not social feed) |
+| 2026-09-06 | Process: start with simple iteration for Luke audit — see [`ITERATION-0.md`](./ITERATION-0.md) |
+
+### Open decisions for Luke
+1. Default feed: craft-only vs craft-first with optional “broader”?  
+2. Should entrepreneurs post **projects** before we support classic job ads?  
+3. Geographic focus (local / remote-first / global) for v1?  
+4. Monetize employers first or seekers first?  
+
+---
+
+## 15. Swipe interaction model — **LOCKED direction** (2026-09-06)
+
+### Anti-pattern (explicitly rejected)
+This is **not** a social media feed. No infinite scroll, no endless card stack for dopamine browsing, no “keep scrolling for more.”
+
+### Pattern (intended)
+1. User sets **filters** (role/craft, location/remote, type: job vs gig vs project, seniority, etc.)
+2. System builds a **finite deck** matching those filters (API-fed + ranked)
+3. User **swipes one card at a time** through that deck
+4. **Rate limits** slow the loop so each decision is intentional
+5. When the deck is done (or daily allowance is spent): pause, refine filters, or come back later — don’t auto-load infinite more
+
+### Why limiters
+- Protects seekers from burnout / mindless left-swiping
+- Protects employers from low-quality spray interest
+- Reinforces brand: *for people, by people* — human pace, not slot-machine jobs
+- Differentiates from Sorce-style high-volume swipe+auto-apply
+
+---
+
+### A. Timed limiter (clock / recharge)
+**Idea:** You only get a certain number of swipes (or “decisions”) per time window; after that, the deck locks until recharge.
+
+| Option | Mechanic | Pros | Cons |
+|--------|----------|------|------|
+| **Daily allowance** | e.g. 20–40 intentional swipes / day | Simple to understand | Feels gamey if too low |
+| **Cooldown between swipes** | e.g. 3–8s before next card unlocks | Forces a breath on every card | Can feel laggy if too long |
+| **Session energy** | Energy bar drains per swipe; refills over hours | Visible pacing | Needs clear UI metaphor |
+| **Hybrid (proposed default)** | Small daily allowance **plus** short inter-swipe cooldown | Stops both spray and rush | Two concepts to teach |
+
+**Proposed default (for design lock later):**
+- **Daily allowance:** ~25 swipes/day (interested + pass both count)
+- **Inter-swipe cooldown:** ~4 seconds before the next card can be acted on
+- Interested/pass still instant to *commit*; cooldown gates *the next* card reveal
+
+---
+
+### B. Interactive limiter (do something meaningful to continue)
+**Idea:** After N swipes (or when timed energy is empty), unlock more capacity only by a short intentional action — not watching an ad.
+
+| Option | Mechanic | Fits creatives/entrepreneurs? |
+|--------|----------|-------------------------------|
+| **Portfolio pulse** | Add/update one portfolio item or caption before more swipes | Strong — reinforces work-first identity |
+| **Filter refine** | Tighten or rethink filters (“what are you actually looking for?”) | Strong — keeps deck quality high |
+| **Reflect prompt** | One-line: why did you pass the last 5? / what must a yes have? | Medium — thoughtful, optional skip later |
+| **Show your ask** | Entrepreneurs: clarify project brief; creatives: clarify role seek | Strong for dual persona |
+| **Match quality gate** | Review 1 saved “interested” and confirm still yes | Medium — reduces regret saves |
+
+**Proposed default (for design lock later):**
+- After every **10 swipes**, require one **interactive unlock**:
+  1. Prefer **Portfolio pulse** if portfolio is thin  
+  2. Else **Filter refine** or **Reflect prompt** (rotate lightly)  
+- After **daily allowance** exhausted: only **timed recharge** (next day / hours) — interactive unlocks cannot bypass the daily cap (prevents grinding)
+
+---
+
+### C. Combined loop (how it feels)
+```
+Set filters → Get finite deck (e.g. up to 25)
+  → Card shown
+  → Decide (interested / pass)   [immediate]
+  → Cooldown 4s + optional microcopy on the card’s craft fit
+  → Next card
+  → Every 10: interactive unlock (portfolio / filters / reflect)
+  → Daily cap hit: “Come back when you’ve rested — or improve your portfolio”
+```
+
+### D. Product implications
+- UI: progress “deck remaining” + “swipes left today” + cooldown ring — never an infinite scrollbar
+- Analytics: decisions/hour capped; optimize for **interested→apply** quality, not swipe count
+- Anti-abuse: interested spam still rate-limited; employers see fewer but better signals
+- Copy: never “keep scrolling”; use “your filtered matches” / “today’s intentional deck”
+
+### E. Open tweakables (not blocking design direction)
+- Exact numbers (25/day, 4s, every 10) — tune in prototype
+- Whether “interested” costs more than “pass” (e.g. interested = 2 energy)
+- Soft vs hard lock on cooldown (can queue but not reveal)
+
+---
 ## Appendix A — Source dump (Luke, 2026-09-06)
 - Brand: For People, By People  
 - Systems: portfolio management · entrepreneur incubation · businesses advertise jobs to seekers  
@@ -244,3 +403,5 @@ Web scan used for ecosystem examples (not exhaustive). Key references:
 - Incubation: [HBS incubator vs accelerator](https://online.hbs.edu/blog/post/startup-incubator-vs-accelerator), [Stripe accelerator vs incubator](https://stripe.com/en-sg/resources/more/startup-accelerator-vs-incubator-the-differences-businesses-need-to-know)
 - Skills: [Skills Couter 2026 platforms](https://skillscouter.com/best-online-learning-platforms/), [IntelligentHQ learning apps](https://www.intelligenthq.com/best-learning-apps-for-adults/)
 
+## Appendix C — Persona lock (Luke, 2026-09-06)
+Specialize the app for **creatives and entrepreneurs** as the differentiating factor. Confirmed; business design refined accordingly. Coding paused in favor of design refinement.
