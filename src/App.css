@@ -304,10 +304,9 @@
 }
 
 .work-figure img {
+  display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: contain;
-  object-position: center center;
+  height: auto;
 }
 
 .work-type-badge {
@@ -326,7 +325,7 @@
 
 .work-figure-fallback {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  min-height: 8rem;
   display: grid;
   align-content: center;
   justify-items: start;
