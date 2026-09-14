@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import type { ViewerAsset } from '../lib/types'
-import { isDownloadableKind } from '../lib/files'
+import { getEmbedSrc, isDownloadableKind } from '../lib/files'
 import './MediaViewer.css'
 
 type Props = {
@@ -53,6 +53,9 @@ export function MediaViewer({
   if (!asset) return null
 
   const kind = asset.kind === 'unknown' && asset.imageUrl ? 'image' : asset.kind
+  const playableEmbed =
+    kind === 'embed' || Boolean(asset.embedUrl) || Boolean(getEmbedSrc(asset.linkUrl))
+  const linkIsPrimary = playableEmbed || kind === 'link'
   const canDownload =
     allowDownloads &&
     Boolean(asset.fileUrl || (kind === 'image' && asset.imageUrl)) &&
@@ -105,11 +108,20 @@ export function MediaViewer({
               </a>
             ) : null}
             {asset.linkUrl ? (
-              <a className="cta ghost" href={asset.linkUrl} target="_blank" rel="noreferrer">
-                Open link
+              <a
+                className={linkIsPrimary ? 'cta primary' : 'cta ghost'}
+                href={asset.linkUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {playableEmbed ? 'Play in new tab' : 'Open link'}
               </a>
             ) : null}
-            <button type="button" className="cta primary" onClick={onClose}>
+            <button
+              type="button"
+              className={asset.linkUrl && linkIsPrimary ? 'cta ghost' : 'cta primary'}
+              onClick={onClose}
+            >
               Close
             </button>
           </div>

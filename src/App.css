@@ -75,6 +75,7 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
+  background: #0a0d0a;
 }
 
 .hero-media-empty {
@@ -113,9 +114,9 @@
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
-  animation: drift 18s ease-in-out alternate infinite;
+  object-fit: contain;
+  object-position: center center;
+  background-color: #0a0d0a;
 }
 
 .hero-veil {
