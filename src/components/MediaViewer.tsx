@@ -121,7 +121,7 @@ export function MediaViewer({
               title={asset.title}
               src={asset.embedUrl}
               className="viewer-frame viewer-embed"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen; gamepad"
               allowFullScreen
             />
           ) : null}
