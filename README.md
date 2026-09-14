@@ -18,7 +18,7 @@ Dev server is pinned to **http://127.0.0.1:5280** (`vite.config.ts`) so this app
 ```bash
 npm install
 cp .env.example .env
-# fill VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY
+# fill VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, and optionally VITE_WEB3FORMS_ACCESS_KEY
 npm run dev
 ```
 
@@ -71,8 +71,13 @@ This repo deploys automatically to **GitHub Pages** (free) on every push to `mai
 1. Repo secrets (already used by Actions):
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
+   - `VITE_WEB3FORMS_ACCESS_KEY` (from [Web3Forms](https://web3forms.com); see Contact below)
 2. GitHub → **Settings → Pages → Build and deployment → Source: GitHub Actions**
 3. After the first successful workflow, open the live URL above.
+
+### Contact
+
+Public portfolio contact forms insert into Supabase, then email via Web3Forms when `VITE_WEB3FORMS_ACCESS_KEY` is set. Add that value as a GitHub Actions secret (from the Web3Forms dashboard). Local/dev without the key still stores messages in the database.
 
 ### Required OAuth / Auth URLs (production)
 
@@ -89,7 +94,7 @@ Keep the local `http://127.0.0.1:5280` entries too for development.
 
 ### Cloudflare Pages / Vercel (optional)
 
-Also free. Connect the GitHub repo, set the same two `VITE_*` env vars, build `npm run build`, output `dist`. For those hosts the site is at the domain root (no `/Portfolio-Studio/` base path), so leave `VITE_BASE_PATH` unset.
+Also free. Connect the GitHub repo, set the same `VITE_*` env vars, build `npm run build`, output `dist`. For those hosts the site is at the domain root (no `/Portfolio-Studio/` base path), so leave `VITE_BASE_PATH` unset.
 
 ## Find work (Iteration 0)
 

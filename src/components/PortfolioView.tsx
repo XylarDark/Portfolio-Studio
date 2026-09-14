@@ -203,22 +203,6 @@ export function PortfolioView({
           className={`hero ${hero ? 'hero-with-media' : 'hero-atmosphere'}`}
           aria-label="Introduction"
         >
-          {hero ? (
-            <div className="hero-media" aria-hidden="true">
-              <img className="hero-image" src={hero} alt="" width={2400} height={1600} />
-              <div className="hero-veil" />
-            </div>
-          ) : (
-            <div className="hero-media hero-media-empty" aria-hidden="true">
-              <div className="hero-atmosphere-marks">
-                <span />
-                <span />
-                <span />
-              </div>
-              <div className="hero-veil" />
-            </div>
-          )}
-
           <div className="hero-copy">
             {brand ? <h1 className="brand">{brand}</h1> : null}
             {headline ? <p className="hero-headline">{headline}</p> : null}
@@ -247,6 +231,21 @@ export function PortfolioView({
               </div>
             ) : null}
           </div>
+
+          {hero ? (
+            <div className="hero-media" aria-hidden="true">
+              <img className="hero-image" src={hero} alt="" width={2400} height={1600} />
+            </div>
+          ) : (
+            <div className="hero-media hero-media-empty" aria-hidden="true">
+              <div className="hero-atmosphere-marks">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="hero-veil" />
+            </div>
+          )}
         </section>
 
         {showWork ? (

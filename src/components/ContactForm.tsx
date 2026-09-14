@@ -27,15 +27,44 @@ export function ContactForm({
     setBusy(true)
     setError(null)
     try {
+      const trimmedName = name.trim()
+      const trimmedEmail = email.trim()
+      const trimmedMessage = message.trim()
       const { error: insertError } = await requireSupabase()
         .from('contact_messages')
         .insert({
           owner_id: ownerId,
-          name: name.trim(),
-          email: email.trim(),
-          message: message.trim(),
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage,
         })
       if (insertError) throw insertError
+
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY?.trim()
+      if (accessKey) {
+        const notifyResponse = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: trimmedName,
+            email: trimmedEmail,
+            message: trimmedMessage,
+            subject: `Portfolio contact from ${trimmedName}`,
+          }),
+        })
+        const notifyResult = (await notifyResponse.json().catch(() => null)) as {
+          success?: boolean
+          message?: string
+        } | null
+        if (!notifyResponse.ok || !notifyResult?.success) {
+          throw new Error(notifyResult?.message || 'Could not send email notification')
+        }
+      }
+
       setSent(true)
       setName('')
       setEmail('')
