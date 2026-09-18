@@ -91,9 +91,11 @@
 
 .viewer-embed {
   background: #000;
+  /* Keep a true 16:9 frame so Shift contain-fit fills edge-to-edge (no forced tall crop). */
+  width: min(100%, calc(min(75vh, 760px) * 16 / 9));
   aspect-ratio: 16 / 9;
   height: auto;
-  min-height: min(60vh, 640px);
+  max-height: min(75vh, 760px);
 }
 
 .viewer-link-card {
