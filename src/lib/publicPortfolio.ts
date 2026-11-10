@@ -18,6 +18,9 @@ export const PUBLIC_PORTFOLIO = {
   contactBlurb:
     'Hamilton, ON. Open to hybrid or on-site roles in the GTA–Hamilton area.',
   resumeBlurb: 'One-page game developer résumé.',
+  availability: 'Available immediately · Remote · Eastern Time (Toronto)',
+  roles:
+    'Open to junior/entry, intermediate, and contract game developer roles — gameplay programming, Unreal/C++, tools, and QA.',
 }
 
 export const PUBLIC_SKILLS: { label: string; value: string }[] = [
@@ -131,6 +134,7 @@ export const PORTFOLIO_TABS = [
   { id: 'tools', label: 'Tools', aliases: [] },
   { id: 'experience', label: 'Experience', aliases: [] },
   { id: 'resume', label: 'Résumé', aliases: ['résumé', 'cv'] },
+  { id: 'contact', label: 'Contact', aliases: [] },
 ] as const
 
 export type PortfolioTabId = (typeof PORTFOLIO_TABS)[number]['id']
