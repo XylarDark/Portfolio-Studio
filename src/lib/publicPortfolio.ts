@@ -124,3 +124,25 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
 ]
 
 export const PUBLIC_TOOLING_SHOWCASE: PitchShowcase = HOMEWORLD_TOOLING_SHOWCASE
+
+export const PORTFOLIO_TABS = [
+  { id: 'overview', label: 'Overview', aliases: [] as string[] },
+  { id: 'projects', label: 'Projects', aliases: ['work'] },
+  { id: 'tools', label: 'Tools', aliases: [] },
+  { id: 'experience', label: 'Experience', aliases: [] },
+  { id: 'resume', label: 'Résumé', aliases: ['résumé', 'cv'] },
+] as const
+
+export type PortfolioTabId = (typeof PORTFOLIO_TABS)[number]['id']
+
+export function parsePortfolioTab(search: string, hash: string): PortfolioTabId {
+  const params = new URLSearchParams(search.startsWith('?') ? search.slice(1) : search)
+  const raw = (params.get('tab') || hash.replace(/^#/, '') || 'overview').trim().toLowerCase()
+  const normalized = raw.normalize('NFD').replace(/\p{M}/gu, '')
+  for (const item of PORTFOLIO_TABS) {
+    if (item.id === raw || item.id === normalized) return item.id
+    if (item.aliases.some((alias) => alias === raw || alias === normalized)) return item.id
+  }
+  return 'overview'
+}
+

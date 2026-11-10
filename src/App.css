@@ -859,3 +859,157 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+
+/* Tabbed public portfolio */
+.public-portfolio .public-nav {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding-bottom: 0;
+  background: rgba(16, 20, 16, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.public-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.public-portfolio .nav-brand {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-text-btn {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.nav-text-btn:hover,
+.nav-text-btn:focus-visible {
+  color: var(--fg);
+}
+
+.portfolio-tabbar {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.15rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  margin: 0.55rem -0.35rem 0;
+  padding: 0 0.35rem 0.15rem 0.35rem;
+  padding-right: 1.1rem;
+}
+
+.portfolio-tab {
+  flex: 0 0 auto;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.92rem;
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.7rem 0.5rem;
+  white-space: nowrap;
+}
+
+.portfolio-tab:hover,
+.portfolio-tab:focus-visible {
+  color: var(--fg);
+}
+
+.portfolio-tab[aria-selected="true"] {
+  color: var(--fg);
+  border-bottom-color: var(--accent);
+}
+
+.public-main {
+  padding-top: 6.6rem;
+  min-height: 70svh;
+}
+
+.public-portfolio .public-overview-hero {
+  min-height: 0;
+  padding-top: clamp(1.25rem, 3vh, 2rem);
+  padding-bottom: clamp(2rem, 5vh, 3.25rem);
+}
+
+.public-portfolio .hero-with-media.public-overview-hero {
+  padding-bottom: 0;
+}
+
+.public-portfolio .lede.public-overview-lede {
+  max-width: 58ch;
+  margin: 0.15rem 0 0;
+  animation: none;
+}
+
+.public-skills-condensed {
+  margin: 1.35rem 0 0;
+  max-width: 52rem;
+}
+
+.public-skills-condensed .public-skills-list {
+  gap: 0.45rem 1.25rem;
+}
+
+.public-skills-condensed .public-skill {
+  gap: 0;
+}
+
+.public-panel .section-intro {
+  margin-bottom: 1.5rem;
+}
+
+.public-tab-wrap,
+.public-main > .section {
+  padding-top: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.public-main .showcase {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.public-resume-contact {
+  margin-top: clamp(2rem, 5vh, 3rem);
+  max-width: 36rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.public-resume-contact h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.public-resume-contact p {
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .public-main {
+    padding-top: 6.1rem;
+  }
+
+  .portfolio-tab {
+    font-size: 0.82rem;
+    padding-inline: 0.42rem;
+  }
+}
+
