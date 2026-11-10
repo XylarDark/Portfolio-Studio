@@ -535,3 +535,140 @@
     transform: none;
   }
 }
+
+/* Tailored employer pages (/u/:slug/:pitch) */
+.pitch {
+  border-top: 1px solid var(--line);
+}
+
+.pitch-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pitch-grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+
+.pitch-letter {
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+.pitch-letter p:first-child,
+.pitch-signoff {
+  color: var(--fg);
+}
+
+.pitch-ctas {
+  animation: none;
+}
+
+.pitch-card {
+  display: grid;
+  gap: 0.6rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--line);
+  background: rgba(242, 239, 232, 0.03);
+  line-height: 1.6;
+}
+
+.pitch-card h3,
+.pitch-card h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.pitch-card h3 {
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+}
+
+.pitch-card h4 {
+  font-size: 1.15rem;
+}
+
+.pitch-card ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  list-style: disc;
+}
+
+.pitch-featured {
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.pitch-tag {
+  justify-self: start;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--accent);
+  color: #101410;
+}
+
+.pitch-meta {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.pitch-note {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.pitch-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  font-size: 0.92rem;
+}
+
+.pitch-links a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pitch-links a:hover,
+.pitch-links a:focus-visible {
+  color: var(--accent-strong);
+}
+
+.pitch-other {
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+  display: grid;
+  gap: 1.25rem;
+}
+
+.pitch-other-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.6rem);
+  font-weight: 600;
+}
+
+.pitch-other-list {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 960px) {
+  .pitch-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .pitch-other-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

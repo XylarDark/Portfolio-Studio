@@ -4,6 +4,7 @@ import { RequireAdmin, RequireAuth } from './components/RequireAuth'
 import { LandingPage } from './pages/LandingPage'
 import { InvitePage, SetupPage } from './pages/InvitePage'
 import { PortfolioPage } from './pages/PortfolioPage'
+import { PitchPage } from './pages/PitchPage'
 import { StudioPage } from './pages/StudioPage'
 import { InvitesPage } from './pages/InvitesPage'
 import { routerBasename } from './lib/urls'
@@ -24,6 +25,7 @@ export default function App() {
             }
           />
           <Route path="/u/:slug" element={<PortfolioPage />} />
+          <Route path="/u/:slug/:pitch" element={<PitchPage />} />
           <Route
             path="/studio"
             element={
