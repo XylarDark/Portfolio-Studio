@@ -18,6 +18,8 @@ type Props = {
   intro?: ReactNode
   /** Nav entries for `intro`, listed first. */
   introNav?: { href: string; label: string }[]
+  /** Extra buttons rendered at the start of the hero CTA row. */
+  heroCtas?: ReactNode
 }
 
 function workKind(work: Work): ViewerAsset['kind'] {
@@ -113,6 +115,7 @@ export function PortfolioView({
   mode = 'live',
   intro,
   introNav,
+  heroCtas,
 }: Props) {
   const [viewerIndex, setViewerIndex] = useState<number | null>(null)
   const [resumeViewer, setResumeViewer] = useState<ViewerAsset | null>(null)
@@ -213,8 +216,9 @@ export function PortfolioView({
             {brand ? <h1 className="brand">{brand}</h1> : null}
             {headline ? <p className="hero-headline">{headline}</p> : null}
             {bio ? <p className="lede">{bio}</p> : null}
-            {showHeroCtas ? (
+            {showHeroCtas || heroCtas ? (
               <div className="cta-row">
+                {heroCtas}
                 {ctaPrimary && showWork ? (
                   <a
                     className="cta primary"
