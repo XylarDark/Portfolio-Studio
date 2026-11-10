@@ -75,6 +75,9 @@ function OverviewPanel({
         <a className="cta ghost" href={resumeUrl} download target="_blank" rel="noreferrer">
           Download résumé
         </a>
+        <button type="button" className="cta ghost" onClick={() => onOpenTab('contact')}>
+          Get in touch
+        </button>
       </div>
       <div className="public-skills public-skills-condensed">
         <h2 className="public-skills-title">Core skills</h2>
@@ -143,13 +146,9 @@ function ExperiencePanel() {
 function ResumePanel({
   resumeUrl,
   onView,
-  ownerId,
-  ownerName,
 }: {
   resumeUrl: string
   onView: () => void
-  ownerId: string
-  ownerName: string
 }) {
   return (
     <section className="public-panel public-resume-tab" aria-label="Résumé">
@@ -168,9 +167,35 @@ function ResumePanel({
           GitHub
         </a>
       </div>
-      <div className="public-resume-contact">
-        <h3>Contact</h3>
-        <p>{PUBLIC_PORTFOLIO.contactBlurb}</p>
+    </section>
+  )
+}
+
+function ContactPanel({
+  resumeUrl,
+  ownerId,
+  ownerName,
+}: {
+  resumeUrl: string
+  ownerId: string
+  ownerName: string
+}) {
+  return (
+    <section className="public-panel public-contact-tab" aria-label="Contact">
+      <div className="section-intro">
+        <h2>Contact</h2>
+        <p className="public-availability">{PUBLIC_PORTFOLIO.availability}</p>
+        <p>{PUBLIC_PORTFOLIO.roles}</p>
+      </div>
+      <div className="resume-file-row public-resume-row">
+        <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+        <a className="cta ghost" href={resumeUrl} download target="_blank" rel="noreferrer">
+          Download résumé (PDF)
+        </a>
+      </div>
+      <div className="public-contact-form">
         <ContactForm ownerId={ownerId} ownerName={ownerName} variant="panel" />
       </div>
     </section>
@@ -184,7 +209,6 @@ export function PublicPortfolioPage() {
   const { profile: me } = useAuth()
   const [bundle, setBundle] = useState<PortfolioBundle | null>(null)
   const [loading, setLoading] = useState(isSupabaseConfigured)
-  const [contactOpen, setContactOpen] = useState(false)
   const [resumeViewer, setResumeViewer] = useState<ViewerAsset | null>(null)
 
   const allowed = slug === PUBLIC_PORTFOLIO_SLUG
@@ -305,7 +329,7 @@ export function PublicPortfolioPage() {
             {brand}
           </button>
           <nav className="nav-links" aria-label="Primary">
-            <button type="button" className="nav-text-btn" onClick={() => setContactOpen(true)}>
+            <button type="button" className="nav-text-btn" onClick={() => openTab('contact', false)}>
               Get in touch
             </button>
             {showStudioLink ? <Link to="/studio">Studio</Link> : null}
@@ -389,12 +413,13 @@ export function PublicPortfolioPage() {
 
         {tab === 'resume' ? (
           <div role="tabpanel" id="panel-resume" aria-labelledby="tab-resume" className="section public-tab-wrap">
-            <ResumePanel
-              resumeUrl={resumeUrl}
-              onView={openResume}
-              ownerId={profile.id}
-              ownerName={brand}
-            />
+            <ResumePanel resumeUrl={resumeUrl} onView={openResume} />
+          </div>
+        ) : null}
+
+        {tab === 'contact' ? (
+          <div role="tabpanel" id="panel-contact" aria-labelledby="tab-contact" className="section public-tab-wrap">
+            <ContactPanel resumeUrl={resumeUrl} ownerId={profile.id} ownerName={brand} />
           </div>
         ) : null}
       </main>
@@ -404,7 +429,7 @@ export function PublicPortfolioPage() {
           © {new Date().getFullYear()} {brand}
         </p>
         <p>
-          <button type="button" className="nav-text-btn" onClick={() => setContactOpen(true)}>
+          <button type="button" className="nav-text-btn" onClick={() => openTab('contact', false)}>
             Get in touch
           </button>
         </p>
@@ -416,14 +441,6 @@ export function PublicPortfolioPage() {
         onClose={() => setResumeViewer(null)}
       />
 
-      {contactOpen ? (
-        <ContactForm
-          ownerId={profile.id}
-          ownerName={brand}
-          variant="modal"
-          onClose={() => setContactOpen(false)}
-        />
-      ) : null}
     </div>
   )
 }
