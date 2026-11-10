@@ -672,3 +672,121 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.pitch-letter .pitch-ul,
+.pitch-card .pitch-ul {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+.pitch-ol {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 1.4rem;
+  list-style: decimal;
+  color: var(--muted);
+}
+
+.pitch-card ul ol,
+.pitch-card ul ul {
+  margin-top: 0.45rem;
+}
+
+.pitch-letter strong,
+.pitch-card strong,
+.showcase-intro strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.pitch code,
+.showcase code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  padding: 0.05em 0.3em;
+  background: rgba(242, 239, 232, 0.07);
+  border-radius: 3px;
+  color: var(--fg);
+}
+
+/* Long-form tools write-up on pitch pages */
+.showcase {
+  border-top: 1px solid var(--line);
+}
+
+.showcase-intro {
+  max-width: 48rem;
+}
+
+.showcase-list {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 64rem;
+}
+
+.showcase-item {
+  gap: 0.85rem;
+  color: var(--muted);
+}
+
+.showcase-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.85rem;
+}
+
+.showcase-head h3 {
+  flex: 1 1 18rem;
+  color: var(--fg);
+}
+
+.showcase-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.showcase-badge {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.showcase-badge-built {
+  background: var(--accent);
+  color: #101410;
+}
+
+.showcase-badge-designed {
+  border: 1px dashed var(--accent);
+  color: var(--accent);
+}
+
+.showcase-status,
+.showcase-tech {
+  font-size: 0.92rem;
+}
+
+.showcase-block {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.showcase-block h4 {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+.showcase-footnote {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--muted);
+}

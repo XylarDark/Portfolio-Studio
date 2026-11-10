@@ -16,8 +16,8 @@ type Props = {
   mode?: 'live' | 'preview'
   /** Optional section rendered between the hero and the work list (e.g. a tailored pitch). */
   intro?: ReactNode
-  /** Nav entry for `intro`, listed first. */
-  introNav?: { href: string; label: string }
+  /** Nav entries for `intro`, listed first. */
+  introNav?: { href: string; label: string }[]
 }
 
 function workKind(work: Work): ViewerAsset['kind'] {
@@ -154,7 +154,7 @@ export function PortfolioView({
 
   const navItems = useMemo(() => {
     const items: { href: string; label: string }[] = []
-    if (introNav) items.push(introNav)
+    if (introNav) items.push(...introNav)
     if (showWork) items.push({ href: '#work', label: workTitle || 'Work' })
     if (showResume) items.push({ href: '#resume', label: resumeTitle || 'Resume' })
     items.push({ href: '#contact', label: contactTitle || 'Contact' })

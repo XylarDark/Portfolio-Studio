@@ -20,6 +20,31 @@ export type PitchProject = {
   note?: string
 }
 
+/** A paragraph, or a bullet / numbered list. Supports **bold**, *italic* and `code`. */
+export type PitchListItem = string | { text: string; children: string[]; ordered?: boolean }
+export type PitchBlock = string | { list: PitchListItem[]; ordered?: boolean }
+
+export type ShowcaseItem = {
+  title: string
+  /** Short badge text, e.g. "Built". */
+  badge: string
+  badgeTone: 'built' | 'designed'
+  /** Full status line, shown verbatim. */
+  status: string
+  problem?: string
+  built: PitchBlock[]
+  tech?: string
+}
+
+export type PitchShowcase = {
+  id: string
+  navLabel: string
+  title: string
+  intro: PitchBlock[]
+  items: ShowcaseItem[]
+  footnote?: string
+}
+
 export type Pitch = {
   /** Portfolio slug this pitch belongs to (profiles.slug). */
   slug: string
@@ -32,8 +57,12 @@ export type Pitch = {
   /** Short hero line under the headline. */
   lede: string
   /** Letter-style intro, one string per paragraph. */
-  letter: string[]
+  letter: PitchBlock[]
   signoff: string
+  /** Heading above the letter. Defaults to "Why I’m a fit". */
+  letterHeading?: string
+  /** First hero/letter button. Defaults to the featured project's first link. */
+  primaryCta?: PitchLink
   /** Primary project, shown first. */
   featured: PitchProject
   /** Work title (works.title) to move to the front of the work list. */
@@ -42,7 +71,11 @@ export type Pitch = {
   /** Path under public/, e.g. /resumes/artofplay.pdf */
   resumePath: string
   resumeBlurb: string
+  /** Optional long-form section (e.g. a tools write-up) shown after the pitch. */
+  showcase?: PitchShowcase
 }
+
+import { AIRSHIP_PITCH } from './pitchAirship'
 
 export const PITCHES: Pitch[] = [
   {
@@ -105,6 +138,7 @@ export const PITCHES: Pitch[] = [
     resumePath: '/resumes/artofplay.pdf',
     resumeBlurb: 'One-page résumé tailored for the Art of Play HTML5 (Phaser) role.',
   },
+  AIRSHIP_PITCH,
 ]
 
 export function findPitch(slug: string, key: string): Pitch | null {
