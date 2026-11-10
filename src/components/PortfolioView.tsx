@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import type { Experience, Profile, ViewerAsset, Work } from '../lib/types'
 import { mediaUrl } from '../lib/supabase'
@@ -14,6 +14,10 @@ type Props = {
   experience: Experience[]
   showStudioLink?: boolean
   mode?: 'live' | 'preview'
+  /** Optional section rendered between the hero and the work list (e.g. a tailored pitch). */
+  intro?: ReactNode
+  /** Nav entry for `intro`, listed first. */
+  introNav?: { href: string; label: string }
 }
 
 function workKind(work: Work): ViewerAsset['kind'] {
@@ -107,6 +111,8 @@ export function PortfolioView({
   experience,
   showStudioLink = false,
   mode = 'live',
+  intro,
+  introNav,
 }: Props) {
   const [viewerIndex, setViewerIndex] = useState<number | null>(null)
   const [resumeViewer, setResumeViewer] = useState<ViewerAsset | null>(null)
@@ -148,11 +154,12 @@ export function PortfolioView({
 
   const navItems = useMemo(() => {
     const items: { href: string; label: string }[] = []
+    if (introNav) items.push(introNav)
     if (showWork) items.push({ href: '#work', label: workTitle || 'Work' })
     if (showResume) items.push({ href: '#resume', label: resumeTitle || 'Resume' })
     items.push({ href: '#contact', label: contactTitle || 'Contact' })
     return items
-  }, [showWork, showResume, workTitle, resumeTitle, contactTitle])
+  }, [introNav, showWork, showResume, workTitle, resumeTitle, contactTitle])
 
   function openWork(work: Work) {
     if (preview) return
@@ -246,6 +253,8 @@ export function PortfolioView({
             </div>
           )}
         </section>
+
+        {intro}
 
         {showWork ? (
           <section className="section work" id="work">
