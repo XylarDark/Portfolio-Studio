@@ -76,6 +76,7 @@ export type Pitch = {
 }
 
 import { AIRSHIP_PITCH } from './pitchAirship'
+import { MIOVISION_PITCH, PAYMENT_SOURCE_PITCH, SIRION_PITCH } from './pitchJobs'
 
 export const PITCHES: Pitch[] = [
   {
@@ -139,6 +140,9 @@ export const PITCHES: Pitch[] = [
     resumeBlurb: 'One-page résumé tailored for the Art of Play HTML5 (Phaser) role.',
   },
   AIRSHIP_PITCH,
+  SIRION_PITCH,
+  PAYMENT_SOURCE_PITCH,
+  MIOVISION_PITCH,
 ]
 
 export function findPitch(slug: string, key: string): Pitch | null {
