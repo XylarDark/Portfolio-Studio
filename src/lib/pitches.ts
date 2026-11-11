@@ -77,6 +77,7 @@ export type Pitch = {
 
 import { AIRSHIP_PITCH } from './pitchAirship'
 import { CITI_PITCH, PAYMENT_SOURCE_PITCH, SIRION_PITCH } from './pitchJobs'
+import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
   {
@@ -129,18 +130,7 @@ export const PITCHES: Pitch[] = [
           'C++ gameplay and data-driven world systems for an ARPG survival and family sim, with a versioned save system, migrations, and tests.',
         note: 'Private repository — available on request.',
       },
-      {
-        title: 'OutFusion — Game Developer',
-        meta: 'Feb 2022 – Dec 2022 · Hamilton, ON · C#',
-        summary:
-          'Implemented game UI/UX from the design docs, integrated and tested game UI art across mobile and desktop, built C# REST integrations for player data, and helped verify bugs before release.',
-      },
-      {
-        title: 'Evenica — Software Developer & QA Tester',
-        meta: '2018 – Sep 2019 · Burlington, ON · T-SQL, C#, Laravel',
-        summary:
-          'Built and tested software for clients including Andrew Peller, Young’s Market Company and MM Realty International (T-SQL, C#, Linux, Laravel with MySQL, PHP, JavaScript/jQuery and Vue.js).',
-      },
+      ...WORK_HISTORY,
     ],
     resumePath: '/resumes/artofplay.pdf',
     resumeBlurb: 'One-page résumé tailored for the Art of Play HTML5 (Phaser) role.',
