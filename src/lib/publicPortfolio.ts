@@ -12,7 +12,7 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Game Developer',
   location: 'Hamilton, ON',
   lede:
-    'Game developer focused on gameplay and systems work. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ project, and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier contract work includes C# game and UI development at OutFusion. Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
+    'Game developer focused on gameplay and systems work. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ project, and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   contactBlurb:
@@ -80,11 +80,11 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
   {
     id: 'outfusion',
     owner_id: 'public',
-    role: 'Video Game Developer · Contract',
+    role: 'Game Developer',
     org: 'OutFusion · Hamilton, ON',
-    period: '2022',
+    period: 'Feb 2022 – Dec 2022',
     detail:
-      'Integrated and tested game UI art assets across mobile and desktop; validated UX through iterative playtesting. Built and tested C# REST API integrations for player data; partnered on bug verification and release quality.',
+      'Implemented game UI/UX from the design docs; integrated and tested game UI art assets across mobile and desktop; validated UX through iterative playtesting. Built and tested C# REST API integrations for player data; partnered on bug verification and release quality.',
     sort_order: 0,
     created_at: '',
     updated_at: '',
@@ -92,12 +92,24 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
   {
     id: 'trucksail',
     owner_id: 'public',
-    role: 'Software Developer · 12-Month Contract',
+    role: 'Software Developer',
     org: 'TruckSail · Ancaster, ON',
-    period: '2020',
+    period: 'Feb 2020 – Jan 2021',
     detail:
-      'Implemented STM32/CAN firmware with defect finding for reliability; built JS/Bootstrap UIs and optimized SQL. Maintained GitHub workflows; cross-browser QA and password-management security support.',
+      'Wrote C++ firmware for truck ECU devices (STM32, CAN bus) with defect finding for reliability; built JS/Bootstrap UIs and optimized SQL. Maintained GitHub workflows; cross-browser QA and password-management security support.',
     sort_order: 1,
+    created_at: '',
+    updated_at: '',
+  },
+  {
+    id: 'evenica',
+    owner_id: 'public',
+    role: 'Software Developer & QA Tester',
+    org: 'Evenica · Burlington, ON',
+    period: '2018 – Sep 2019',
+    detail:
+      'Built and tested software for clients including Andrew Peller, Young’s Market Company and MM Realty International, using T-SQL, C#, Linux, and Laravel (MySQL, PHP, JavaScript/jQuery, Vue.js).',
+    sort_order: 2,
     created_at: '',
     updated_at: '',
   },
@@ -108,8 +120,8 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     org: 'Uber, retail delivery · Hamilton, ON',
     period: '2022 – 2026',
     detail:
-      'Independent schedule while building a game-development portfolio in 2026 (HomeWorld, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced and regulated retail settings; strong customer communication.',
-    sort_order: 2,
+      'Independent schedule while building a game-development portfolio in 2026 (HomeWorld, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
+    sort_order: 3,
     created_at: '',
     updated_at: '',
   },
@@ -120,7 +132,7 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     org: 'Mohawk College · Hamilton, ON',
     period: '2019',
     detail: 'Valid Ontario Class G licence. Open to remote, or hybrid / on-site in the GTA–Hamilton area.',
-    sort_order: 3,
+    sort_order: 4,
     created_at: '',
     updated_at: '',
   },
