@@ -1,4 +1,5 @@
 import type { Pitch } from './pitches'
+import { WORK_HISTORY } from './pitchWork'
 import { HOMEWORLD_TOOLING_SHOWCASE } from './toolingShowcase'
 
 /**
@@ -72,7 +73,8 @@ export const AIRSHIP_PITCH: Pitch = {
           "href": "https://github.com/XylarDark/Portfolio-Studio"
         }
       ]
-    }
+    },
+    ...WORK_HISTORY,
   ],
   "resumePath": "/resumes/airship.pdf",
   "resumeBlurb": "One-page résumé tailored for the Airship Unreal 5 Tools Programmer pool.",
