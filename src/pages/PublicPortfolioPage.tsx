@@ -218,6 +218,8 @@ export function PublicPortfolioPage() {
   function openTab(next: PortfolioTabId, replace = true) {
     const hash = next === 'overview' ? '' : next
     navigate({ search: '', hash }, { replace, preventScrollReset: true })
+    // Start each tab at the top so a switch from far down the page never lands past the content.
+    window.scrollTo({ top: 0, behavior: 'auto' })
   }
 
   useEffect(() => {
@@ -260,6 +262,36 @@ export function PublicPortfolioPage() {
   useEffect(() => {
     document.getElementById(`tab-${tab}`)?.scrollIntoView({ inline: 'nearest', block: 'nearest' })
   }, [tab])
+
+  // Cards from PitchContent fade in via [data-reveal]; reveal them whenever a tab mounts new content.
+  useEffect(() => {
+    if (loading) return
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>('.public-main [data-reveal]'))
+    if (nodes.length === 0) return
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduce || typeof IntersectionObserver === 'undefined') {
+      nodes.forEach((node) => node.classList.add('is-revealed'))
+      return
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed')
+            observer.unobserve(entry.target)
+          }
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+    )
+    nodes.forEach((node) => observer.observe(node))
+    // Safety net: never leave content hidden if the observer does not fire.
+    const fallback = window.setTimeout(() => nodes.forEach((node) => node.classList.add('is-revealed')), 1500)
+    return () => {
+      observer.disconnect()
+      window.clearTimeout(fallback)
+    }
+  }, [tab, loading])
 
   // Canonicalize ?tab=tools to #tools so both deep-link forms work.
   useEffect(() => {
