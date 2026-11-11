@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import type { ViewerAsset } from '../lib/types'
 import { getEmbedSrc, isDownloadableKind } from '../lib/files'
 import './MediaViewer.css'
@@ -23,6 +23,21 @@ export function MediaViewer({
   const carousel = Boolean(assets && assets.length > 1 && onNavigate && assetIndex !== null)
   const total = assets?.length ?? 0
   const current = assetIndex ?? 0
+  const onCloseRef = useRef(onClose)
+  useEffect(() => {
+    onCloseRef.current = onClose
+  }, [onClose])
+
+  /** Embedded games take focus, so Esc never reaches this document. Listen inside same-origin frames too. */
+  function bindFrameEscape(frame: HTMLIFrameElement) {
+    try {
+      frame.contentWindow?.addEventListener('keydown', (event: KeyboardEvent) => {
+        if (event.key === 'Escape') onCloseRef.current()
+      })
+    } catch {
+      // Cross-origin frame: the Close button and backdrop still work.
+    }
+  }
 
   useEffect(() => {
     if (!asset) return
@@ -133,6 +148,7 @@ export function MediaViewer({
               title={asset.title}
               src={asset.embedUrl}
               className="viewer-frame viewer-embed"
+              onLoad={(event) => bindFrameEscape(event.currentTarget)}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen; gamepad"
               allowFullScreen
             />
