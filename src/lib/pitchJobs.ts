@@ -33,17 +33,24 @@ const PORTFOLIO_STUDIO: PitchProject = {
 }
 
 const TRUCKSAIL: PitchProject = {
-  title: 'TruckSail — Software Developer (12-month contract)',
-  meta: '2020 · Ancaster, ON · STM32, CAN, JavaScript, SQL',
+  title: 'TruckSail — Software Developer',
+  meta: 'Feb 2020 – Jan 2021 · Ancaster, ON · C++, STM32, CAN, JavaScript, SQL',
   summary:
-    'Implemented STM32/CAN firmware with defect finding for reliability; built JS/Bootstrap UIs and optimized SQL. Maintained GitHub workflows; cross-browser QA and password-management security support.',
+    'Wrote C++ firmware for truck ECU devices (STM32, CAN bus) with defect finding for reliability; built JS/Bootstrap UIs and optimized SQL. Maintained GitHub workflows; cross-browser QA and password-management security support.',
 }
 
 const OUTFUSION: PitchProject = {
-  title: 'OutFusion — Video Game Developer (contract)',
-  meta: '2022 · Hamilton, ON · C#',
+  title: 'OutFusion — Game Developer',
+  meta: 'Feb 2022 – Dec 2022 · Hamilton, ON · C#',
   summary:
-    'Built and tested C# REST API integrations for player data, integrated and tested game UI across mobile and desktop, and partnered on bug verification and release quality.',
+    'Implemented game UI/UX from the design docs; built and tested C# REST API integrations for player data, integrated and tested game UI across mobile and desktop, and partnered on bug verification and release quality.',
+}
+
+const EVENICA: PitchProject = {
+  title: 'Evenica — Software Developer & QA Tester',
+  meta: '2018 – Sep 2019 · Burlington, ON · T-SQL, C#, Linux, Laravel',
+  summary:
+    'Built and tested software for clients including Andrew Peller, Young’s Market Company and MM Realty International, using T-SQL, C#, Linux, and Laravel (MySQL, PHP, JavaScript/jQuery, Vue.js).',
 }
 
 export const SIRION_PITCH: Pitch = {
@@ -64,7 +71,7 @@ export const SIRION_PITCH: Pitch = {
         '**Checks for a false “done”:** a test runner that refuses five kinds of fake pass, and a capability matrix in which every claim carries an evidence level.',
       ],
     },
-    'Before that, I did contract work with APIs and databases: REST integrations in C# at OutFusion, and SQL plus STM32/CAN firmware at TruckSail. I have a Computer Systems Technology diploma from Mohawk College.',
+    'Before that, I worked with APIs and databases: game UI/UX and C# REST integrations at OutFusion (2022), SQL and C++ firmware for truck ECU devices at TruckSail (2020–21), and T-SQL, C# and Laravel client software as a developer and QA tester at Evenica (2018–19). I have a Computer Systems Technology diploma from Mohawk College.',
     'I’m in Hamilton, available immediately, and can commute to Toronto for hybrid days.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
@@ -83,7 +90,7 @@ export const SIRION_PITCH: Pitch = {
     links: [TOOLS_WRITEUP],
     note: 'Private repository — code walkthrough available on request.',
   },
-  other: [PORTFOLIO_STUDIO, TRUCKSAIL, OUTFUSION],
+  other: [PORTFOLIO_STUDIO, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/sirion.pdf',
   resumeBlurb: 'One-page résumé tailored for the Sirion AI Agent Builder – Junior Engineer role.',
 }
@@ -99,7 +106,7 @@ export const PAYMENT_SOURCE_PITCH: Pitch = {
   letter: [
     'Dear Payment Source hiring team,',
     'I’m applying for the Software Quality Assurance Tester role. Your setup, a small team with automated tests as the main focus, is close to how I already work. I build and test HomeWorld, my solo Unreal Engine 5.8 / C++ project, remotely and largely on my own.',
-    'I came to testing through bugs that got past the checks. At OutFusion (2022) I tested game UI on mobile and desktop and helped verify bugs before release. At TruckSail (2020) I did defect finding on STM32/CAN firmware and cross-browser QA on the web side.',
+    'My first QA title was at Evenica (2018–19), where I was a Software Developer & QA Tester building and testing client software in T-SQL, C# and Laravel. At TruckSail (Feb 2020 – Jan 2021) I did defect finding on C++ firmware for truck ECU devices and cross-browser QA on the web side. At OutFusion (Feb–Dec 2022) I implemented game UI/UX from the design docs, tested it on mobile and desktop, and helped verify bugs before release.',
     'On HomeWorld, the old test runner reported “0 passed, 0 failed” on every run. It had never tested anything, and nobody noticed because the result file looked clean. Later, a “19/19 passed” came from a build nine minutes older than the code. I rebuilt the runner so those cases are hard failures, each with a regression test. A passing test should mean something.',
     'I write tests in TypeScript with Vitest (Shift has 83 test files in its public repo) and in Python with pytest. This site is checked in headless Chrome with Playwright at desktop and phone sizes before merges; the AI agents I direct write those scripts and I review them. Owning a Playwright suite myself, and WCAG 2.0 AA testing, are the first things I’d get fluent in.',
   ],
@@ -119,7 +126,7 @@ export const PAYMENT_SOURCE_PITCH: Pitch = {
     links: [TOOLS_WRITEUP],
     note: 'Private repository — code walkthrough available on request.',
   },
-  other: [SHIFT, PORTFOLIO_STUDIO, OUTFUSION, TRUCKSAIL],
+  other: [SHIFT, PORTFOLIO_STUDIO, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/paymentsource.pdf',
   resumeBlurb: 'One-page résumé tailored for the Payment Source Software QA Tester role.',
 }
@@ -142,7 +149,7 @@ export const CITI_PITCH: Pitch = {
         '**Evidence levels for every claim:** a capability matrix from E0 (only claimed in a doc) to E5 (survived a fresh editor), backed by 42 C++ automation test files and 150+ Python test files.',
       ],
     },
-    'On the web side, I build in React and TypeScript. Portfolio Studio, this site, has a Supabase (Postgres) backend and goes through pull requests I review, with headless-Chrome checks at desktop and phone sizes before merge. Shift, my TypeScript browser game, has 83 Vitest test files. Earlier, I did contract work building C# REST integrations at OutFusion and JS/SQL web at TruckSail. I have a Computer Systems Technology diploma (Software Development) from Mohawk College.',
+    'On the web side, I build in React and TypeScript. Portfolio Studio, this site, has a Supabase (Postgres) backend and goes through pull requests I review, with headless-Chrome checks at desktop and phone sizes before merge. Shift, my TypeScript browser game, has 83 Vitest test files. Earlier, I built game UI/UX and C# REST integrations at OutFusion (2022), JS/SQL web and C++ ECU firmware at TruckSail (2020–21), and T-SQL, C# and Laravel/Vue.js client software as a developer and QA tester at Evenica (2018–19). I have a Computer Systems Technology diploma (Software Development) from Mohawk College.',
     'I haven’t worked with Figma’s APIs, Swift or Kotlin, or WCAG auditing yet, and I’d expect to learn those on your team.',
     'I’m in Hamilton, legally authorized to work in Canada, available immediately, and can commute to Mississauga for hybrid days.',
   ],
@@ -162,7 +169,7 @@ export const CITI_PITCH: Pitch = {
     links: [TOOLS_WRITEUP],
     note: 'Private repository — code walkthrough available on request.',
   },
-  other: [PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL],
+  other: [PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/citi.pdf',
   resumeBlurb: 'One-page résumé tailored for the Citi Software Engineer, Design Systems & AI Tooling role.',
 }

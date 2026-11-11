@@ -90,7 +90,7 @@ export const PITCHES: Pitch[] = [
       'Hi Art of Play team,',
       'I’m applying for the freelance HTML5 (Phaser) Developer role. The closest thing I’ve built to the short series of 2D web games in your posting is Shift — a complete Phaser 3 / TypeScript shop-and-delivery game that runs in the browser and installs as a PWA. Please play it first.',
       'Shift is a full playable loop: counter sales, pickups, and ID-checked deliveries on a handmade city map, then a results card at close of day. I built the scene graph (boot, title, shop, drive, door, and HUD), a landscape-first mobile shell, runtime texture atlases, and a render budget so the game stays smooth on phones.',
-      'I’m self-directed, used to shipping to a deadline, and solid in JavaScript and TypeScript. I also build web products in React and Supabase (including this site, Portfolio Studio), and earlier did contract game and UI work in C# at OutFusion.',
+      'I’m self-directed, used to shipping to a deadline, and solid in JavaScript and TypeScript. I also build web products in React and Supabase (including this site, Portfolio Studio), and built game UI/UX in C# at OutFusion (2022).',
       'I’m in Hamilton, Ontario, on Eastern Time. I can overlap UK afternoons in my morning and Melbourne mornings in my evening, and I’m happy to work to whatever cadence you need. If the current series has already wrapped, I’d still love to be considered for future HTML5 work.',
     ],
     signoff: 'Thanks for your time — Luke Thompson',
@@ -130,10 +130,16 @@ export const PITCHES: Pitch[] = [
         note: 'Private repository — available on request.',
       },
       {
-        title: 'OutFusion — Video Game Developer (contract)',
-        meta: '2022 · Hamilton, ON · C#',
+        title: 'OutFusion — Game Developer',
+        meta: 'Feb 2022 – Dec 2022 · Hamilton, ON · C#',
         summary:
-          'Integrated and tested game UI art across mobile and desktop, built C# REST integrations for player data, and helped verify bugs before release.',
+          'Implemented game UI/UX from the design docs, integrated and tested game UI art across mobile and desktop, built C# REST integrations for player data, and helped verify bugs before release.',
+      },
+      {
+        title: 'Evenica — Software Developer & QA Tester',
+        meta: '2018 – Sep 2019 · Burlington, ON · T-SQL, C#, Laravel',
+        summary:
+          'Built and tested software for clients including Andrew Peller, Young’s Market Company and MM Realty International (T-SQL, C#, Linux, Laravel with MySQL, PHP, JavaScript/jQuery and Vue.js).',
       },
     ],
     resumePath: '/resumes/artofplay.pdf',
