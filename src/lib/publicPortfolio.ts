@@ -105,7 +105,7 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     id: 'delivery',
     owner_id: 'public',
     role: 'Delivery Driver',
-    org: 'Uber; Kindling Cannabis · Hamilton, ON',
+    org: 'Uber, retail delivery · Hamilton, ON',
     period: '2022 – 2026',
     detail:
       'Independent schedule while building a game-development portfolio in 2026 (HomeWorld, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced and regulated retail settings; strong customer communication.',
