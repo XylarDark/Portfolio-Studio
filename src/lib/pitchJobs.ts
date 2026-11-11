@@ -1,7 +1,7 @@
 import type { Pitch, PitchLink, PitchProject } from './pitches'
 
 /**
- * Pitch pages for the Nov 11, 2026 job packs (Sirion, Payment Source, Miovision).
+ * Pitch pages for the Nov 11, 2026 job packs (Sirion, Payment Source, Citi).
  * Copy mirrors /workspace/<slug>/cover_letter.md and resume_<slug>.md; don't add claims here.
  */
 
@@ -124,44 +124,45 @@ export const PAYMENT_SOURCE_PITCH: Pitch = {
   resumeBlurb: 'One-page résumé tailored for the Payment Source Software QA Tester role.',
 }
 
-export const MIOVISION_PITCH: Pitch = {
+export const CITI_PITCH: Pitch = {
   slug: 'admin',
-  key: 'miovision',
-  company: 'Miovision',
-  role: 'Firmware Developer (Kitchener, hybrid)',
-  headline: 'Firmware & embedded software developer',
-  lede: 'A page made for Miovision’s Firmware Developer role: my STM32/CAN firmware background, my recent C++ and Python work, and the résumé.',
-  letterHeading: 'Why I’m a fit',
+  key: 'citi',
+  company: 'Citi',
+  role: 'Software Engineer, Design Systems & AI Tooling (Mississauga, hybrid)',
+  headline: 'Software engineer — AI tooling & verification',
+  lede: 'A page made for Citi’s Software Engineer, Design Systems & AI Tooling role: the AI tooling I build, the checks that keep it honest, my React/TypeScript work, and the résumé.',
+  letterHeading: 'Hi Citi hiring team',
   letter: [
-    'Dear Miovision hiring team,',
-    'I’m applying for the Firmware Developer role in Kitchener. My professional work started in embedded systems: during a 12-month contract at TruckSail (2020) I implemented STM32/CAN firmware and did defect finding for reliability, and I also worked on the product’s web UI and SQL. I hold a Computer Systems Technology diploma (Software Development) from Mohawk College (2019).',
-    'This year I’ve been writing C++ and Python on HomeWorld, my solo Unreal Engine 5.8 project, including the test and build tooling around it. Its test runner hard-fails when a report can’t be read, the engine version is wrong, zero tests ran, a report is stale, or a binary is older than its source. Your posting’s focus on rigorous validation, test coverage across interfaces, unit testing and static analysis is the standard I hold my own work to.',
-    'What I haven’t done yet: embedded Linux kernel builds, BSP work, Yocto or Buildroot, and oscilloscope-level hardware debugging. Those are what I’d want to learn alongside your Electrical Engineering and Device Software teams.',
-    'I’m in Hamilton, available immediately, and can commute to Kitchener for hybrid days.',
-  ],
-  signoff: 'Thank you for your time — Luke Thompson',
-  featured: {
-    title: 'TruckSail — Software Developer (12-month contract)',
-    meta: '2020 · Ancaster, ON · STM32, CAN bus, JavaScript, SQL',
-    summary: 'Firmware and web work for TruckSail’s product.',
-    bullets: [
-      'Implemented STM32/CAN firmware with defect finding for reliability.',
-      'Built JS/Bootstrap UIs and optimized SQL for the web side of the product.',
-      'Maintained GitHub workflows; cross-browser QA and password-management security support.',
-    ],
-  },
-  other: [
+    'I’m applying for the Software Engineer, Design Systems & AI Tooling role in Mississauga. Your team is building a design agent and MCP server and needs people who use AI coding tools every day and also build the harnesses that check what those tools produce. That’s how I’ve worked all year, and Track 3 (Quality, Reliability & Verification) is where I’d start.',
+    'Since February 2026 I’ve built HomeWorld, a solo Unreal Engine 5.8 / C++ game, with AI coding agents writing much of the code under my direction. The part I’m proudest of is the verification around them:',
     {
-      title: 'HomeWorld — Unreal Engine 5.8 / C++ game and tooling',
-      meta: 'Feb 2026 – present · Solo · C++, Python',
-      summary:
-        'C++ systems (a versioned save system with migrations, an editor module with commandlets) and the test and build tooling around them: a runner that refuses fake passes, and a build wrapper that retries lock failures and queues builds. 42 C++ automation test files and 150+ Python test files.',
-      links: [TOOLS_WRITEUP],
-      note: 'Private repository — available on request.',
+      list: [
+        '**A JSON tool bridge:** agents and scripts send a `{command, args}` request to the editor and get structured JSON back, and new command modules plug in.',
+        '**A test runner that refuses fake passes:** it hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries. Each of those once produced a “pass”, and each now has a regression test.',
+        '**Evidence levels for every claim:** a capability matrix from E0 (only claimed in a doc) to E5 (survived a fresh editor), backed by 42 C++ automation test files and 150+ Python test files.',
+      ],
     },
-    SHIFT,
-    OUTFUSION,
+    'On the web side, I build in React and TypeScript. Portfolio Studio, this site, has a Supabase (Postgres) backend and goes through pull requests I review, with headless-Chrome checks at desktop and phone sizes before merge. Shift, my TypeScript browser game, has 83 Vitest test files. Earlier, I did contract work building C# REST integrations at OutFusion and JS/SQL web at TruckSail. I have a Computer Systems Technology diploma (Software Development) from Mohawk College.',
+    'I haven’t worked with Figma’s APIs, Swift or Kotlin, or WCAG auditing yet, and I’d expect to learn those on your team.',
+    'I’m in Hamilton, legally authorized to work in Canada, available immediately, and can commute to Mississauga for hybrid days.',
   ],
-  resumePath: '/resumes/miovision.pdf',
-  resumeBlurb: 'One-page résumé tailored for the Miovision Firmware Developer role.',
+  signoff: 'Thanks for your time — Luke Thompson',
+  primaryCta: TOOLS_WRITEUP,
+  featured: {
+    title: 'HomeWorld — AI-agent tooling and verification',
+    meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
+    summary:
+      'A solo Unreal Engine 5.8 / C++ game built with AI coding agents under my direction. I build the tools they use and the checks their output has to pass before it counts.',
+    bullets: [
+      'Editor automation bridge: a JSON request/response protocol (world info, asset checks, a per-row pass/fail probe) that new command modules plug into.',
+      'Headless test runner that hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries, each with a regression test.',
+      'A build wrapper with one machine-wide queue, so parallel agents can’t start colliding builds.',
+      'A multi-agent workflow with written handoff rules and merge gates; source changes wait for my review.',
+    ],
+    links: [TOOLS_WRITEUP],
+    note: 'Private repository — code walkthrough available on request.',
+  },
+  other: [PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL],
+  resumePath: '/resumes/citi.pdf',
+  resumeBlurb: 'One-page résumé tailored for the Citi Software Engineer, Design Systems & AI Tooling role.',
 }
