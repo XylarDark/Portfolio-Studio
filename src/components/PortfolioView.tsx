@@ -159,7 +159,7 @@ export function PortfolioView({
     const items: { href: string; label: string }[] = []
     if (introNav) items.push(...introNav)
     if (showWork) items.push({ href: '#work', label: workTitle || 'Work' })
-    if (showResume) items.push({ href: '#resume', label: resumeTitle || 'Resume' })
+    if (showResume) items.push({ href: '#resume', label: resumeTitle || 'Résumé' })
     items.push({ href: '#contact', label: contactTitle || 'Contact' })
     return items
   }, [introNav, showWork, showResume, workTitle, resumeTitle, contactTitle])
@@ -176,7 +176,7 @@ export function PortfolioView({
     if (preview || !resumeFileUrl) return
     setViewerIndex(null)
     setResumeViewer({
-      title: resumeTitle || 'Resume',
+      title: resumeTitle || 'Résumé',
       fileUrl: resumeFileUrl,
       imageUrl: null,
       kind: resumeKind === 'unknown' ? 'pdf' : resumeKind,
@@ -341,7 +341,7 @@ export function PortfolioView({
             {resumeFileUrl ? (
               <div className="resume-file-row" data-reveal>
                 <button type="button" className="cta primary" onClick={openResume} disabled={preview}>
-                  View resume
+                  View résumé
                 </button>
                 {profile.allow_downloads && !preview ? (
                   <a
@@ -351,7 +351,7 @@ export function PortfolioView({
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Download resume
+                    Download résumé
                   </a>
                 ) : null}
               </div>

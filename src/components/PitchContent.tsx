@@ -151,7 +151,7 @@ export function ShowcaseSection({ showcase }: { showcase: PitchShowcase }) {
               </div>
             ) : null}
             <div className="showcase-block">
-              <h4>What I built</h4>
+              <h4>{item.badgeTone === 'designed' ? 'What exists so far' : 'What I built'}</h4>
               <Blocks blocks={item.built} />
             </div>
             {item.tech ? (

@@ -12,11 +12,11 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Game Developer',
   location: 'Hamilton, ON',
   lede:
-    'Game developer focused on gameplay and systems work. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ project, and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier contract work includes C# game and UI development at OutFusion. Open to hybrid or on-site roles in the GTA–Hamilton area.',
+    'Game developer focused on gameplay and systems work. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ project, and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier contract work includes C# game and UI development at OutFusion. Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   contactBlurb:
-    'Hamilton, ON. Open to hybrid or on-site roles in the GTA–Hamilton area.',
+    'Hamilton, ON. Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   resumeBlurb: 'One-page game developer résumé.',
   availability: 'Available immediately · Remote · Eastern Time (Toronto)',
   roles:
@@ -41,7 +41,7 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
       bullets: [
         'Built planetoid world systems, including a closed-mesh planet shell, PCG scatter, and data-driven zone placement and recipes rather than one-off baked maps.',
         'Implemented a versioned save system with per-system slices and migrations that refuse unknown newer saves; added C++ and Python tests around saves, a 7-axis sin/virtue system, and playtest beats.',
-        'Editor tooling, build automation, and a Blender greybox pipeline — six items in the tools section below, each marked Built or Designed and in progress.',
+        'Editor tooling, build automation, and a Blender greybox pipeline — six items on the Tools tab, each marked Built or Designed and in progress.',
       ],
       note: 'Private repository — code walkthrough available on request.',
     },
@@ -66,7 +66,7 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
       title: 'Portfolio Studio',
       meta: 'Sep 2026 – present · Independent · React, TypeScript, Vite, Supabase',
       summary:
-        'Shipped a public media-resume site with Studio editing and embeddable work cards.',
+        'Shipped a public media-résumé site with Studio editing and embeddable work cards.',
       links: [
         { label: 'Live site', href: 'https://xylardark.github.io/Portfolio-Studio/' },
         { label: 'Source on GitHub', href: 'https://github.com/XylarDark/Portfolio-Studio' },
@@ -119,7 +119,7 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     role: 'Diploma, Computer Systems Technology — Software Development',
     org: 'Mohawk College · Hamilton, ON',
     period: '2019',
-    detail: 'Valid Ontario Class G licence. Open to hybrid / on-site in the GTA–Hamilton area.',
+    detail: 'Valid Ontario Class G licence. Open to remote, or hybrid / on-site in the GTA–Hamilton area.',
     sort_order: 3,
     created_at: '',
     updated_at: '',

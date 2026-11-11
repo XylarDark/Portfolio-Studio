@@ -722,11 +722,14 @@
 
 .showcase-list {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.25rem;
   max-width: 64rem;
 }
 
 .showcase-item {
+  min-width: 0;
+  overflow-wrap: anywhere;
   gap: 0.85rem;
   color: var(--muted);
 }
@@ -1011,8 +1014,8 @@
 
   .portfolio-tab {
     font-size: 0.78rem;
-    letter-spacing: 0.02em;
-    padding-inline: 0.38rem;
+    letter-spacing: 0;
+    padding-inline: 0.3rem;
   }
 }
 

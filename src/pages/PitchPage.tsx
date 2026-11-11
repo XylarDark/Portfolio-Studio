@@ -90,7 +90,7 @@ function offlineProfile(slug: string): Profile {
     hero_path: null,
     work_section_title: '',
     work_section_blurb: '',
-    resume_section_title: 'Resume',
+    resume_section_title: 'Résumé',
     resume_section_blurb: '',
     contact_section_title: 'Contact',
     contact_section_blurb: '',
@@ -165,6 +165,7 @@ export function PitchPage() {
       headline: pitch.headline,
       bio: pitch.lede,
       resume_file_path: resumeUrl,
+      resume_section_title: 'Résumé',
       resume_section_blurb: pitch.resumeBlurb,
     }
     return {

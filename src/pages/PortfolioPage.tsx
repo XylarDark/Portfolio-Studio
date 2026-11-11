@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { PortfolioView } from '../components/PortfolioView'
 import { useAuth } from '../context/AuthContext'
 import { fetchPortfolioBySlug } from '../lib/api'
 import { isSupabaseConfigured } from '../lib/supabase'
+import { PUBLIC_PORTFOLIO_SLUG } from '../lib/publicPortfolio'
 import type { PortfolioBundle } from '../lib/types'
 import { works as demoWorks, experience as demoExperience } from '../data'
 
@@ -66,7 +67,8 @@ function DemoPortfolio({ slug }: { slug: string }) {
 
 export function PortfolioPage() {
   const { slug = '' } = useParams()
-  const { profile: me } = useAuth()
+  const { profile: me, loading: authLoading } = useAuth()
+  const location = useLocation()
   const [bundle, setBundle] = useState<PortfolioBundle | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
@@ -108,6 +110,18 @@ export function PortfolioPage() {
       cancelled = true
     }
   }, [slug])
+
+  // The curated public portfolio replaces the Studio page for visitors; the owner still sees it.
+  if (slug === PUBLIC_PORTFOLIO_SLUG && me?.slug !== slug) {
+    if (authLoading) {
+      return (
+        <div className="shell-status">
+          <p>Loading portfolio…</p>
+        </div>
+      )
+    }
+    return <Navigate to={`/u/${slug}/portfolio${location.hash}`} replace />
+  }
 
   if (!isSupabaseConfigured) {
     return <DemoPortfolio slug={slug || 'demo'} />
