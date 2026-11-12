@@ -11,6 +11,15 @@ export type PitchLink = {
   href: string
 }
 
+export type PitchFigureKind = 'screenshot' | 'keyart' | 'diagram'
+
+export type PitchFigure = {
+  src: string
+  alt: string
+  caption: string
+  kind: PitchFigureKind
+}
+
 export type PitchProject = {
   title: string
   meta: string
@@ -18,6 +27,7 @@ export type PitchProject = {
   bullets?: string[]
   links?: PitchLink[]
   note?: string
+  figures?: PitchFigure[]
 }
 
 /** A paragraph, or a bullet / numbered list. Supports **bold**, *italic* and `code`. */
