@@ -17,7 +17,7 @@ export const OUTFUSION: PitchProject = {
 
 export const EVENICA: PitchProject = {
   title: 'Evenica — Software Developer & QA Tester',
-  meta: '2018 – Sep 2019 · Burlington, ON · T-SQL, C#, Linux, Laravel',
+  meta: 'May 2018 – Sep 2019 · Burlington, ON · T-SQL, C#, Linux, Laravel',
   summary:
     'Built and tested software for clients including Andrew Peller, Young’s Market Company and MM Realty International, using T-SQL, C#, Linux, and Laravel (MySQL, PHP, JavaScript/jQuery, Vue.js).',
 }
