@@ -1,4 +1,5 @@
-import type { PitchBlock, PitchListItem, PitchLink, PitchProject, PitchShowcase } from '../lib/pitches'
+import type { PitchBlock, PitchFigure, PitchListItem, PitchLink, PitchProject, PitchShowcase } from '../lib/pitches'
+import { withBase } from '../lib/urls'
 
 const INLINE = /(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g
 
@@ -97,6 +98,36 @@ export function CtaLink({ link, className }: { link: PitchLink; className: strin
   )
 }
 
+export function FigureGallery({
+  figures,
+  layout = 'grid',
+}: {
+  figures: PitchFigure[]
+  layout?: 'grid' | 'hero-plus'
+}) {
+  if (!figures.length) return null
+  const hero = layout === 'hero-plus' ? figures.find((item) => item.kind === 'keyart') : undefined
+  const rest = hero ? figures.filter((item) => item !== hero) : figures
+  return (
+    <div className={`figure-gallery${hero ? ' figure-gallery-hero' : ''}`}>
+      {hero ? (
+        <figure className="project-figure project-figure-keyart">
+          <img src={withBase(hero.src)} alt={hero.alt} loading="lazy" />
+          <figcaption>{hero.caption}</figcaption>
+        </figure>
+      ) : null}
+      <div className="figure-grid">
+        {rest.map((item) => (
+          <figure key={item.src} className={`project-figure project-figure-${item.kind}`}>
+            <img src={withBase(item.src)} alt={item.alt} loading="lazy" />
+            <figcaption>{item.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function ProjectCard({
   project,
   featured = false,
@@ -105,11 +136,13 @@ export function ProjectCard({
   featured?: boolean
 }) {
   const Heading = featured ? 'h3' : 'h4'
+  const figureLayout = project.figures?.some((item) => item.kind === 'keyart') ? 'hero-plus' : 'grid'
   return (
     <article className={`pitch-card${featured ? ' pitch-featured' : ''}`} data-reveal>
       {featured ? <p className="pitch-tag">Featured</p> : null}
       <Heading>{project.title}</Heading>
       <p className="pitch-meta">{project.meta}</p>
+      {project.figures?.length ? <FigureGallery figures={project.figures} layout={figureLayout} /> : null}
       <p>{project.summary}</p>
       {project.bullets?.length ? (
         <ul>

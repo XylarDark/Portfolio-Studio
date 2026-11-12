@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="peTitle peDesc">
+  <title id="peTitle">Preference engine, Layer 1</title>
+  <desc id="peDesc">Diagram of the built first layer: a take-rate counter may auto-default a decision type only at a 95% take rate over at least 20 evidenced answers. Safety-sensitive classes never auto-default.</desc>
+  <defs>
+    <marker id="arrow3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 8 5 L 0 8.8 Z" fill="#c4a35a"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="360" rx="12" fill="#161b16"/>
+  <text x="32" y="42" fill="#e8e4d8" font-family="Georgia, 'Times New Roman', serif" font-size="22">Preference engine — Layer 1 (built)</text>
+  <text x="32" y="66" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">A deterministic take-rate counter. Further layers are not shown here.</text>
+
+  <rect x="40" y="100" width="220" height="150" rx="8" fill="#1e261e" stroke="#8a9a7a" stroke-width="1.5"/>
+  <text x="150" y="150" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Your answers</text>
+  <text x="150" y="176" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">logged by type</text>
+  <text x="150" y="198" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">last answer wins</text>
+
+  <line x1="260" y1="175" x2="330" y2="175" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow3)"/>
+
+  <rect x="338" y="100" width="280" height="150" rx="8" fill="#1e261e" stroke="#c4a35a" stroke-width="1.5"/>
+  <text x="478" y="148" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Take-rate bar</text>
+  <text x="478" y="176" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="13">95% take rate</text>
+  <text x="478" y="198" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="13">and at least 20 evidenced answers</text>
+  <text x="478" y="220" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">plus a one-time yes for that type</text>
+
+  <line x1="618" y1="155" x2="688" y2="120" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow3)"/>
+  <line x1="618" y1="195" x2="688" y2="230" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow3)"/>
+
+  <rect x="696" y="88" width="264" height="80" rx="8" fill="#1e261e" stroke="#8a9a7a" stroke-width="1.5"/>
+  <text x="828" y="120" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="14" font-weight="600">May auto-default</text>
+  <text x="828" y="144" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">only if every guard passes</text>
+
+  <rect x="696" y="188" width="264" height="80" rx="8" fill="#1e261e" stroke="#8a9a7a" stroke-width="1.5"/>
+  <text x="828" y="220" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Ask you instead</text>
+  <text x="828" y="244" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">bar not met, or no grant yet</text>
+
+  <rect x="40" y="276" width="920" height="56" rx="8" fill="#1e261e" stroke="#8a9a7a" stroke-width="1.5"/>
+  <text x="500" y="300" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Safety-sensitive types never auto-default</text>
+  <text x="500" y="320" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">including deletes, merges, installs, secrets, and art or taste decisions — even at a 100% take rate</text>
+</svg>

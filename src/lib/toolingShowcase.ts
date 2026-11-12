@@ -9,11 +9,61 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
   "navLabel": "Tools",
   "title": "Tools & pipeline work",
   "intro": [
-    "Unreal Engine 5.8 editor tooling, build automation, and a Blender greybox pipeline, built for **HomeWorld**, my solo UE 5.8 / C++ project (Feb 2026 to now, private repository, available on request).",
+    "Two strands of tooling. **DreamEngine** is the automation harness I built to run my solo work: one person steers, parallel agent lanes build, and a five-minute tick keeps the loop moving. **HomeWorld**, my solo Unreal Engine 5.8 / C++ game (Feb 2026 to now), also has editor tooling, build automation, and a Blender greybox pipeline. Both are private repositories; a walkthrough is available on request.",
     "**How I work:** I design each tool, write the rules it enforces, and review and test every change. A lot of the code is written by AI coding agents that I direct. That's why most of these tools are about *proof*: an agent or a script saying \"done\" isn't evidence, so each tool checks real state and reports a verdict a person can trust.",
     "Status key: **Built** means it's in the repo, has tests, and has been run. **In progress** means it's built but hasn't passed end to end yet. **Designed** means there's a written spec or schema but the implementation is partial."
   ],
   "items": [
+    {
+      "title": "DreamEngine loop: lanes, tick, done-gate, and merge train",
+      "badge": "Built",
+      "badgeTone": "built",
+      "status": "Built (November 2026). 123 merged pull requests as of 12 November 2026. In daily use on my solo work.",
+      "problem": "A single person directing several coding agents needs a loop that keeps moving when a session dies, that will not take an agent’s “done” at its word, and that can land work without constant babysitting.",
+      "built": [
+        {
+          "list": [
+            "Five named lanes — HEALTH, P6, DREAM, BOOKEND, and TETHER — run in parallel on local coding-agent sessions. A five-minute scheduled tick is the heartbeat of the loop.",
+            "A done-gate refuses to mark a lane done until a rebase, a test rerun, and a merge-ready check all pass. A merge train then lands qualifying work one change at a time.",
+            "Stalled or dead runs auto-resume. A PC status notifier and a tool index keep the state of the loop visible."
+          ]
+        }
+      ],
+      "tech": "Scheduled automation, merge orchestration, status notification, and a tool index."
+    },
+    {
+      "title": "Preference engine, Layer 1",
+      "badge": "Built",
+      "badgeTone": "built",
+      "status": "Built (November 2026). Layer 1 is in the repo and covered by tests. No live decision type had met the bar as of 12 November 2026, so auto-default is not turned on for any type yet.",
+      "problem": "Repeated decisions should be allowed to default only when the record is strong, and never in safety-sensitive cases.",
+      "built": [
+        {
+          "list": [
+            "A deterministic take-rate counter by decision type. A type may auto-default only at a 95% take rate over at least 20 evidenced answers, and only after a one-time yes for that type.",
+            "Safety-sensitive types never auto-default, even at a 100% take rate. That includes deletes, merges, installs, secrets, and art or taste decisions.",
+            "This is Layer 1 only — the layer that is built. Further layers are not claimed here."
+          ]
+        }
+      ],
+      "tech": "Answer log, take-rate report, and guarded auto-default with tests."
+    },
+    {
+      "title": "Dream intake, one front door",
+      "badge": "Built",
+      "badgeTone": "built",
+      "status": "Built (November 2026). The single front door is in place. A first end-to-end dream run is in progress; it is not finished.",
+      "problem": "New ideas were entering through more than one path, which made it harder to turn a dream into a tight brief and into work a lane could actually run.",
+      "built": [
+        {
+          "list": [
+            "One intake door turns a dream into questions and a tight brief, and is the path new ideas go through.",
+            "A walking-test baseline for an end-to-end run has been recorded. A first live end-to-end dream is in progress, not done."
+          ]
+        }
+      ],
+      "tech": "Single intake path, questions-to-brief flow, and a recorded walking-test baseline."
+    },
     {
       "title": "Asset validation on save (Data Validation plugin)",
       "badge": "Built",

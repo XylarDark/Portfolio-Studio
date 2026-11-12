@@ -2,11 +2,12 @@ import { useEffect, useMemo, useState, type KeyboardEvent } from 'react'
 import { Link, Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { ContactForm } from '../components/ContactForm'
 import { MediaViewer } from '../components/MediaViewer'
-import { CtaLink, ProjectCard, ShowcaseSection } from '../components/PitchContent'
+import { CtaLink, FigureGallery, ProjectCard, ShowcaseSection } from '../components/PitchContent'
 import { useAuth } from '../context/AuthContext'
 import { fetchPortfolioBySlug } from '../lib/api'
 import { detectKind } from '../lib/files'
 import {
+  HOMEWORLD_FIGURES,
   PORTFOLIO_TABS,
   PUBLIC_EXPERIENCE,
   PUBLIC_PORTFOLIO,
@@ -78,6 +79,9 @@ function OverviewPanel({
         <button type="button" className="cta ghost" onClick={() => onOpenTab('contact')}>
           Get in touch
         </button>
+      </div>
+      <div className="overview-visuals">
+        <FigureGallery figures={HOMEWORLD_FIGURES} layout="hero-plus" />
       </div>
       <div className="public-skills public-skills-condensed">
         <h2 className="public-skills-title">Core skills</h2>
@@ -231,7 +235,7 @@ export function PublicPortfolioPage() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'Game developer portfolio for Luke Thompson: HomeWorld (Unreal Engine 5.8 / C++), Shift (Phaser), and Unreal tools and pipeline work.',
+        'Game developer portfolio for Luke Thompson: HomeWorld (Unreal Engine 5.8 / C++), DreamEngine, Tether, Shift (Phaser), and tools and pipeline work.',
       )
     }
     return () => {

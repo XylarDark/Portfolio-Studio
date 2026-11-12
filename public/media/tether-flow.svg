@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-labelledby="thTitle thDesc">
+  <title id="thTitle">Tether flow</title>
+  <desc id="thDesc">Diagram: a phone PWA connects to a desktop. Push notifications deliver decision cards; answers write back, and the phone can take actions.</desc>
+  <defs>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.2 L 8 5 L 0 8.8 Z" fill="#c4a35a"/>
+    </marker>
+  </defs>
+  <rect width="1000" height="420" rx="12" fill="#161b16"/>
+  <text x="32" y="42" fill="#e8e4d8" font-family="Georgia, 'Times New Roman', serif" font-size="22">Tether</text>
+  <text x="32" y="66" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">A phone app for reviewing work on a computer and answering the decisions that need a person.</text>
+
+  <!-- Desktop -->
+  <rect x="60" y="120" width="240" height="180" rx="10" fill="#1e261e" stroke="#8a9a7a" stroke-width="1.5"/>
+  <rect x="92" y="148" width="176" height="110" rx="4" fill="#101410" stroke="#c4a35a"/>
+  <rect x="130" y="266" width="100" height="8" rx="2" fill="#8a9a7a"/>
+  <text x="180" y="204" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Desktop</text>
+  <text x="180" y="226" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">work in progress</text>
+  <text x="180" y="318" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">Your computer</text>
+
+  <line x1="300" y1="210" x2="390" y2="210" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow2)"/>
+  <line x1="390" y1="230" x2="300" y2="230" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow2)"/>
+
+  <!-- Hub -->
+  <rect x="400" y="110" width="200" height="200" rx="10" fill="#1e261e" stroke="#c4a35a" stroke-width="1.5"/>
+  <text x="500" y="148" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="16" font-weight="600">Tether</text>
+  <text x="500" y="180" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="13">Push notifications</text>
+  <text x="500" y="206" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="13">Decision cards</text>
+  <text x="500" y="232" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="13">Answer write-back</text>
+  <text x="500" y="258" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="13">Phone actions</text>
+
+  <line x1="600" y1="210" x2="690" y2="210" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow2)"/>
+  <line x1="690" y1="230" x2="600" y2="230" stroke="#c4a35a" stroke-width="1.6" marker-end="url(#arrow2)"/>
+
+  <!-- Phone -->
+  <rect x="720" y="100" width="200" height="240" rx="22" fill="#1e261e" stroke="#8a9a7a" stroke-width="1.5"/>
+  <rect x="744" y="128" width="152" height="168" rx="6" fill="#101410" stroke="#c4a35a"/>
+  <text x="820" y="188" text-anchor="middle" fill="#e8e4d8" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Phone PWA</text>
+  <text x="820" y="212" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">review · answer</text>
+  <text x="820" y="232" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="12">remind · act</text>
+  <circle cx="820" cy="318" r="8" fill="none" stroke="#8a9a7a" stroke-width="1.5"/>
+  <text x="820" y="362" text-anchor="middle" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">Your phone</text>
+</svg>
