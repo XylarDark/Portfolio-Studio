@@ -77,6 +77,7 @@ export type Pitch = {
 
 import { AIRSHIP_PITCH } from './pitchAirship'
 import { CITI_PITCH, PAYMENT_SOURCE_PITCH, SIRION_PITCH } from './pitchJobs'
+import { L3HARRIS_PITCH, MARS_PITCH, WONDERBRANDS_PITCH } from './pitchNov12'
 import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
@@ -139,6 +140,9 @@ export const PITCHES: Pitch[] = [
   SIRION_PITCH,
   PAYMENT_SOURCE_PITCH,
   CITI_PITCH,
+  L3HARRIS_PITCH,
+  MARS_PITCH,
+  WONDERBRANDS_PITCH,
 ]
 
 export function findPitch(slug: string, key: string): Pitch | null {
