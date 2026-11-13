@@ -15,6 +15,8 @@ export const PUBLIC_PORTFOLIO = {
     'Game developer focused on gameplay, systems, and developer tools. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with DreamEngine, a solo-dev automation harness, and Tether, a phone app for reviewing and answering work from a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
+  linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
+  linkedinLabel: 'LinkedIn',
   contactBlurb:
     'Hamilton, ON. Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   resumeBlurb: 'One-page game developer résumé.',

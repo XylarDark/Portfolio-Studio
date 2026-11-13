@@ -170,6 +170,14 @@ function ResumePanel({
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
           GitHub
         </a>
+        <a
+          className="cta ghost"
+          href={PUBLIC_PORTFOLIO.linkedinHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {PUBLIC_PORTFOLIO.linkedinLabel}
+        </a>
       </div>
     </section>
   )
@@ -194,6 +202,14 @@ function ContactPanel({
       <div className="resume-file-row public-resume-row">
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
           GitHub
+        </a>
+        <a
+          className="cta ghost"
+          href={PUBLIC_PORTFOLIO.linkedinHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {PUBLIC_PORTFOLIO.linkedinLabel}
         </a>
         <a className="cta ghost" href={resumeUrl} download target="_blank" rel="noreferrer">
           Download résumé (PDF)
