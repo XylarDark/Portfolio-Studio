@@ -96,6 +96,7 @@ import {
   VERTMIX_PITCH,
   ZYNGA_PITCH,
 } from './pitchNov12b'
+import { AFFIRM_PITCH, DATAVISOR_PITCH, FABLE_PITCH } from './pitchNov13'
 import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
@@ -167,6 +168,9 @@ export const PITCHES: Pitch[] = [
   ZYNGA_PITCH,
   PRICELINE_PITCH,
   APPLIED_SYSTEMS_PITCH,
+  AFFIRM_PITCH,
+  DATAVISOR_PITCH,
+  FABLE_PITCH,
 ]
 
 export function findPitch(slug: string, key: string): Pitch | null {
