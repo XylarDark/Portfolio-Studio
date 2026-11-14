@@ -97,6 +97,14 @@ import {
   ZYNGA_PITCH,
 } from './pitchNov12b'
 import { AFFIRM_PITCH, DATAVISOR_PITCH, FABLE_PITCH } from './pitchNov13'
+import {
+  ASSEMBLYAI_PITCH,
+  HOOTSUITE_PITCH,
+  METHOD_PITCH,
+  MIRATERRA_PITCH,
+  POLICYME_PITCH,
+  VALET_PITCH,
+} from './pitchNov14'
 import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
@@ -171,6 +179,12 @@ export const PITCHES: Pitch[] = [
   AFFIRM_PITCH,
   DATAVISOR_PITCH,
   FABLE_PITCH,
+  METHOD_PITCH,
+  HOOTSUITE_PITCH,
+  MIRATERRA_PITCH,
+  POLICYME_PITCH,
+  ASSEMBLYAI_PITCH,
+  VALET_PITCH,
 ]
 
 export function findPitch(slug: string, key: string): Pitch | null {
