@@ -33,8 +33,8 @@ const PORTFOLIO_STUDIO: PitchProject = {
   ],
 }
 
-const DREAMENGINE: PitchProject = {
-  title: 'DreamEngine — solo-dev automation harness',
+const DREAMSTEAD: PitchProject = {
+  title: 'DreamStead — solo-dev automation harness',
   meta: 'Nov 2026 – present · Independent (solo) · agent orchestration, scheduled automation',
   summary:
     'A solo-dev automation harness: one person steers while parallel agent lanes run in local coding-agent sessions on a five-minute scheduled tick.',
@@ -78,12 +78,12 @@ export const AFFIRM_PITCH: Pitch = {
   letterHeading: 'Hi Affirm hiring team',
   letter: [
     'I’m applying for the Software Engineer I, Backend (Continuous Delivery) role on the Developer Productivity team (remote Canada). I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately.',
-    'The posting is about making the path from a laptop to production safer and less manual: CI/CD, test automation, release workflows, and guardrails in an AI-enhanced development lifecycle. That is the kind of work I already do on my own projects. On HomeWorld I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test, and a build wrapper with one machine-wide queue so parallel agents can’t collide. On DreamEngine I built a done-gate (rebase, test rerun, merge-ready check), a merge train, and a tool index (123 merged pull requests as of 12 November 2026). I write tests in Python and TypeScript, and I use GitHub Actions.',
+    'The posting is about making the path from a laptop to production safer and less manual: CI/CD, test automation, release workflows, and guardrails in an AI-enhanced development lifecycle. That is the kind of work I already do on my own projects. On HomeWorld I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test, and a build wrapper with one machine-wide queue so parallel agents can’t collide. On DreamStead I built a done-gate (rebase, test rerun, merge-ready check), a merge train, and a tool index (123 merged pull requests as of 12 November 2026). I write tests in Python and TypeScript, and I use GitHub Actions.',
     'I want to be clear about gaps. I have not designed or launched backend systems at Affirm’s scale. I have not used Kotlin. I have not used AWS or Kubernetes in production. My production web and data work is C#, JavaScript, Python, SQL, MySQL and SQL Server from employed roles at OutFusion, TruckSail and Evenica, plus React and GitHub Actions on Portfolio Studio. I would expect to learn your stack, and the continuous-delivery platform, on the team.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
-  featured: DREAMENGINE,
+  featured: DREAMSTEAD,
   other: [HOMEWORLD_TOOLS, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/affirm.pdf',
   resumeBlurb: 'One-page résumé tailored for the Affirm Software Engineer I, Backend (Continuous Delivery) role.',
@@ -99,12 +99,12 @@ export const DATAVISOR_PITCH: Pitch = {
   letterHeading: 'Hi DataVisor hiring team',
   letter: [
     'I’m applying for the Infrastructure Engineer, Junior / New Grad role (remote, Toronto / Canada). I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately.',
-    'The posting splits time between operating infrastructure and writing code: automation, internal tools, CI/CD, and Python (or Go, Java or Bash). The part I can already show is the tooling. On HomeWorld I built a headless test runner that hard-fails on a false “done,” and a build wrapper with one machine-wide queue so parallel agents can’t collide. On DreamEngine I built a done-gate (rebase, test rerun, merge-ready check), a merge train, and a tool index (123 merged pull requests as of 12 November 2026). I write Python and TypeScript, use Git and GitHub Actions, and worked on Linux at Evenica.',
+    'The posting splits time between operating infrastructure and writing code: automation, internal tools, CI/CD, and Python (or Go, Java or Bash). The part I can already show is the tooling. On HomeWorld I built a headless test runner that hard-fails on a false “done,” and a build wrapper with one machine-wide queue so parallel agents can’t collide. On DreamStead I built a done-gate (rebase, test rerun, merge-ready check), a merge train, and a tool index (123 merged pull requests as of 12 November 2026). I write Python and TypeScript, use Git and GitHub Actions, and worked on Linux at Evenica.',
     'I want to be clear about gaps. I have a Computer Systems Technology diploma (Software Development) from Mohawk College (2019), not a bachelor’s in computer science, computer engineering, or electrical engineering. I have not used Kubernetes, Helm, Terraform, or AWS in production, and I have not been on a production on-call rotation. I would expect to learn those on the team, including joining on-call once I was ramped up.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
-  featured: DREAMENGINE,
+  featured: DREAMSTEAD,
   other: [HOMEWORLD_TOOLS, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/datavisor.pdf',
   resumeBlurb: 'One-page résumé tailored for the DataVisor Junior Infrastructure Engineer role.',
@@ -120,13 +120,13 @@ export const FABLE_PITCH: Pitch = {
   letterHeading: 'Hi Fable hiring team',
   letter: [
     'I’m applying for the Software Engineer (4-month contract) role. I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately. I can work Eastern Time hours, Monday to Friday, and I can travel to the Toronto office for occasional in-person collaboration.',
-    'The posting is about MCP servers, agent tools, evaluations, and documentation in TypeScript. I have not yet shipped a production MCP server with the official TypeScript MCP SDK. The closest work is the agent tooling I already run: a JSON command/response bridge and a headless test runner on HomeWorld that hard-fails on a false “done”; DreamEngine’s done-gate, merge train and tool index (123 merged pull requests as of 12 November 2026); and Tether, a TypeScript phone PWA that went live on 11 November 2026, where I approve work and run only declared actions. I write tests, use Git and GitHub Actions, and have built and tested REST APIs in C# at OutFusion and Evenica.',
+    'The posting is about MCP servers, agent tools, evaluations, and documentation in TypeScript. I have not yet shipped a production MCP server with the official TypeScript MCP SDK. The closest work is the agent tooling I already run: a JSON command/response bridge and a headless test runner on HomeWorld that hard-fails on a false “done”; DreamStead’s done-gate, merge train and tool index (123 merged pull requests as of 12 November 2026); and Tether, a TypeScript phone PWA that went live on 11 November 2026, where I approve work and run only declared actions. I write tests, use Git and GitHub Actions, and have built and tested REST APIs in C# at OutFusion and Evenica.',
     'Gaps I want to name: I do not have three years of professional backend work running Node.js services and APIs in production, and I have not deployed services on AWS. My employed API work is C# / REST (OutFusion, Evenica). I would expect to learn the official MCP TypeScript SDK, OAuth, and your AWS stack on the contract.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: TETHER,
-  other: [DREAMENGINE, HOMEWORLD_TOOLS, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
+  other: [DREAMSTEAD, HOMEWORLD_TOOLS, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/fable.pdf',
   resumeBlurb: 'One-page résumé tailored for the Fable Software Engineer (4-month contract) role.',
 }

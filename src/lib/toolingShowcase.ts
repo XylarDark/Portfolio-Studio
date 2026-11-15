@@ -9,13 +9,13 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
   "navLabel": "Tools",
   "title": "Tools & pipeline work",
   "intro": [
-    "Two strands of tooling. **DreamEngine** is the automation harness I built to run my solo work: one person steers, parallel agent lanes build, and a five-minute tick keeps the loop moving. **HomeWorld**, my solo Unreal Engine 5.8 / C++ game (Feb 2026 to now), also has editor tooling, build automation, and a Blender greybox pipeline. Both are private repositories; a walkthrough is available on request.",
+    "Two strands of tooling. **DreamStead** is the automation harness I built to run my solo work: one person steers, parallel agent lanes build, and a five-minute tick keeps the loop moving. **HomeWorld**, my solo Unreal Engine 5.8 / C++ game (Feb 2026 to now), also has editor tooling, build automation, and a Blender greybox pipeline. Both are private repositories; a walkthrough is available on request.",
     "**How I work:** I design each tool, write the rules it enforces, and review and test every change. A lot of the code is written by AI coding agents that I direct. That's why most of these tools are about *proof*: an agent or a script saying \"done\" isn't evidence, so each tool checks real state and reports a verdict a person can trust.",
     "Status key: **Built** means it's in the repo, has tests, and has been run. **In progress** means it's built but hasn't passed end to end yet. **Designed** means there's a written spec or schema but the implementation is partial."
   ],
   "items": [
     {
-      "title": "DreamEngine loop: lanes, tick, done-gate, and merge train",
+      "title": "DreamStead loop: lanes, tick, done-gate, and merge train",
       "badge": "Built",
       "badgeTone": "built",
       "status": "Built (November 2026). 123 merged pull requests as of 12 November 2026. In daily use on my solo work.",

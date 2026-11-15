@@ -251,7 +251,7 @@ export function PublicPortfolioPage() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'Game developer portfolio for Luke Thompson: HomeWorld (Unreal Engine 5.8 / C++), DreamEngine, Tether, Shift (Phaser), and tools and pipeline work.',
+        'Game developer portfolio for Luke Thompson: HomeWorld (Unreal Engine 5.8 / C++), DreamStead, Tether, Shift (Phaser), and tools and pipeline work.',
       )
     }
     return () => {

@@ -12,7 +12,7 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Game Developer',
   location: 'Hamilton, ON',
   lede:
-    'Game developer focused on gameplay, systems, and developer tools. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with DreamEngine, a solo-dev automation harness, and Tether, a phone app for reviewing and answering work from a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
+    'Game developer focused on gameplay, systems, and developer tools. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with DreamStead, a solo-dev automation harness, and Tether, a phone app for reviewing and answering work from a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
@@ -77,7 +77,7 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
         'Chapter 1’s feature walk — homestead, planting, backpack, gathering, rune unlock, camp, bed-to-spirit, nurture, and portal camp — is merged and covered by automated play-in-editor tests.',
         'Built planetoid world systems on a 5 km-radius planet, including a closed-mesh planet shell, PCG scatter, and data-driven zone placement and recipes rather than one-off baked maps.',
         'Implemented a versioned save system with per-system slices and migrations that refuse unknown newer saves; added C++ and Python tests around saves, a 7-axis sin/virtue system, and playtest beats.',
-        'Editor tooling, build automation, and a Blender greybox pipeline — plus DreamEngine, the automation harness in the next project — are on the Tools tab, each marked Built or Designed and in progress.',
+        'Editor tooling, build automation, and a Blender greybox pipeline — plus DreamStead, the automation harness in the next project — are on the Tools tab, each marked Built or Designed and in progress.',
       ],
       note: 'Private repository — walkthrough available on request.',
       figures: HOMEWORLD_FIGURES,
@@ -86,7 +86,7 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
   {
     featured: true,
     project: {
-      title: 'DreamEngine — solo-dev automation harness',
+      title: 'DreamStead — solo-dev automation harness',
       meta: 'Nov 2026 – present · Independent (solo) · agent orchestration, scheduled automation, decision tooling',
       summary:
         'A solo-dev “company in a box”: one person steers while parallel agent lanes build in local coding-agent sessions. I design the rules, review the work, and treat an agent saying “done” as a claim that still has to be proven.',
@@ -99,9 +99,9 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
       note: 'Private repository — walkthrough available on request.',
       figures: [
         {
-          src: '/media/dreamengine-loop.svg',
-          alt: 'Diagram of the DreamEngine loop: a person steers, a five-minute tick runs five parallel lanes, a done-gate checks rebase, tests, and merge readiness, then a merge train, with auto-resume, a status notifier, and a tool index.',
-          caption: 'Diagram of the DreamEngine loop, drawn for this page. Not a product screenshot.',
+          src: '/media/dreamstead-loop.svg',
+          alt: 'Diagram of the DreamStead loop: a person steers, a five-minute tick runs five parallel lanes, a done-gate checks rebase, tests, and merge readiness, then a merge train, with auto-resume, a status notifier, and a tool index.',
+          caption: 'Diagram of the DreamStead loop, drawn for this page. Not a product screenshot.',
           kind: 'diagram',
         },
         {
@@ -208,7 +208,7 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     org: 'Uber, retail delivery · Hamilton, ON',
     period: 'Jun 2022 – present',
     detail:
-      'Independent schedule while building a game-development portfolio in 2026 (HomeWorld, DreamEngine, Tether, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
+      'Independent schedule while building a game-development portfolio in 2026 (HomeWorld, DreamStead, Tether, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
     sort_order: 3,
     created_at: '',
     updated_at: '',
