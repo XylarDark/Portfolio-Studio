@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" role="img" aria-labelledby="deTitle deDesc">
-  <title id="deTitle">DreamEngine loop</title>
+  <title id="deTitle">DreamStead loop</title>
   <desc id="deDesc">Diagram: one person steers five parallel agent lanes. A five-minute tick feeds a done-gate, then a merge train, with auto-resume, a status notifier, and a tool index.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -7,7 +7,7 @@
     </marker>
   </defs>
   <rect width="1000" height="540" rx="12" fill="#161b16"/>
-  <text x="32" y="42" fill="#e8e4d8" font-family="Georgia, 'Times New Roman', serif" font-size="22">DreamEngine loop</text>
+  <text x="32" y="42" fill="#e8e4d8" font-family="Georgia, 'Times New Roman', serif" font-size="22">DreamStead loop</text>
   <text x="32" y="66" fill="#a8a49a" font-family="system-ui, sans-serif" font-size="13">One person steers. Parallel lanes build. A five-minute tick keeps the work moving.</text>
 
   <!-- Lead -->
