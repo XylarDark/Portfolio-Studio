@@ -105,6 +105,14 @@ import {
   POLICYME_PITCH,
   VALET_PITCH,
 } from './pitchNov14'
+import {
+  CSCGENERATION_PITCH,
+  GASTRONOMOUS_PITCH,
+  MERCOR_PITCH,
+  PROVIDIUS_PITCH,
+  SADSERVERS_PITCH,
+  THATGAMECOMPANY_PITCH,
+} from './pitchNov16'
 import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
@@ -185,6 +193,12 @@ export const PITCHES: Pitch[] = [
   POLICYME_PITCH,
   ASSEMBLYAI_PITCH,
   VALET_PITCH,
+  THATGAMECOMPANY_PITCH,
+  PROVIDIUS_PITCH,
+  SADSERVERS_PITCH,
+  GASTRONOMOUS_PITCH,
+  MERCOR_PITCH,
+  CSCGENERATION_PITCH,
 ]
 
 export function findPitch(slug: string, key: string): Pitch | null {
