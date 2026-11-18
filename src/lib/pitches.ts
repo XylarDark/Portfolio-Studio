@@ -113,6 +113,14 @@ import {
   SADSERVERS_PITCH,
   THATGAMECOMPANY_PITCH,
 } from './pitchNov16'
+import {
+  AMODERNARCADE_PITCH,
+  DISTANTJOB_PITCH,
+  INTUITIONLABS_PITCH,
+  NOVARA_PITCH,
+  SUPERBAR_PITCH,
+  VELORA_PITCH,
+} from './pitchNov18'
 import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
@@ -199,7 +207,14 @@ export const PITCHES: Pitch[] = [
   GASTRONOMOUS_PITCH,
   MERCOR_PITCH,
   CSCGENERATION_PITCH,
+  AMODERNARCADE_PITCH,
+  INTUITIONLABS_PITCH,
+  NOVARA_PITCH,
+  VELORA_PITCH,
+  SUPERBAR_PITCH,
+  DISTANTJOB_PITCH,
 ]
+
 
 export function findPitch(slug: string, key: string): Pitch | null {
   const normalized = key.trim().toLowerCase()
