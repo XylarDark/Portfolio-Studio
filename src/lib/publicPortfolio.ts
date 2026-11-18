@@ -12,20 +12,21 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Game Developer',
   location: 'Hamilton, ON',
   lede:
-    'Game developer focused on gameplay, systems, and developer tools. Since February 2026 I have been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with DreamStead, a solo-dev automation harness, and Tether, a phone app for reviewing and answering work from a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
+    'Game developer and tools engineer focused on AI-agent harnesses, developer tools, and gameplay systems. My most relevant work is DreamStead’s DreamFlow, a fenced, test-first agentic dev harness I have been building since 15 November 2026: small specs, frozen red-first tests, and a five-guard merge gate, and DreamFlow now opens most of its own pull requests through its own Shipper. Since February 2026 I have also been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with Tether, a phone app for steering work on a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
   linkedinLabel: 'LinkedIn',
   contactBlurb:
     'Hamilton, ON. Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
-  resumeBlurb: 'One-page game developer résumé.',
+  resumeBlurb: 'Game developer and tools résumé, led by DreamStead’s DreamFlow.',
   availability: 'Available immediately · Remote · Eastern Time (Toronto)',
   roles:
     'Open to junior/entry, intermediate, and contract game developer roles — gameplay programming, Unreal/C++, tools, and QA.',
 }
 
 export const PUBLIC_SKILLS: { label: string; value: string }[] = [
+  { label: 'AI & agents', value: 'Agent harnesses, LLM coding agents (cursor-agent, opencode), red-first test gates, CI merge gates' },
   { label: 'Languages', value: 'C++, C#, TypeScript/JavaScript, Python, HTML/CSS' },
   { label: 'Game', value: 'Unreal Engine 5.8, Gameplay Ability System, PCG, Phaser 3, Unity' },
   { label: 'Web & data', value: 'React, Vite, ASP.NET, SQL, REST APIs' },
@@ -65,7 +66,25 @@ export const HOMEWORLD_FIGURES: PitchFigure[] = [
   },
 ]
 
+export const DREAMFLOW_PROJECT: PitchProject = {
+  title: 'DreamStead’s DreamFlow — agentic dev harness',
+  meta: 'Nov 2026 – present · Independent (solo) · Python 3.12, pytest, ruff, pyright, GitHub Actions · MIT licence',
+  summary:
+    'A fenced software factory for one developer: ideas go into a queue, small test-first pull requests come out, and a gate merges them only when the proof holds. DreamFlow assumes the model is always guessing, so it never trusts model output — it fences the model in with small specs, frozen red tests, and a merge gate.',
+  bullets: [
+    'A Lane Pump moves each queued idea through a spec drafter (at most 5 files, under 12,288 bytes), red-first acceptance tests, and one builder model hop in its own git worktree. Anything that fails a filter goes to a side pump for repair (CI-fix hop, then rescue hop) or to a hold with a reason — never around the filter.',
+    'Green means proven: acceptance tests are recorded failing on main and frozen by sha256 before any code is written. A five-guard merge gate checks CI green, an unchanged first-red hash, no test edits after red, at most 5 files, and no change to contracts, agent rules, or Tether.',
+    'DreamFlow builds DreamFlow: 128 of its 144 merged pull requests (15–18 November 2026) were opened by its own Shipper, every one at 5 files or fewer — including the merge-gate guards, the red lock, the spec drafter, and the stall valve.',
+    'Model-agnostic by config (Grok through cursor-agent for design work, DeepSeek through opencode for mechanical builds). CI runs pytest, ruff, pyright, and gitleaks; a per-lane trifecta check keeps secrets, untrusted input, and outbound sends out of any single lane; and a flow meter stamps time, tokens, and fix rounds for every stage.',
+  ],
+  note: 'Private repository in the DreamStead GitHub organization — walkthrough available on request.',
+}
+
 export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = [
+  {
+    featured: true,
+    project: DREAMFLOW_PROJECT,
+  },
   {
     featured: true,
     project: {
@@ -77,7 +96,7 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
         'Chapter 1’s feature walk — homestead, planting, backpack, gathering, rune unlock, camp, bed-to-spirit, nurture, and portal camp — is merged and covered by automated play-in-editor tests.',
         'Built planetoid world systems on a 5 km-radius planet, including a closed-mesh planet shell, PCG scatter, and data-driven zone placement and recipes rather than one-off baked maps.',
         'Implemented a versioned save system with per-system slices and migrations that refuse unknown newer saves; added C++ and Python tests around saves, a 7-axis sin/virtue system, and playtest beats.',
-        'Editor tooling, build automation, and a Blender greybox pipeline — plus DreamStead, the automation harness in the next project — are on the Tools tab, each marked Built or Designed and in progress.',
+        'Editor tooling, build automation, and a Blender greybox pipeline — plus DreamStead’s earlier automation harness, the predecessor to DreamFlow — are on the Tools tab, each marked Built or Designed and in progress.',
       ],
       note: 'Private repository — walkthrough available on request.',
       figures: HOMEWORLD_FIGURES,
@@ -86,7 +105,7 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
   {
     featured: true,
     project: {
-      title: 'DreamStead — solo-dev automation harness',
+      title: 'DreamStead — earlier solo-dev automation harness (predecessor to DreamFlow)',
       meta: 'Nov 2026 – present · Independent (solo) · agent orchestration, scheduled automation, decision tooling',
       summary:
         'A solo-dev “company in a box”: one person steers while parallel agent lanes build in local coding-agent sessions. I design the rules, review the work, and treat an agent saying “done” as a claim that still has to be proven.',
@@ -208,7 +227,7 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     org: 'Uber, retail delivery · Hamilton, ON',
     period: 'Jun 2022 – present',
     detail:
-      'Independent schedule while building a game-development portfolio in 2026 (HomeWorld, DreamStead, Tether, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
+      'Independent schedule while building a game-development portfolio in 2026 (DreamStead’s DreamFlow, HomeWorld, Tether, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
     sort_order: 3,
     created_at: '',
     updated_at: '',
