@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import { fetchPortfolioBySlug } from '../lib/api'
 import { detectKind } from '../lib/files'
 import {
+  DREAMFLOW_PROJECT,
   HOMEWORLD_FIGURES,
   PORTFOLIO_TABS,
   PUBLIC_EXPERIENCE,
@@ -80,6 +81,10 @@ function OverviewPanel({
           Get in touch
         </button>
       </div>
+      <section className="public-featured overview-featured" aria-label="Featured project">
+        <p className="pitch-eyebrow">Featured project</p>
+        <ProjectCard project={DREAMFLOW_PROJECT} featured />
+      </section>
       <div className="overview-visuals">
         <FigureGallery figures={HOMEWORLD_FIGURES} layout="hero-plus" />
       </div>
@@ -251,7 +256,7 @@ export function PublicPortfolioPage() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'Game developer portfolio for Luke Thompson: HomeWorld (Unreal Engine 5.8 / C++), DreamStead, Tether, Shift (Phaser), and tools and pipeline work.',
+        'Tools engineer (AI & games) portfolio for Luke Thompson: DreamStead’s DreamFlow (agentic dev harness), HomeWorld (Unreal Engine 5.8 / C++), Tether, Shift (Phaser), and tools and pipeline work.',
       )
     }
     return () => {
