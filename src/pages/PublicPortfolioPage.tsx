@@ -256,7 +256,7 @@ export function PublicPortfolioPage() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'Game developer and tools portfolio for Luke Thompson: DreamStead’s DreamFlow (agentic dev harness), HomeWorld (Unreal Engine 5.8 / C++), Tether, Shift (Phaser), and tools and pipeline work.',
+        'Tools engineer (AI & games) portfolio for Luke Thompson: DreamStead’s DreamFlow (agentic dev harness), HomeWorld (Unreal Engine 5.8 / C++), Tether, Shift (Phaser), and tools and pipeline work.',
       )
     }
     return () => {

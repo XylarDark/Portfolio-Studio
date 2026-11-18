@@ -9,17 +9,17 @@ export const PUBLIC_RESUME_PATH = '/resumes/luke-thompson-gamedev.pdf'
 
 export const PUBLIC_PORTFOLIO = {
   displayName: 'Luke Thompson',
-  headline: 'Game Developer',
+  headline: 'Tools Engineer (AI & Games)',
   location: 'Hamilton, ON',
   lede:
-    'Game developer and tools engineer focused on AI-agent harnesses, developer tools, and gameplay systems. My most relevant work is DreamStead’s DreamFlow, a fenced, test-first agentic dev harness I have been building since 15 November 2026: small specs, frozen red-first tests, and a five-guard merge gate, and DreamFlow now opens most of its own pull requests through its own Shipper. Since February 2026 I have also been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with Tether, a phone app for steering work on a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
+    'Tools engineer focused on AI-agent harnesses, developer tools, and gameplay systems. My most relevant work is DreamStead’s DreamFlow, a fenced, test-first agentic dev harness I have been building since 15 November 2026: small specs, frozen red-first tests, and a five-guard merge gate, and DreamFlow now opens most of its own pull requests through its own Shipper. Since February 2026 I have also been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with Tether, a phone app for steering work on a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
   linkedinLabel: 'LinkedIn',
   contactBlurb:
     'Hamilton, ON. Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
-  resumeBlurb: 'Game developer and tools résumé, led by DreamStead’s DreamFlow.',
+  resumeBlurb: 'Tools engineer (AI & games) résumé, led by DreamStead’s DreamFlow.',
   availability: 'Available immediately · Remote · Eastern Time (Toronto)',
   roles:
     'Open to junior/entry, intermediate, and contract game developer roles — gameplay programming, Unreal/C++, tools, and QA.',
