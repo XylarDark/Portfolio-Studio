@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import './LandingPage.css'
-import { absoluteAppUrl } from '../lib/urls'
+import { absoluteAppUrl, withBase } from '../lib/urls'
 
 export function LandingPage() {
   const { configured, loading, user, profile, signInWithGoogle, signOut } = useAuth()
@@ -107,6 +107,18 @@ export function LandingPage() {
           <li>They upload their own media and publish at /u/their-slug.</li>
         </ol>
       </section>
+
+      <footer className="landing-section">
+        <p>
+          <a href={withBase('/resumes/luke-thompson.pdf')} target="_blank" rel="noreferrer">
+            Luke Thompson resume (PDF)
+          </a>
+          {' · '}
+          <a href={withBase('/resumes/luke-thompson-gamedev.pdf')} target="_blank" rel="noreferrer">
+            Game developer resume (PDF)
+          </a>
+        </p>
+      </footer>
     </div>
   )
 }
