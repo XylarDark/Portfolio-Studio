@@ -1,0 +1,7 @@
+# Employer pitch pages are unlisted: shared by direct link, not for general search.
+# GitHub Pages is served both at the project base and, locally, at /.
+User-agent: *
+Allow: /u/admin/portfolio
+Disallow: /u/admin/
+Allow: /Portfolio-Studio/u/admin/portfolio
+Disallow: /Portfolio-Studio/u/admin/
