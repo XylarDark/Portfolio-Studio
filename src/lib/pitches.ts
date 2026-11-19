@@ -121,6 +121,14 @@ import {
   SUPERBAR_PITCH,
   VELORA_PITCH,
 } from './pitchNov18'
+import {
+  BCMR_PITCH,
+  CLERA_PITCH,
+  EUNA_PITCH,
+  QHR_PITCH,
+  SOTI_DEVOPS_PITCH,
+  SOTI_SDET_PITCH,
+} from './pitchNov19'
 import { WORK_HISTORY } from './pitchWork'
 
 export const PITCHES: Pitch[] = [
@@ -213,6 +221,12 @@ export const PITCHES: Pitch[] = [
   VELORA_PITCH,
   SUPERBAR_PITCH,
   DISTANTJOB_PITCH,
+  BCMR_PITCH,
+  SOTI_DEVOPS_PITCH,
+  EUNA_PITCH,
+  CLERA_PITCH,
+  SOTI_SDET_PITCH,
+  QHR_PITCH,
 ]
 
 

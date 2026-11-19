@@ -11,7 +11,7 @@ copyFileSync(index, join(dist, '404.html'))
 const routes = new Set(['u/admin', 'u/admin/portfolio'])
 for (const file of readdirSync('src/lib').filter((f) => /^pitch.*\.ts$/.test(f))) {
   const src = readFileSync(join('src/lib', file), 'utf8')
-  for (const m of src.matchAll(/["']?key["']?\s*:\s*["']([a-z0-9-]+)["']/g)) routes.add(`u/admin/${m[1]}`)
+  for (const m of src.matchAll(/["']?key["']?\s*:\s*["']([a-z0-9_-]+)["']/g)) routes.add(`u/admin/${m[1]}`)
 }
 for (const route of routes) {
   mkdirSync(join(dist, route), { recursive: true })

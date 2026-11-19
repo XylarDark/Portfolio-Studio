@@ -9,12 +9,12 @@ import { HOMEWORLD_FIGURES } from './publicPortfolio'
  * don't add claims here.
  */
 
-const TOOLS_WRITEUP: PitchLink = {
+export const TOOLS_WRITEUP: PitchLink = {
   label: 'Full tools write-up',
   href: 'https://xylardark.github.io/Portfolio-Studio/u/admin/portfolio#tools',
 }
 
-const SHIFT: PitchProject = {
+export const SHIFT: PitchProject = {
   title: 'Shift — playable shop & delivery game',
   meta: 'Aug – Sep 2026 · Independent · Phaser 3, TypeScript, Vite',
   summary:
@@ -25,7 +25,7 @@ const SHIFT: PitchProject = {
   ],
 }
 
-const PORTFOLIO_STUDIO: PitchProject = {
+export const PORTFOLIO_STUDIO: PitchProject = {
   title: 'Portfolio Studio',
   meta: 'Sep 2026 – present · React, TypeScript, Vite, Supabase',
   summary:
@@ -49,7 +49,7 @@ const DREAMSTEAD: PitchProject = {
   note: 'Private repository — code walkthrough available on request.',
 }
 
-const HOMEWORLD_TOOLS: PitchProject = {
+export const HOMEWORLD_TOOLS: PitchProject = {
   title: 'HomeWorld — AI-agent tooling and verification',
   meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
   summary:
@@ -64,7 +64,7 @@ const HOMEWORLD_TOOLS: PitchProject = {
   figures: HOMEWORLD_FIGURES,
 }
 
-const TETHER: PitchProject = {
+export const TETHER: PitchProject = {
   title: 'Tether — phone app for reviewing computer work',
   meta: 'Nov 2026 – present · Independent (solo) · TypeScript, phone PWA · went live 11 Nov 2026',
   summary:
