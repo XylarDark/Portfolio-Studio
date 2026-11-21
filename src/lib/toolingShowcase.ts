@@ -9,7 +9,7 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
   "navLabel": "Tools",
   "title": "Tools & pipeline work",
   "intro": [
-    "Two strands of tooling. **DreamStead** is the automation harness I built to run my solo work: one person steers, parallel agent lanes build, and a five-minute tick keeps the loop moving. **HomeWorld**, my solo Unreal Engine 5.8 / C++ game (Feb 2026 to now), also has editor tooling, build automation, and a Blender greybox pipeline. Both are private repositories; a walkthrough is available on request.",
+    "Two strands of tooling. **DreamStead's earlier automation harness** ran my solo work until 15 November 2026: one person steered, parallel agent lanes built, and a five-minute tick kept the loop moving. DreamFlow, on the Projects tab, replaced it. **HomeWorld**, my solo Unreal Engine 5.8 / C++ game (Feb 2026 to now), also has editor tooling, build automation, and a Blender greybox pipeline. Both are private repositories; a walkthrough is available on request.",
     "**How I work:** I design each tool, write the rules it enforces, and review and test every change. A lot of the code is written by AI coding agents that I direct. That's why most of these tools are about *proof*: an agent or a script saying \"done\" isn't evidence, so each tool checks real state and reports a verdict a person can trust.",
     "Status key: **Built** means it's in the repo, has tests, and has been run. **In progress** means it's built but hasn't passed end to end yet. **Designed** means there's a written spec or schema but the implementation is partial."
   ],
@@ -18,12 +18,12 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
       "title": "DreamStead loop: lanes, tick, done-gate, and merge train",
       "badge": "Built",
       "badgeTone": "built",
-      "status": "Built (November 2026). 123 merged pull requests as of 12 November 2026. In daily use on my solo work.",
+      "status": "Built (November 2026). 123 merged pull requests as of 12 November 2026. Retired on 15 November 2026, when DreamFlow replaced it.",
       "problem": "A single person directing several coding agents needs a loop that keeps moving when a session dies, that will not take an agent’s “done” at its word, and that can land work without constant babysitting.",
       "built": [
         {
           "list": [
-            "Five named lanes — HEALTH, P6, DREAM, BOOKEND, and TETHER — run in parallel on local coding-agent sessions. A five-minute scheduled tick is the heartbeat of the loop.",
+            "Five named lanes — HEALTH, P6, DREAM, BOOKEND, and TETHER — ran in parallel on local coding-agent sessions. A five-minute scheduled tick was the heartbeat of the loop.",
             "A done-gate refuses to mark a lane done until a rebase, a test rerun, and a merge-ready check all pass. A merge train then lands qualifying work one change at a time.",
             "Stalled or dead runs auto-resume. A PC status notifier and a tool index keep the state of the loop visible."
           ]
@@ -35,7 +35,7 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
       "title": "Preference engine, Layer 1",
       "badge": "Built",
       "badgeTone": "built",
-      "status": "Built (November 2026). Layer 1 is in the repo and covered by tests. No live decision type had met the bar as of 12 November 2026, so auto-default is not turned on for any type yet.",
+      "status": "Built (November 2026). Layer 1 is in the repo and covered by tests. No live decision type had met the bar as of 12 November 2026, so auto-default was never turned on for any type. Deferred on 15 November 2026 with the move to DreamFlow.",
       "problem": "Repeated decisions should be allowed to default only when the record is strong, and never in safety-sensitive cases.",
       "built": [
         {
@@ -52,13 +52,13 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
       "title": "Dream intake, one front door",
       "badge": "Built",
       "badgeTone": "built",
-      "status": "Built (November 2026). The single front door is in place. A first end-to-end dream run is in progress; it is not finished.",
+      "status": "Built (November 2026). The single front door was in place. Retired with the rest of this harness on 15 November 2026.",
       "problem": "New ideas were entering through more than one path, which made it harder to turn a dream into a tight brief and into work a lane could actually run.",
       "built": [
         {
           "list": [
             "One intake door turns a dream into questions and a tight brief, and is the path new ideas go through.",
-            "A walking-test baseline for an end-to-end run has been recorded. A first live end-to-end dream is in progress, not done."
+            "A walking-test baseline for an end-to-end run has been recorded. The harness was retired on 15 November 2026."
           ]
         }
       ],

@@ -78,6 +78,14 @@ export const DREAMFLOW_PROJECT: PitchProject = {
     'Model-agnostic by config (Grok through cursor-agent for design work, DeepSeek through opencode for mechanical builds). CI runs pytest, ruff, pyright, and gitleaks; a per-lane trifecta check keeps secrets, untrusted input, and outbound sends out of any single lane; and a flow meter stamps time and tokens for every stage.',
   ],
   note: 'Private repository in the DreamStead GitHub organization — walkthrough available on request.',
+  figures: [
+    {
+      src: '/media/dreamflow-flow.png',
+      alt: 'Diagram of the DreamFlow Lane Pump: idea, intake, queue, spec drafter, staging checks, red-first frozen tests, builder hop, CI, auto-merge gate and main. Failures go to repair hops or a per-row hold and become fix rows. Dashed boxes are queued work, not shipped.',
+      caption: 'Diagram of the DreamFlow Lane Pump, drawn from the repo on 21 November 2026. Solid boxes are live, dashed boxes are queued. Not a product screenshot.',
+      kind: 'diagram',
+    },
+  ],
 }
 
 export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = [
@@ -106,14 +114,14 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
     featured: true,
     project: {
       title: 'DreamStead — earlier solo-dev automation harness (predecessor to DreamFlow)',
-      meta: 'Nov 2026 – present · Independent (solo) · agent orchestration, scheduled automation, decision tooling',
+      meta: 'Nov 2026 · retired 15 Nov 2026, replaced by DreamFlow · Independent (solo) · agent orchestration, scheduled automation, decision tooling',
       summary:
         'A solo-dev “company in a box”: one person steers while parallel agent lanes build in local coding-agent sessions. I design the rules, review the work, and treat an agent saying “done” as a claim that still has to be proven.',
       bullets: [
-        'Five named lanes — HEALTH, P6, DREAM, BOOKEND, and TETHER — run in parallel, driven by a five-minute scheduled tick.',
+        'Five named lanes — HEALTH, P6, DREAM, BOOKEND, and TETHER — ran in parallel, driven by a five-minute scheduled tick.',
         'A done-gate refuses to mark a lane done until a rebase, a test rerun, and a merge-ready check all pass. A merge train lands qualifying work one change at a time. Stalled or dead runs auto-resume. A PC status notifier and a tool index keep the loop visible. 123 merged pull requests as of 12 November 2026.',
         'Preference engine, Layer 1 (built): a deterministic take-rate counter may auto-default a decision type only at a 95% take rate over at least 20 evidenced answers, and only after a one-time yes for that type. Safety-sensitive types — including deletes, merges, installs, secrets, and art or taste decisions — never auto-default.',
-        'Dream intake has a single front door. A first end-to-end dream run is in progress; it is not finished.',
+        'Dream intake had a single front door. This harness was retired on 15 November 2026, when DreamFlow replaced it.',
       ],
       note: 'Private repository — walkthrough available on request.',
       figures: [
