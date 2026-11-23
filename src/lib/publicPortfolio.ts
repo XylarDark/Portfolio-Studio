@@ -78,14 +78,6 @@ export const DREAMFLOW_PROJECT: PitchProject = {
   ],
   links: [{ label: 'DreamFlow at DreamStead', href: 'https://dreamstead.ca/dreamflow' }],
   note: 'Private repository — walkthrough available on request.',
-  figures: [
-    {
-      src: '/media/dreamflow-flow.png',
-      alt: 'Diagram of how DreamFlow takes an idea through tests and a CI gate to a merge. Dashed boxes are planned, not shipped.',
-      caption: 'How DreamFlow takes an idea through tests and a CI gate. Dashed boxes are planned, not shipped. Not a product screenshot.',
-      kind: 'diagram',
-    },
-  ],
 }
 
 export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = [
