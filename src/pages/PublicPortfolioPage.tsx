@@ -20,7 +20,7 @@ import {
   parsePortfolioTab,
   type PortfolioTabId,
 } from '../lib/publicPortfolio'
-import { isSupabaseConfigured, mediaUrl } from '../lib/supabase'
+import { isSupabaseConfigured } from '../lib/supabase'
 import { portfolioThemeStyle } from '../lib/theme'
 import type { PortfolioBundle, Profile, ViewerAsset } from '../lib/types'
 import { withBase } from '../lib/urls'
@@ -365,7 +365,7 @@ export function PublicPortfolioPage() {
     } satisfies Profile
   }, [bundle, resumeUrl, slug])
 
-  const hero = mediaUrl(profile.hero_path)
+  const hero = profile.hero_path ? withBase(profile.hero_path) : null
   const brand = PUBLIC_PORTFOLIO.displayName
   const showStudioLink = Boolean(me && bundle && me.id === bundle.profile.id)
 
