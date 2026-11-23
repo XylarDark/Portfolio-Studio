@@ -81,6 +81,10 @@ function HireDreamSteadBlock() {
         For Unreal Engine contract work, hire me through DreamStead, my studio.
       </p>
       <p className="public-hire-note">Fixed-price tooling later, not open yet.</p>
+      <p className="public-hire-note">
+        DreamStead business contact:{' '}
+        <a href="mailto:hello@dreamstead.ca">hello@dreamstead.ca</a>
+      </p>
     </section>
   )
 }
