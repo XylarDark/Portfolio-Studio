@@ -12,7 +12,7 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Tools Engineer (AI & Games)',
   location: 'Hamilton, ON',
   lede:
-    'I design tools, agent harnesses, and gameplay systems. I built and run my own agentic harness, DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I have also been developing HomeWorld (a private Unreal Engine 5.8 / C++ game, in development since February 2026). I shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote Unreal and tools work, or hybrid / on-site in the GTA–Hamilton area.',
+    'I design tools, agent harnesses, and gameplay systems. I built and run DreamFlow, my agentic harness: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I have also been developing HomeWorld (a private Unreal Engine 5.8 / C++ game, in development since February 2026), and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Open to remote Unreal and tools work, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
@@ -70,9 +70,8 @@ export const DREAMFLOW_PROJECT: PitchProject = {
   title: 'DreamFlow — agentic dev harness I built and run',
   meta: 'Nov 2026 – present · Independent (solo) · Python · dreamstead.ca/dreamflow',
   summary:
-    'DreamFlow is an agentic development harness I built and run for my own work. It is not a product for sale, and it is not how I deliver client Unreal work today. Ideas become small pull requests. Tests are written first and must fail before the code is written. A change merges only when CI passes. I treat model output as a guess, never as proof. I can walk through the work on request.',
+    'DreamFlow is the agentic development harness I built and run for my own work. It is not a product for sale, and it is not how I deliver client Unreal work today. I treat model output as a guess, never as proof, and I can walk through the work on request.',
   bullets: [
-    'I use it on my own codebase: each change is a small pull request, with tests frozen before the code is written, and a CI gate before merge.',
     'I built it to direct coding agents without taking “done” at their word. The harness is how I work, not something a client installs.',
     'A walkthrough is available on request. There is no public repository.',
   ],

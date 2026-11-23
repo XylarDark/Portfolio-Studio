@@ -57,18 +57,15 @@ function fallbackProfile(slug: string): Profile {
 function HireDreamSteadBlock() {
   return (
     <section className="public-hire-block" aria-label="Hire me via DreamStead">
-      <h2 className="public-hire-heading">Hire me via DreamStead</h2>
-      <p>
-        For Unreal Engine contract work, hire me through DreamStead, my studio. Every change is a
-        small pull request, tests are written first and must fail before the code is written, and CI
-        must pass before a change merges.
+      <p className="public-hire-body">
+        For Unreal Engine contract work, hire me through DreamStead, my studio.
       </p>
-      <p>Fixed-price tooling features are coming later. That offer is not open yet.</p>
+      <p className="public-hire-note">Fixed-price tooling later, not open yet.</p>
     </section>
   )
 }
 
-function OverviewPanel({
+function OverviewIntro({
   resumeUrl,
   onOpenTab,
 }: {
@@ -76,11 +73,16 @@ function OverviewPanel({
   onOpenTab: (tab: PortfolioTabId) => void
 }) {
   return (
-    <div className="public-panel">
+    <div className="hero-copy public-hero-copy">
+      <h1 className="brand">{PUBLIC_PORTFOLIO.displayName}</h1>
+      <p className="hero-headline">{PUBLIC_PORTFOLIO.headline}</p>
       <p className="lede public-overview-lede">{PUBLIC_PORTFOLIO.lede}</p>
       <HireDreamSteadBlock />
       <div className="cta-row">
-        <CtaLink link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca' }} className="cta primary" />
+        <CtaLink
+          link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca/#contact' }}
+          className="cta primary"
+        />
         <button type="button" className="cta ghost" onClick={() => onOpenTab('projects')}>
           View projects
         </button>
@@ -91,10 +93,17 @@ function OverviewPanel({
           link={{ label: 'Play Shift', href: 'https://xylardark.github.io/ShiftGame/' }}
           className="cta ghost"
         />
-        <button type="button" className="cta text" onClick={() => onOpenTab('tools')}>
+        <button type="button" className="cta ghost" onClick={() => onOpenTab('tools')}>
           See the tools
         </button>
       </div>
+    </div>
+  )
+}
+
+function OverviewRest() {
+  return (
+    <>
       <section className="public-featured overview-featured" aria-label="Featured project">
         <p className="pitch-eyebrow">Featured project</p>
         <ProjectCard project={DREAMFLOW_PROJECT} featured />
@@ -113,7 +122,7 @@ function OverviewPanel({
           ))}
         </dl>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -220,7 +229,7 @@ function ContactPanel({
       </div>
       <HireDreamSteadBlock />
       <div className="resume-file-row public-resume-row">
-        <CtaLink link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca' }} className="cta primary" />
+        <CtaLink link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca/#contact' }} className="cta primary" />
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
           GitHub
         </a>
@@ -398,6 +407,7 @@ export function PublicPortfolioPage() {
   return (
     <div className="page public-portfolio" style={portfolioThemeStyle(profile)}>
       <header className="nav public-nav">
+        <div className="public-wrap">
         <div className="public-nav-row">
           <button type="button" className="nav-brand" onClick={() => openTab('overview')}>
             {brand}
@@ -434,42 +444,34 @@ export function PublicPortfolioPage() {
             )
           })}
         </div>
+        </div>
       </header>
 
       <main id="top" className="public-main">
+        <div className="public-wrap">
         {tab === 'overview' ? (
           <div
             role="tabpanel"
             id="panel-overview"
             aria-labelledby="tab-overview"
-            className={`hero ${hero ? 'hero-with-media' : 'hero-atmosphere'} public-overview-hero`}
+            className="public-overview"
             aria-label="Introduction"
           >
-            <div className="hero-copy">
-              <h1 className="brand">{brand}</h1>
-              <p className="hero-headline">{PUBLIC_PORTFOLIO.headline}</p>
-              <OverviewPanel resumeUrl={resumeUrl} onOpenTab={openTab} />
-            </div>
-            {hero ? (
-              <div className="hero-media">
-                <img
-                  className="hero-image"
-                  src={hero}
-                  alt="Key art for HomeWorld. This is concept art, not a gameplay capture."
-                  width={2400}
-                  height={1600}
-                />
-              </div>
-            ) : (
-              <div className="hero-media hero-media-empty" aria-hidden="true">
-                <div className="hero-atmosphere-marks">
-                  <span />
-                  <span />
-                  <span />
+            <div className="public-hero-top">
+              <OverviewIntro resumeUrl={resumeUrl} onOpenTab={openTab} />
+              {hero ? (
+                <div className="hero-media public-hero-media">
+                  <img
+                    className="hero-image"
+                    src={hero}
+                    alt="Key art for HomeWorld. This is concept art, not a gameplay capture."
+                    width={768}
+                    height={1152}
+                  />
                 </div>
-                <div className="hero-veil" />
-              </div>
-            )}
+              ) : null}
+            </div>
+            <OverviewRest />
           </div>
         ) : null}
 
@@ -502,9 +504,11 @@ export function PublicPortfolioPage() {
             <ContactPanel resumeUrl={resumeUrl} ownerId={profile.id} ownerName={brand} />
           </div>
         ) : null}
+        </div>
       </main>
 
-      <footer className="footer">
+      <footer className="footer public-footer">
+        <div className="public-wrap public-footer-row">
         <p>
           © {new Date().getFullYear()} {brand}
         </p>
@@ -513,6 +517,7 @@ export function PublicPortfolioPage() {
             Get in touch
           </button>
         </p>
+        </div>
       </footer>
 
       <MediaViewer
