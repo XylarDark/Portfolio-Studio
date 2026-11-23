@@ -9,7 +9,7 @@ export const HOMEWORLD_TOOLING_SHOWCASE: PitchShowcase = {
   navLabel: 'Tools',
   title: 'Tools & pipeline work',
   intro: [
-    'HomeWorld, my private Unreal Engine 5.8 / C++ game (in development since February 2026), has editor tooling, build automation, and a Blender greybox pipeline. The repository is private; a walkthrough is available on request.',
+    'HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning (in development since February 2026), has editor tooling, build automation, and a Blender greybox pipeline. The repository is private; a walkthrough is available on request.',
     'How I work: I design each tool, write the rules it enforces, and review and test every change. A script or agent saying “done” is not evidence, so each tool checks real state and reports a verdict a person can trust.',
     'Status key: Built means it is in the repo, has tests, and has been run. In progress means it is built but has not passed end to end yet. Designed means there is a written spec, and the implementation is partial.',
   ],

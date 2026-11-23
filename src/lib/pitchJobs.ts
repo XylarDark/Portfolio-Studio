@@ -43,7 +43,7 @@ export const SIRION_PITCH: Pitch = {
   letterHeading: 'Hi Sirion team',
   letter: [
     'I’m applying for the AI Agent Builder – Junior Engineer role in Toronto. The posting asks for someone who designs agent logic, connects agents to tools and data, tests their reasoning, and measures whether they’re reliable. That’s what I’ve spent this year doing.',
-    'Since February 2026 I’ve built HomeWorld, a solo Unreal Engine 5.8 / C++ game, with AI coding agents writing much of the code under my direction. Some examples:',
+    'Since February 2026 I’ve built HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, with AI coding agents writing much of the code under my direction. Some examples:',
     {
       list: [
         '**A multi-agent workflow:** separate roles for research, design interviews, implementation and testing, with written handoff rules and merge gates. Docs-only changes merge after a passing test; source changes wait for my approval.',
@@ -60,7 +60,7 @@ export const SIRION_PITCH: Pitch = {
     title: 'HomeWorld — AI-agent workflow and verification tooling',
     meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
     summary:
-      'A solo Unreal Engine 5.8 / C++ game built with AI coding agents under my direction. I design the tools and the rules they enforce, and every agent result is checked against real state before it counts.',
+      'A private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning built with AI coding agents under my direction. I design the tools and the rules they enforce, and every agent result is checked against real state before it counts.',
     bullets: [
       'Editor automation bridge: a JSON request/response protocol for actor lists, world info, Blueprint defaults, asset checks, and a per-row pass/fail probe.',
       'Headless test runner that hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries. Each of these once produced a fake pass.',
@@ -121,7 +121,7 @@ export const CITI_PITCH: Pitch = {
   letterHeading: 'Hi Citi hiring team',
   letter: [
     'I’m applying for the Software Engineer, Design Systems & AI Tooling role in Mississauga. Your team is building a design agent and MCP server and needs people who use AI coding tools every day and also build the harnesses that check what those tools produce. That’s how I’ve worked all year, and Track 3 (Quality, Reliability & Verification) is where I’d start.',
-    'Since February 2026 I’ve built HomeWorld, a solo Unreal Engine 5.8 / C++ game, with AI coding agents writing much of the code under my direction. The part I’m proudest of is the verification around them:',
+    'Since February 2026 I’ve built HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, with AI coding agents writing much of the code under my direction. The part I’m proudest of is the verification around them:',
     {
       list: [
         '**A JSON tool bridge:** agents and scripts send a `{command, args}` request to the editor and get structured JSON back, and new command modules plug in.',
@@ -136,10 +136,10 @@ export const CITI_PITCH: Pitch = {
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: {
-    title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
+    title: 'HomeWorld — Unreal Engine 5.8 / C++ prototyping environment',
     meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
     summary:
-      'A solo Unreal Engine 5.8 / C++ game built with AI coding agents under my direction. I build the tools they use and the checks their output has to pass before it counts.',
+      'A private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning built with AI coding agents under my direction. I build the tools they use and the checks their output has to pass before it counts.',
     bullets: [
       'Editor automation bridge: a JSON request/response protocol (world info, asset checks, a per-row pass/fail probe) that new command modules plug into.',
       'Headless test runner that hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries, each with a regression test.',

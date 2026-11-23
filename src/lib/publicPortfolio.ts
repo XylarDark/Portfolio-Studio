@@ -12,7 +12,7 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Tools Engineer (AI & Games)',
   location: 'Hamilton, ON',
   lede:
-    'I design tools, agent harnesses, and gameplay systems. I built and run DreamFlow, my agentic harness: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I have also been developing HomeWorld (a private Unreal Engine 5.8 / C++ game, in development since February 2026), and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Open to remote Unreal and tools work, or hybrid / on-site in the GTA–Hamilton area.',
+    'I design tools, agent harnesses, and gameplay systems. I built and run DreamFlow, my agentic harness: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I have also been developing HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning (in development since February 2026), and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Open to remote Unreal and tools work, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
@@ -28,7 +28,7 @@ export const PUBLIC_PORTFOLIO = {
 export const PUBLIC_SKILLS: { label: string; value: string }[] = [
   { label: 'AI & agents', value: 'Agent harnesses, coding agents I direct, test-first gates, CI merge gates' },
   { label: 'Languages', value: 'C++, C#, TypeScript/JavaScript, Python, HTML/CSS' },
-  { label: 'Game', value: 'Unreal Engine 5.8, Gameplay Ability System, PCG, Phaser 3, Unity' },
+  { label: 'Game', value: 'Unreal Engine 5.8, Unreal editor tools and plugins, PCG, Phaser 3, Unity' },
   { label: 'Web & data', value: 'React, Vite, ASP.NET, SQL, REST APIs' },
   { label: 'Workflow', value: 'Git/GitHub, Visual Studio, editor tooling, playtesting, cross-browser QA' },
 ]
@@ -96,12 +96,12 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
   {
     featured: true,
     project: {
-      title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
+      title: 'HomeWorld — Unreal Engine 5.8 / C++ prototyping environment',
       meta: 'Feb 2026 – present · Independent (solo) · Unreal Engine 5.8, C++, Python tools',
       summary:
-        'HomeWorld is a private Unreal Engine 5.8 / C++ game, in development since February 2026. I built the C++ gameplay for an ARPG survival and family-sim aimed at PC: character and movement, Gameplay Ability System, inventory, time-of-day, and a homestead-to-planetoid loop (glider descent, shrine portal, gather, nurture, and interact).',
+        'HomeWorld is a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, in development since February 2026. The work includes Unreal editor tools and plugins, C++ prototype systems, and Python editor tooling.',
       bullets: [
-        'Chapter 1’s feature walk — homestead, planting, backpack, gathering, rune unlock, camp, bed-to-spirit, nurture, and portal camp — is merged and covered by automated play-in-editor tests.',
+        'Automated play-in-editor tests cover the current prototype.',
         'Built planetoid world systems on a 5 km-radius planet, including a closed-mesh planet shell, PCG scatter, and data-driven zone placement and recipes rather than one-off baked maps.',
         'Implemented a versioned save system with per-system slices and migrations that refuse unknown newer saves; added C++ and Python tests around saves, a 7-axis sin/virtue system, and playtest beats.',
         'Editor tooling, build automation, and a Blender greybox pipeline are on the Tools tab.',

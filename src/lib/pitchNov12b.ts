@@ -35,10 +35,10 @@ const PORTFOLIO_STUDIO: PitchProject = {
 }
 
 const HOMEWORLD_TOOLS: PitchProject = {
-  title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
+  title: 'HomeWorld — Unreal Engine 5.8 / C++ prototyping environment',
   meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
   summary:
-    'HomeWorld is a private Unreal Engine 5.8 / C++ game, in development since February 2026. Some code is written by AI coding agents under my direction; source changes wait for my review.',
+    'HomeWorld is a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, in development since February 2026. Some code is written by AI coding agents under my direction; source changes wait for my review.',
   bullets: [
     'Editor automation bridge: a JSON request/response protocol (world info, asset checks, a per-row pass/fail probe) that new command modules plug into.',
     'Headless test runner that hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries, each with a regression test.',
@@ -50,7 +50,7 @@ const HOMEWORLD_TOOLS: PitchProject = {
 }
 
 const HOMEWORLD_CPP: PitchProject = {
-  title: 'HomeWorld — C++ game, test and build automation',
+  title: 'HomeWorld — C++ prototyping environment, test and build automation',
   meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
   summary:
     'A solo Unreal Engine 5.8 / C++ project. Alongside the game code I built Python tooling, a headless test runner that refuses false passes, and a build wrapper with a machine-wide queue. Some code is written by AI coding agents under my direction; source changes wait for my review.',

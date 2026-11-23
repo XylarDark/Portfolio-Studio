@@ -34,9 +34,9 @@ export const AIRSHIP_PITCH: Pitch = {
     "href": "#tools"
   },
   "featured": {
-    "title": "HomeWorld — Unreal Engine 5.8 / C++ game",
+    "title": "HomeWorld — Unreal Engine 5.8 / C++ prototyping environment",
     "meta": "Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python",
-    "summary": "Unreal Engine 5.8 editor tooling, build automation, and a Blender greybox pipeline, built for my solo UE 5.8 / C++ project — a third-person ARPG survival and family-sim.",
+    "summary": "Unreal Engine 5.8 editor tooling, build automation, and a Blender greybox pipeline, built for HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning.",
     "bullets": [
       "Asset validation on save, a headless test runner that refuses false greens, undoable data-driven placement with a metrics gate, a Blender greybox pipeline, and an editor automation bridge with C++ commandlets.",
       "Backed by 42 C++ automation test files and 150+ Python test files for the tooling."

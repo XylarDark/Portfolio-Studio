@@ -281,7 +281,7 @@ export function PublicPortfolioPage() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'Tools engineer (AI & games) portfolio for Luke Thompson: DreamFlow, an agentic harness he built and runs; HomeWorld, a private Unreal Engine 5.8 / C++ game; and Shift, a playable Phaser game.',
+        'Tools engineer (AI & games) portfolio for Luke Thompson: DreamFlow, an agentic harness he built and runs; HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning; and Shift, a playable Phaser game.',
       )
     }
     return () => {

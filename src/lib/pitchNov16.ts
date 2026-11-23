@@ -51,10 +51,10 @@ const DREAMSTEAD: PitchProject = {
 }
 
 const HOMEWORLD_TOOLS: PitchProject = {
-  title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
+  title: 'HomeWorld — Unreal Engine 5.8 / C++ prototyping environment',
   meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
   summary:
-    'HomeWorld is a private Unreal Engine 5.8 / C++ game, in development since February 2026. Some code is written by AI coding agents under my direction; source changes wait for my review.',
+    'HomeWorld is a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, in development since February 2026. Some code is written by AI coding agents under my direction; source changes wait for my review.',
   bullets: [
     'Editor automation bridge: a JSON request/response protocol (world info, asset checks, a per-row pass/fail probe) that new command modules plug into.',
     'Headless test runner that hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries, each with a regression test.',
@@ -66,12 +66,12 @@ const HOMEWORLD_TOOLS: PitchProject = {
 }
 
 const HOMEWORLD_GAME: PitchProject = {
-  title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
+  title: 'HomeWorld — Unreal Engine 5.8 / C++ prototyping environment',
   meta: 'Feb 2026 – present · Independent (solo) · Unreal Engine 5.8, C++, Python tools',
   summary:
-    'C++ gameplay for an ARPG survival and family-sim aimed at PC, set on a 5 km-radius planetoid: character and movement, Gameplay Ability System, inventory, time-of-day, and a homestead-to-planetoid loop.',
+    'A private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, in development since February 2026, including Unreal editor tools and plugins.',
   bullets: [
-    'Chapter 1’s feature walk (homestead, planting, backpack, gathering, rune unlock, camp, bed-to-spirit, nurture, and portal camp) is merged and covered by automated play-in-editor tests.',
+    'Automated play-in-editor tests cover the current prototype.',
     'Planetoid systems use a 5 km-radius closed-mesh shell, PCG scatter, and data-driven zone placement.',
   ],
   links: [TOOLS_WRITEUP],
@@ -97,7 +97,7 @@ export const THATGAMECOMPANY_PITCH: Pitch = {
   letterHeading: 'Hi thatgamecompany hiring team',
   letter: [
     'I’m applying for the Build Engineer (Associate to Mid-Level) role. I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately. I can work to 10 am–5 pm Pacific (1 pm–8 pm Eastern).',
-    'The posting is about maintaining the app build and release process across mobile, consoles, and PC, improving CI, writing tools for other teams, and helping with rapid testing — with a C++ background and Python automation. That is close to how I already work. On HomeWorld, a private Unreal Engine 5.8 / C++ game, I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test, and a build wrapper with one machine-wide queue so parallel agents can’t collide. I built and run DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I write Python and C++, use Git and GitHub Actions, and I treat agent output as untrusted until tests and a review say otherwise. At TruckSail I wrote C++ firmware for truck ECU devices (STM32, CAN bus).',
+    'The posting is about maintaining the app build and release process across mobile, consoles, and PC, improving CI, writing tools for other teams, and helping with rapid testing — with a C++ background and Python automation. That is close to how I already work. On HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning, I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test, and a build wrapper with one machine-wide queue so parallel agents can’t collide. I built and run DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I write Python and C++, use Git and GitHub Actions, and I treat agent output as untrusted until tests and a review say otherwise. At TruckSail I wrote C++ firmware for truck ECU devices (STM32, CAN bus).',
     'I want to be clear about gaps and about work authorization. I have not used Perforce or Jenkins as part of a job, and I have not managed Google Play or App Store releases or Ansible provisioning. I would expect to learn your source control, CI, and storefront process on the team. I am authorized to work in Canada without sponsorship. I am not authorized to work in the United States, and I would need authorization if this role can only be hired as US employment. The posting body says “Remote US & Canada,” while the Ashby location field is “Remote - US” and the posting footer says applicants must be authorized to work for any employer in the U.S.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
@@ -181,7 +181,7 @@ export const MERCOR_PITCH: Pitch = {
   letterHeading: 'Hi Mercor hiring team',
   letter: [
     'I’m applying for the Application Users — Unreal Engine on Windows — Generalist contract. I’m in Hamilton, Ontario, available immediately, and I can work as an independent contractor.',
-    'The posting wants people who already have Unreal Engine installed and who can use it in real work, not a tutorial walkthrough. Since February 2026 I have been developing HomeWorld solo in Unreal Engine 5.8 / C++: character and movement, Gameplay Ability System, inventory, time-of-day, PCG scatter, and a homestead-to-planetoid loop on a 5 km-radius closed-mesh shell. Chapter 1’s feature walk is merged and covered by automated play-in-editor tests. I also built a JSON editor-automation bridge and a headless test runner that hard-fails on a false “done.” Earlier I built game UI/UX in C# at OutFusion (February–December 2022).',
+    'The posting wants people who already have Unreal Engine installed and who can use it in real work, not a tutorial walkthrough. Since February 2026 I have been developing HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning: Unreal editor tools and plugins, automated play-in-editor tests, PCG scatter, and a 5 km-radius closed-mesh shell. I also built a JSON editor-automation bridge and a headless test runner that hard-fails on a false “done.” Earlier I built game UI/UX in C# at OutFusion (February–December 2022).',
     'I want to be clear about two things. First, I will confirm on the form whether my current Windows setup and display can capture screenshots over 2.5 megapixels, as the posting requires; I am not treating that as already verified from here. Second, the public listing’s structured data lists applicant location as the US, while the body describes a remote contractor role paid weekly on Stripe or Wise and only rules out H-1B and STEM OPT. I live in Canada. If you cannot engage Canadian contractors, please say so and I will not take further time.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',

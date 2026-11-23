@@ -181,7 +181,7 @@ export const PITCHES: Pitch[] = [
         title: 'HomeWorld',
         meta: 'Feb 2026 – present · Solo · Unreal Engine 5.8, C++',
         summary:
-          'C++ gameplay and data-driven world systems for an ARPG survival and family sim, with a versioned save system, migrations, and tests.',
+          'A private Unreal Engine 5.8 / C++ prototyping environment for a planned game, with data-driven world systems, a versioned save system, migrations, and tests.',
         note: 'Private repository — available on request.',
       },
       ...WORK_HISTORY,
