@@ -98,6 +98,19 @@ export function CtaLink({ link, className }: { link: PitchLink; className: strin
   )
 }
 
+function FigureImage({ item }: { item: PitchFigure }) {
+  const src = withBase(item.src)
+  const fallback = item.fallbackSrc ? withBase(item.fallbackSrc) : undefined
+  const img = <img src={fallback ?? src} alt={item.alt} loading="lazy" />
+  if (!fallback) return img
+  return (
+    <picture>
+      <source srcSet={src} type="image/webp" />
+      {img}
+    </picture>
+  )
+}
+
 export function FigureGallery({
   figures,
   layout = 'grid',
@@ -112,14 +125,14 @@ export function FigureGallery({
     <div className={`figure-gallery${hero ? ' figure-gallery-hero' : ''}`}>
       {hero ? (
         <figure className="project-figure project-figure-keyart">
-          <img src={withBase(hero.src)} alt={hero.alt} loading="lazy" />
+          <FigureImage item={hero} />
           <figcaption>{hero.caption}</figcaption>
         </figure>
       ) : null}
       <div className="figure-grid">
         {rest.map((item) => (
           <figure key={item.src} className={`project-figure project-figure-${item.kind}`}>
-            <img src={withBase(item.src)} alt={item.alt} loading="lazy" />
+            <FigureImage item={item} />
             <figcaption>{item.caption}</figcaption>
           </figure>
         ))}

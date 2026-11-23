@@ -78,6 +78,15 @@ export const DREAMFLOW_PROJECT: PitchProject = {
   ],
   links: [{ label: 'DreamFlow at DreamStead', href: 'https://dreamstead.ca/dreamflow' }],
   note: 'Private repository — walkthrough available on request.',
+  figures: [
+    {
+      src: '/media/dreamflow-six-steps.webp',
+      fallbackSrc: '/media/dreamflow-six-steps.jpg',
+      alt: 'DreamFlow: six steps from a rough request to a small, tested change.',
+      caption: 'DreamFlow: six steps from a rough request to a small, tested change.',
+      kind: 'diagram',
+    },
+  ],
 }
 
 export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = [

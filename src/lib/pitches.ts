@@ -18,6 +18,8 @@ export type PitchFigure = {
   alt: string
   caption: string
   kind: PitchFigureKind
+  /** JPEG (or other) fallback when `src` is a WebP. */
+  fallbackSrc?: string
 }
 
 export type PitchProject = {
