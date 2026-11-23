@@ -110,12 +110,8 @@ export function LandingPage() {
 
       <footer className="landing-section">
         <p>
-          <a href={withBase('/resumes/luke-thompson.pdf')} target="_blank" rel="noreferrer">
-            Luke Thompson resume (PDF)
-          </a>
-          {' · '}
           <a href={withBase('/resumes/luke-thompson-gamedev.pdf')} target="_blank" rel="noreferrer">
-            Game developer resume (PDF)
+            Luke Thompson résumé (PDF)
           </a>
         </p>
       </footer>

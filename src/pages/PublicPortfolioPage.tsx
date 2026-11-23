@@ -34,7 +34,7 @@ function fallbackProfile(slug: string): Profile {
     headline: PUBLIC_PORTFOLIO.headline,
     bio: PUBLIC_PORTFOLIO.lede,
     contact_email: '',
-    hero_path: null,
+    hero_path: '/media/homeworld-keyart-night.jpg',
     work_section_title: '',
     work_section_blurb: '',
     resume_section_title: 'Experience',
@@ -53,6 +53,21 @@ function fallbackProfile(slug: string): Profile {
   }
 }
 
+
+function HireDreamSteadBlock() {
+  return (
+    <section className="public-hire-block" aria-label="Hire me via DreamStead">
+      <h2 className="public-hire-heading">Hire me via DreamStead</h2>
+      <p>
+        For Unreal Engine contract work, hire me through DreamStead, my studio. Every change is a
+        small pull request, tests are written first and must fail before the code is written, and CI
+        must pass before a change merges.
+      </p>
+      <p>Fixed-price tooling features are coming later. That offer is not open yet.</p>
+    </section>
+  )
+}
+
 function OverviewPanel({
   resumeUrl,
   onOpenTab,
@@ -63,22 +78,21 @@ function OverviewPanel({
   return (
     <div className="public-panel">
       <p className="lede public-overview-lede">{PUBLIC_PORTFOLIO.lede}</p>
+      <HireDreamSteadBlock />
       <div className="cta-row">
-        <CtaLink
-          link={{ label: 'Play Shift', href: 'https://xylardark.github.io/ShiftGame/' }}
-          className="cta primary"
-        />
-        <button type="button" className="cta ghost" onClick={() => onOpenTab('tools')}>
-          See the tools
-        </button>
+        <CtaLink link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca' }} className="cta primary" />
         <button type="button" className="cta ghost" onClick={() => onOpenTab('projects')}>
           View projects
         </button>
         <a className="cta ghost" href={resumeUrl} download target="_blank" rel="noreferrer">
           Download résumé
         </a>
-        <button type="button" className="cta ghost" onClick={() => onOpenTab('contact')}>
-          Get in touch
+        <CtaLink
+          link={{ label: 'Play Shift', href: 'https://xylardark.github.io/ShiftGame/' }}
+          className="cta ghost"
+        />
+        <button type="button" className="cta text" onClick={() => onOpenTab('tools')}>
+          See the tools
         </button>
       </div>
       <section className="public-featured overview-featured" aria-label="Featured project">
@@ -204,7 +218,9 @@ function ContactPanel({
         <p className="public-availability">{PUBLIC_PORTFOLIO.availability}</p>
         <p>{PUBLIC_PORTFOLIO.roles}</p>
       </div>
+      <HireDreamSteadBlock />
       <div className="resume-file-row public-resume-row">
+        <CtaLink link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca' }} className="cta primary" />
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
           GitHub
         </a>
@@ -256,7 +272,7 @@ export function PublicPortfolioPage() {
     if (meta) {
       meta.setAttribute(
         'content',
-        'Tools engineer (AI & games) portfolio for Luke Thompson: DreamStead’s DreamFlow (agentic dev harness), HomeWorld (Unreal Engine 5.8 / C++), Tether, Shift (Phaser), and tools and pipeline work.',
+        'Tools engineer (AI & games) portfolio for Luke Thompson: DreamFlow, an agentic harness he built and runs; HomeWorld, a private Unreal Engine 5.8 / C++ game; and Shift, a playable Phaser game.',
       )
     }
     return () => {
@@ -336,6 +352,7 @@ export function PublicPortfolioPage() {
       bio: PUBLIC_PORTFOLIO.lede,
       allow_downloads: true,
       resume_file_path: resumeUrl,
+      hero_path: '/media/homeworld-keyart-night.jpg',
     } satisfies Profile
   }, [bundle, resumeUrl, slug])
 
@@ -434,8 +451,14 @@ export function PublicPortfolioPage() {
               <OverviewPanel resumeUrl={resumeUrl} onOpenTab={openTab} />
             </div>
             {hero ? (
-              <div className="hero-media" aria-hidden="true">
-                <img className="hero-image" src={hero} alt="" width={2400} height={1600} />
+              <div className="hero-media">
+                <img
+                  className="hero-image"
+                  src={hero}
+                  alt="Key art for HomeWorld. This is concept art, not a gameplay capture."
+                  width={2400}
+                  height={1600}
+                />
               </div>
             ) : (
               <div className="hero-media hero-media-empty" aria-hidden="true">

@@ -12,7 +12,7 @@ export const PUBLIC_PORTFOLIO = {
   headline: 'Tools Engineer (AI & Games)',
   location: 'Hamilton, ON',
   lede:
-    'Tools engineer focused on AI-agent harnesses, developer tools, and gameplay systems. My most relevant work is DreamStead’s DreamFlow, a fenced, test-first agentic dev harness I have been building since 15 November 2026: small specs, frozen red-first tests, and a five-guard merge gate, and DreamFlow now opens most of its own pull requests through its own Shipper. Since February 2026 I have also been developing HomeWorld solo, a private Unreal Engine 5.8 / C++ game set on a 5 km-radius planetoid, along with Tether, a phone app for steering work on a computer. I also shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote roles, or hybrid / on-site in the GTA–Hamilton area.',
+    'I design tools, agent harnesses, and gameplay systems. I built and run my own agentic harness, DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I have also been developing HomeWorld (a private Unreal Engine 5.8 / C++ game, in development since February 2026). I shipped Shift, a playable Phaser 3 shop-and-delivery game. Earlier: game UI/UX in C# at OutFusion (2022), C++ ECU firmware at TruckSail (2020–21), and software development and QA at Evenica (2018–19). Open to remote Unreal and tools work, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
@@ -26,7 +26,7 @@ export const PUBLIC_PORTFOLIO = {
 }
 
 export const PUBLIC_SKILLS: { label: string; value: string }[] = [
-  { label: 'AI & agents', value: 'Agent harnesses, LLM coding agents (cursor-agent, opencode), red-first test gates, CI merge gates' },
+  { label: 'AI & agents', value: 'Agent harnesses, coding agents I direct, test-first gates, CI merge gates' },
   { label: 'Languages', value: 'C++, C#, TypeScript/JavaScript, Python, HTML/CSS' },
   { label: 'Game', value: 'Unreal Engine 5.8, Gameplay Ability System, PCG, Phaser 3, Unity' },
   { label: 'Web & data', value: 'React, Vite, ASP.NET, SQL, REST APIs' },
@@ -67,22 +67,22 @@ export const HOMEWORLD_FIGURES: PitchFigure[] = [
 ]
 
 export const DREAMFLOW_PROJECT: PitchProject = {
-  title: 'DreamStead’s DreamFlow — agentic dev harness',
-  meta: 'Nov 2026 – present · Independent (solo) · Python 3.12, pytest, ruff, pyright, GitHub Actions · MIT licence',
+  title: 'DreamFlow — agentic dev harness I built and run',
+  meta: 'Nov 2026 – present · Independent (solo) · Python · dreamstead.ca/dreamflow',
   summary:
-    'A software factory that assembles itself from its own failures. DreamFlow takes one developer’s vague idea to low-bug code that matches intent: ideas go into a queue, small test-first pull requests come out, and a gate merges them only when the proof holds. It treats model output as a guess, never as proof, and every change, including changes to DreamFlow itself, follows ten steps: define, question, delete, simplify, bound, measure, accelerate, wire, automate, evolve.',
+    'DreamFlow is an agentic development harness I built and run for my own work. It is not a product for sale, and it is not how I deliver client Unreal work today. Ideas become small pull requests. Tests are written first and must fail before the code is written. A change merges only when CI passes. I treat model output as a guess, never as proof. I can walk through the work on request.',
   bullets: [
-    'A Lane Pump moves each queued idea through a spec drafter (at most 5 files, under 12,288 bytes), red-first acceptance tests frozen by sha256, and one builder model hop in its own git worktree. A five-guard merge gate checks CI green, an unchanged first-red hash, no test edits after red, at most 5 files, and no change to contracts, agent rules, or Tether.',
-    'DreamFlow builds DreamFlow: 312 of its 340 merged pull requests (15–21 November 2026) were opened by its own Shipper, every one at 5 files or fewer. Over the last 20 merges (measured 21 November 2026), a ready spec reached main in a median 62 minutes, and the last 50 CI runs were all green.',
-    'Live today: failures become routed fix rows, a hold stops only its own row instead of the whole lane, and features promote from dev to stable after three exercising greens. Queued, not yet shipped: a queue doctor that checks, repairs, and reorders the queue on its own, and two competing build variants after a failed build, judged by the same frozen tests.',
-    'Model-agnostic by config (Grok through cursor-agent for design work, DeepSeek through opencode for mechanical builds). CI runs pytest, ruff, pyright, and gitleaks; a per-lane trifecta check keeps secrets, untrusted input, and outbound sends out of any single lane; and a flow meter stamps time and tokens for every stage.',
+    'I use it on my own codebase: each change is a small pull request, with tests frozen before the code is written, and a CI gate before merge.',
+    'I built it to direct coding agents without taking “done” at their word. The harness is how I work, not something a client installs.',
+    'A walkthrough is available on request. There is no public repository.',
   ],
-  note: 'Private repository in the DreamStead GitHub organization — walkthrough available on request.',
+  links: [{ label: 'DreamFlow at DreamStead', href: 'https://dreamstead.ca/dreamflow' }],
+  note: 'Private repository — walkthrough available on request.',
   figures: [
     {
       src: '/media/dreamflow-flow.png',
-      alt: 'Diagram of the DreamFlow Lane Pump: idea, intake, queue, spec drafter, staging checks, red-first frozen tests, builder hop, CI, auto-merge gate and main. Failures go to repair hops or a per-row hold and become fix rows. Dashed boxes are queued work, not shipped.',
-      caption: 'Diagram of the DreamFlow Lane Pump, drawn from the repo on 21 November 2026. Solid boxes are live, dashed boxes are queued. Not a product screenshot.',
+      alt: 'Diagram of how DreamFlow takes an idea through tests and a CI gate to a merge. Dashed boxes are planned, not shipped.',
+      caption: 'How DreamFlow takes an idea through tests and a CI gate. Dashed boxes are planned, not shipped. Not a product screenshot.',
       kind: 'diagram',
     },
   ],
@@ -99,66 +99,15 @@ export const PUBLIC_PROJECTS: { featured?: boolean; project: PitchProject }[] = 
       title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
       meta: 'Feb 2026 – present · Independent (solo) · Unreal Engine 5.8, C++, Python tools',
       summary:
-        'Built the C++ gameplay for an ARPG survival and family-sim aimed at PC: character and movement, Gameplay Ability System, inventory, time-of-day, and a homestead-to-planetoid loop (glider descent, shrine portal, gather, nurture, and interact).',
+        'HomeWorld is a private Unreal Engine 5.8 / C++ game, in development since February 2026. I built the C++ gameplay for an ARPG survival and family-sim aimed at PC: character and movement, Gameplay Ability System, inventory, time-of-day, and a homestead-to-planetoid loop (glider descent, shrine portal, gather, nurture, and interact).',
       bullets: [
         'Chapter 1’s feature walk — homestead, planting, backpack, gathering, rune unlock, camp, bed-to-spirit, nurture, and portal camp — is merged and covered by automated play-in-editor tests.',
         'Built planetoid world systems on a 5 km-radius planet, including a closed-mesh planet shell, PCG scatter, and data-driven zone placement and recipes rather than one-off baked maps.',
         'Implemented a versioned save system with per-system slices and migrations that refuse unknown newer saves; added C++ and Python tests around saves, a 7-axis sin/virtue system, and playtest beats.',
-        'Editor tooling, build automation, and a Blender greybox pipeline — plus DreamStead’s earlier automation harness, the predecessor to DreamFlow — are on the Tools tab, each marked Built or Designed and in progress.',
+        'Editor tooling, build automation, and a Blender greybox pipeline are on the Tools tab.',
       ],
       note: 'Private repository — walkthrough available on request.',
       figures: HOMEWORLD_FIGURES,
-    },
-  },
-  {
-    featured: true,
-    project: {
-      title: 'DreamStead — earlier solo-dev automation harness (predecessor to DreamFlow)',
-      meta: 'Nov 2026 · retired 15 Nov 2026, replaced by DreamFlow · Independent (solo) · agent orchestration, scheduled automation, decision tooling',
-      summary:
-        'A solo-dev “company in a box”: one person steers while parallel agent lanes build in local coding-agent sessions. I design the rules, review the work, and treat an agent saying “done” as a claim that still has to be proven.',
-      bullets: [
-        'Five named lanes — HEALTH, P6, DREAM, BOOKEND, and TETHER — ran in parallel, driven by a five-minute scheduled tick.',
-        'A done-gate refuses to mark a lane done until a rebase, a test rerun, and a merge-ready check all pass. A merge train lands qualifying work one change at a time. Stalled or dead runs auto-resume. A PC status notifier and a tool index keep the loop visible. 123 merged pull requests as of 12 November 2026.',
-        'Preference engine, Layer 1 (built): a deterministic take-rate counter may auto-default a decision type only at a 95% take rate over at least 20 evidenced answers, and only after a one-time yes for that type. Safety-sensitive types — including deletes, merges, installs, secrets, and art or taste decisions — never auto-default.',
-        'Dream intake had a single front door. This harness was retired on 15 November 2026, when DreamFlow replaced it.',
-      ],
-      note: 'Private repository — walkthrough available on request.',
-      figures: [
-        {
-          src: '/media/dreamstead-loop.svg',
-          alt: 'Diagram of the DreamStead loop: a person steers, a five-minute tick runs five parallel lanes, a done-gate checks rebase, tests, and merge readiness, then a merge train, with auto-resume, a status notifier, and a tool index.',
-          caption: 'Diagram of the DreamStead loop, drawn for this page. Not a product screenshot.',
-          kind: 'diagram',
-        },
-        {
-          src: '/media/preference-layer1.svg',
-          alt: 'Diagram of preference-engine Layer 1: answers are counted by type, a 95 percent take-rate bar over at least 20 evidenced answers may allow an auto-default, and safety-sensitive types never auto-default.',
-          caption: 'Diagram of preference-engine Layer 1, the layer that is built. Not a product screenshot.',
-          kind: 'diagram',
-        },
-      ],
-    },
-  },
-  {
-    project: {
-      title: 'Tether — phone app for reviewing computer work',
-      meta: 'Nov 2026 – present · Independent (solo) · TypeScript, phone PWA · went live 11 November 2026',
-      summary:
-        'A phone app that connects to a computer so I can review work, run declared checks, and approve the actions that need a person.',
-      bullets: [
-        'The phone client is a PWA, with push notifications and actionable decision cards that write answers back to the computer and can run phone actions such as remind-later, undo, and attaching a photo from the library.',
-        'The phone is for reading, approving, and running declared actions — not for editing code or opening a public port. Went live on 11 November 2026.',
-      ],
-      note: 'Private repository — walkthrough available on request. No product screenshots are published here; the figure below is a diagram of the flow.',
-      figures: [
-        {
-          src: '/media/tether-flow.svg',
-          alt: 'Diagram of Tether: a desktop and a phone PWA connect through Tether, which carries push notifications, decision cards, answer write-back, and phone actions.',
-          caption: 'Diagram of the Tether flow, drawn for this page. Not a product screenshot — no UI capture is published here.',
-          kind: 'diagram',
-        },
-      ],
     },
   },
   {
@@ -235,7 +184,7 @@ export const PUBLIC_EXPERIENCE: Experience[] = [
     org: 'Uber, retail delivery · Hamilton, ON',
     period: 'Jun 2022 – present',
     detail:
-      'Independent schedule while building a game-development portfolio in 2026 (DreamStead’s DreamFlow, HomeWorld, Tether, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
+      'Independent schedule while building a game-development portfolio in 2026 (DreamStead’s DreamFlow, HomeWorld, Shift, and Portfolio Studio). Reliable, accurate delivery in fast-paced retail settings; strong customer communication.',
     sort_order: 3,
     created_at: '',
     updated_at: '',

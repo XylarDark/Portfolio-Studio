@@ -9,8 +9,7 @@ the public site’s source stays here.
 
 - The studio app, landing page, and invite/studio routes
 - The public portfolio at `/u/admin/portfolio`
-- Generic resumes: `public/resumes/luke-thompson.pdf` (and `.html`) and
-  `public/resumes/luke-thompson-gamedev.pdf`
+- Public résumé: `public/resumes/luke-thompson-gamedev.pdf`
 
 ## What is unlisted but operational
 

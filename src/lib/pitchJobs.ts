@@ -136,7 +136,7 @@ export const CITI_PITCH: Pitch = {
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: {
-    title: 'HomeWorld — AI-agent tooling and verification',
+    title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
     meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
     summary:
       'A solo Unreal Engine 5.8 / C++ game built with AI coding agents under my direction. I build the tools they use and the checks their output has to pass before it counts.',

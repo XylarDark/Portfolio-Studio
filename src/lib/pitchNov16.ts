@@ -37,23 +37,24 @@ const PORTFOLIO_STUDIO: PitchProject = {
 }
 
 const DREAMSTEAD: PitchProject = {
-  title: 'DreamStead — solo-dev automation harness',
-  meta: 'Nov 2026 – present · Independent (solo) · agent orchestration, scheduled automation',
+  title: 'DreamFlow — agentic dev harness I built and run',
+  meta: 'Nov 2026 – present · Independent (solo) · Python',
   summary:
-    'A solo-dev automation harness: one person steers while parallel agent lanes run in local coding-agent sessions on a five-minute scheduled tick.',
+    'DreamFlow is an agentic development harness I built and run for my own work. It is not a product for sale. Ideas become small pull requests. Tests are written first and must fail before the code is written. A change merges only when CI passes. I treat model output as a guess, never as proof.',
   bullets: [
-    'Built a done-gate (rebase, test rerun, merge-ready check), a merge train, auto-resume, a status notifier, and a tool index (123 merged pull requests as of 12 November 2026).',
-    'Preference-engine Layer 1 auto-defaults only at a 95% take rate over at least 20 evidenced answers; safety-sensitive types never auto-default. A first end-to-end dream is in progress.',
+    'I use it on my own codebase: each change is a small pull request, with tests frozen before the code is written, and a CI gate before merge.',
+    'I built it to direct coding agents without taking “done” at their word. The harness is how I work, not something a client installs.',
+    'A walkthrough is available on request. There is no public repository.',
   ],
   links: [TOOLS_WRITEUP],
-  note: 'Private repository — code walkthrough available on request.',
+  note: 'Private repository — walkthrough available on request.',
 }
 
 const HOMEWORLD_TOOLS: PitchProject = {
-  title: 'HomeWorld — AI-agent tooling and verification',
+  title: 'HomeWorld — Unreal Engine 5.8 / C++ game',
   meta: 'Feb 2026 – present · Independent (solo) · UE 5.8, C++, Python',
   summary:
-    'A solo Unreal Engine 5.8 / C++ project built with AI coding agents under my direction. I build the tools they use and the checks their output has to pass before it counts.',
+    'HomeWorld is a private Unreal Engine 5.8 / C++ game, in development since February 2026. Some code is written by AI coding agents under my direction; source changes wait for my review.',
   bullets: [
     'Editor automation bridge: a JSON request/response protocol (world info, asset checks, a per-row pass/fail probe) that new command modules plug into.',
     'Headless test runner that hard-fails on an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries, each with a regression test.',
@@ -78,14 +79,6 @@ const HOMEWORLD_GAME: PitchProject = {
   figures: HOMEWORLD_FIGURES,
 }
 
-const TETHER: PitchProject = {
-  title: 'Tether — phone app for reviewing computer work',
-  meta: 'Nov 2026 – present · Independent (solo) · TypeScript, phone PWA · went live 11 Nov 2026',
-  summary:
-    'A phone PWA with push notifications and actionable decision cards that write answers back and can run declared actions. The phone is for reading, approving, and running declared actions — not for editing code or opening a public port.',
-  note: 'Private repository — code walkthrough available on request.',
-}
-
 const TRUCKSAIL_FEATURED: PitchProject = {
   title: 'TruckSail — C++ ECU firmware',
   meta: 'Feb 2020 – Jan 2021 · Ancaster, ON · C++, STM32, CAN bus',
@@ -104,13 +97,13 @@ export const THATGAMECOMPANY_PITCH: Pitch = {
   letterHeading: 'Hi thatgamecompany hiring team',
   letter: [
     'I’m applying for the Build Engineer (Associate to Mid-Level) role. I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately. I can work to 10 am–5 pm Pacific (1 pm–8 pm Eastern).',
-    'The posting is about maintaining the app build and release process across mobile, consoles, and PC, improving CI, writing tools for other teams, and helping with rapid testing — with a C++ background and Python automation. That is close to how I already work. On HomeWorld, a private Unreal Engine 5.8 / C++ game, I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test, and a build wrapper with one machine-wide queue so parallel agents can’t collide. On DreamStead I built a done-gate (rebase, test rerun, merge-ready check), a merge train, and a tool index (123 merged pull requests as of 12 November 2026). I write Python and C++, use Git and GitHub Actions, and I treat agent output as untrusted until tests and a review say otherwise. At TruckSail I wrote C++ firmware for truck ECU devices (STM32, CAN bus).',
+    'The posting is about maintaining the app build and release process across mobile, consoles, and PC, improving CI, writing tools for other teams, and helping with rapid testing — with a C++ background and Python automation. That is close to how I already work. On HomeWorld, a private Unreal Engine 5.8 / C++ game, I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test, and a build wrapper with one machine-wide queue so parallel agents can’t collide. I built and run DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I write Python and C++, use Git and GitHub Actions, and I treat agent output as untrusted until tests and a review say otherwise. At TruckSail I wrote C++ firmware for truck ECU devices (STM32, CAN bus).',
     'I want to be clear about gaps and about work authorization. I have not used Perforce or Jenkins as part of a job, and I have not managed Google Play or App Store releases or Ansible provisioning. I would expect to learn your source control, CI, and storefront process on the team. I am authorized to work in Canada without sponsorship. I am not authorized to work in the United States, and I would need authorization if this role can only be hired as US employment. The posting body says “Remote US & Canada,” while the Ashby location field is “Remote - US” and the posting footer says applicants must be authorized to work for any employer in the U.S.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: HOMEWORLD_TOOLS,
-  other: [DREAMSTEAD, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
+  other: [DREAMSTEAD, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/thatgamecompany.pdf',
   resumeBlurb: 'One-page résumé tailored for the thatgamecompany Build Engineer role.',
 }
@@ -125,13 +118,13 @@ export const PROVIDIUS_PITCH: Pitch = {
   letterHeading: 'Hi Providius hiring team',
   letter: [
     'I’m applying for the Software Engineer, Test role (on-site, Hamilton). I live in Hamilton, Ontario, I am legally authorized to work in Canada without sponsorship, and I am available immediately.',
-    'The posting is a hands-on engineering role: writing automated tests, building reusable fixtures and mocks, adding CI smoke checks, investigating failures across application and environment, and testing REST APIs. That is close to how I already work. I write tests in Python (pytest on HomeWorld) and TypeScript (83 Vitest test files on Shift). On HomeWorld I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test. On DreamStead I built a done-gate (rebase, test rerun, merge-ready check), a merge train, and a tool index (123 merged pull requests as of 12 November 2026). In employed roles I did QA testing of client software at Evenica (including Linux), tested C# REST integrations for player data at OutFusion, and did cross-browser QA and defect finding on C++ ECU firmware at TruckSail.',
+    'The posting is a hands-on engineering role: writing automated tests, building reusable fixtures and mocks, adding CI smoke checks, investigating failures across application and environment, and testing REST APIs. That is close to how I already work. I write tests in Python (pytest on HomeWorld) and TypeScript (83 Vitest test files on Shift). On HomeWorld I built a headless test runner that hard-fails on a false “done” (an unreadable report, the wrong engine, zero tests run, a stale report, or stale binaries), each with a regression test. I built and run DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. In employed roles I did QA testing of client software at Evenica (including Linux), tested C# REST integrations for player data at OutFusion, and did cross-browser QA and defect finding on C++ ECU firmware at TruckSail.',
     'I want to be clear about gaps. I have not used Playwright, Cypress, or JUnit in a formal test-automation role. I have not built Linux/Docker test labs around captured network traffic, syslog, SNMP, or TimescaleDB, and I have not done formal performance or soak testing as a job. I would expect to learn Providius’s product, fixtures, and toolchain on the team.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: HOMEWORLD_TOOLS,
-  other: [DREAMSTEAD, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
+  other: [DREAMSTEAD, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/providius.pdf',
   resumeBlurb: 'One-page résumé tailored for the Providius Software Engineer, Test role.',
 }
@@ -146,13 +139,13 @@ export const SADSERVERS_PITCH: Pitch = {
   letterHeading: 'Hi SadServers hiring team',
   letter: [
     'I’m applying for the SRE AI Developer role (remote Canada, part-time or contract), as advertised in the November 2026 Hacker News hiring thread. I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately.',
-    'You’re looking for a software engineer to develop the part of SadServers that companies use to evaluate and train SRE AI agents, including work like the SREBattle benchmark, on a stack of Django REST, Python runners, and Node/React/Vite. The closest work I can show is the verification tooling I already build around coding agents. On DreamStead, a solo-dev automation harness, I built a done-gate (rebase, test rerun, merge-ready check), a merge train, auto-resume, a status notifier, and a tool index (123 merged pull requests as of 12 November 2026). On HomeWorld I built a headless test runner that hard-fails on a false “done,” so a pass has to be a real pass. I write Python and TypeScript. Portfolio Studio is a shipped React/TypeScript/Vite site, and Shift is a shipped Vite/TypeScript game with 83 Vitest test files.',
+    'You’re looking for a software engineer to develop the part of SadServers that companies use to evaluate and train SRE AI agents, including work like the SREBattle benchmark, on a stack of Django REST, Python runners, and Node/React/Vite. The closest work I can show is the verification tooling I already build around coding agents. I built and run DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. On HomeWorld I built a headless test runner that hard-fails on a false “done,” so a pass has to be a real pass. I write Python and TypeScript. Portfolio Studio is a shipped React/TypeScript/Vite site, and Shift is a shipped Vite/TypeScript game with 83 Vitest test files.',
     'I want to be clear about gaps. I have not used Django REST as part of a job, and I have not built a production Linux/SRE training platform or a VM-challenge product. I would expect to learn your stack, runners, and customer workflow on the contract. I’m glad the process is a video call and a paid mini-project; I would be happy to do both.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: DREAMSTEAD,
-  other: [HOMEWORLD_TOOLS, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
+  other: [HOMEWORLD_TOOLS, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/sadservers.pdf',
   resumeBlurb: 'One-page résumé tailored for the SadServers SRE AI Developer role.',
 }
@@ -173,7 +166,7 @@ export const GASTRONOMOUS_PITCH: Pitch = {
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: TRUCKSAIL_FEATURED,
-  other: [HOMEWORLD_TOOLS, DREAMSTEAD, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, EVENICA],
+  other: [HOMEWORLD_TOOLS, DREAMSTEAD, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, EVENICA],
   resumePath: '/resumes/gastronomous.pdf',
   resumeBlurb: 'One-page résumé tailored for the Gastronomous Robotics Software Developer (Embedded) role.',
 }
@@ -194,7 +187,7 @@ export const MERCOR_PITCH: Pitch = {
   signoff: 'Thanks for your time — Luke Thompson',
   primaryCta: TOOLS_WRITEUP,
   featured: HOMEWORLD_GAME,
-  other: [HOMEWORLD_TOOLS, DREAMSTEAD, TETHER, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
+  other: [HOMEWORLD_TOOLS, DREAMSTEAD, PORTFOLIO_STUDIO, SHIFT, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/mercor.pdf',
   resumeBlurb: 'One-page résumé tailored for the Mercor Unreal Engine on Windows contract.',
 }
@@ -209,7 +202,7 @@ export const CSCGENERATION_PITCH: Pitch = {
   letterHeading: 'Hi CSC Generation hiring team',
   letter: [
     'I’m applying for the Junior Software Engineer role (remote, US or Canada) on the platform team at One Kings Lane. I’m in Hamilton, Ontario, legally authorized to work in Canada without sponsorship, and available immediately. I can attend the mandatory in-person interview in Toronto.',
-    'The posting is full-stack work on shared tooling used across e-commerce brands — React and TypeScript on the front end, Node on the back end, small pull requests, tests, and disciplined use of AI coding tools. The parts I can already show are React, TypeScript, tests, and that discipline. Portfolio Studio is a shipped React/TypeScript/Vite site with a Supabase (Postgres) backend and GitHub Actions deploys. Shift is a shipped TypeScript game with 83 Vitest test files. I use coding agents every day — Cursor, Grok, and OpenCode with DeepSeek — and I review their diffs; merge gates and tests have to pass first. On DreamStead I built a done-gate, a merge train, and a tool index (123 merged pull requests as of 12 November 2026). In employed roles I built and tested C# REST integrations at OutFusion and JS/SQL tooling at TruckSail.',
+    'The posting is full-stack work on shared tooling used across e-commerce brands — React and TypeScript on the front end, Node on the back end, small pull requests, tests, and disciplined use of AI coding tools. The parts I can already show are React, TypeScript, tests, and that discipline. Portfolio Studio is a shipped React/TypeScript/Vite site with a Supabase (Postgres) backend and GitHub Actions deploys. Shift is a shipped TypeScript game with 83 Vitest test files. I use coding agents every day — Cursor and OpenCode — and I review their diffs; merge gates and tests have to pass first. I built and run DreamFlow: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. In employed roles I built and tested C# REST integrations at OutFusion and JS/SQL tooling at TruckSail.',
     'I want to be clear about gaps. I have not built a production Node.js backend, and I have not used Express, Next.js, or Claude Code. I have not worked on e-commerce storefronts or a shared component library as a job. I would expect to learn your Node services, design system, and review practices on the team.',
   ],
   signoff: 'Thanks for your time — Luke Thompson',
@@ -218,7 +211,7 @@ export const CSCGENERATION_PITCH: Pitch = {
     href: 'https://xylardark.github.io/Portfolio-Studio/u/admin/portfolio',
   },
   featured: PORTFOLIO_STUDIO,
-  other: [SHIFT, DREAMSTEAD, HOMEWORLD_TOOLS, TETHER, OUTFUSION, TRUCKSAIL, EVENICA],
+  other: [SHIFT, DREAMSTEAD, HOMEWORLD_TOOLS, OUTFUSION, TRUCKSAIL, EVENICA],
   resumePath: '/resumes/cscgeneration.pdf',
   resumeBlurb: 'One-page résumé tailored for the CSC Generation Junior Software Engineer role.',
 }
