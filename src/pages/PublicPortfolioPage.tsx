@@ -58,6 +58,7 @@ function SocialLinks() {
   const items = [
     { href: PUBLIC_PORTFOLIO.githubHref, label: 'GitHub' },
     { href: PUBLIC_PORTFOLIO.githubOrgHref, label: PUBLIC_PORTFOLIO.githubOrgLabel },
+    { href: PUBLIC_PORTFOLIO.xHref, label: PUBLIC_PORTFOLIO.xLabel },
     { href: PUBLIC_PORTFOLIO.linkedinHref, label: PUBLIC_PORTFOLIO.linkedinLabel },
   ]
   return (
@@ -65,7 +66,7 @@ function SocialLinks() {
       {items.map((item, index) => (
         <span key={item.href}>
           {index > 0 ? <span className="public-socials-sep" aria-hidden="true"> · </span> : null}
-          <a href={item.href} target="_blank" rel="noopener noreferrer">
+          <a href={item.href} target="_blank" rel="noopener noreferrer" aria-label={item.label}>
             {item.label}
           </a>
         </span>
@@ -228,6 +229,15 @@ function ResumePanel({
         </a>
         <a
           className="cta ghost"
+          href={PUBLIC_PORTFOLIO.xHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={PUBLIC_PORTFOLIO.xLabel}
+        >
+          {PUBLIC_PORTFOLIO.xLabel}
+        </a>
+        <a
+          className="cta ghost"
           href={PUBLIC_PORTFOLIO.linkedinHref}
           target="_blank"
           rel="noopener noreferrer"
@@ -263,6 +273,15 @@ function ContactPanel({
         </a>
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubOrgHref} target="_blank" rel="noopener noreferrer">
           {PUBLIC_PORTFOLIO.githubOrgLabel}
+        </a>
+        <a
+          className="cta ghost"
+          href={PUBLIC_PORTFOLIO.xHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={PUBLIC_PORTFOLIO.xLabel}
+        >
+          {PUBLIC_PORTFOLIO.xLabel}
         </a>
         <a
           className="cta ghost"

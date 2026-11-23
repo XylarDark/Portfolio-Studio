@@ -17,6 +17,8 @@ export const PUBLIC_PORTFOLIO = {
   githubLabel: 'github.com/XylarDark',
   githubOrgHref: 'https://github.com/DreamStead',
   githubOrgLabel: 'DreamStead on GitHub',
+  xHref: 'https://x.com/DreamSteadDev',
+  xLabel: 'DreamStead on X',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
   linkedinLabel: 'LinkedIn',
   contactBlurb:
