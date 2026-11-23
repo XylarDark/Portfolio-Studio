@@ -54,6 +54,26 @@ function fallbackProfile(slug: string): Profile {
 }
 
 
+function SocialLinks() {
+  const items = [
+    { href: PUBLIC_PORTFOLIO.githubHref, label: 'GitHub' },
+    { href: PUBLIC_PORTFOLIO.githubOrgHref, label: PUBLIC_PORTFOLIO.githubOrgLabel },
+    { href: PUBLIC_PORTFOLIO.linkedinHref, label: PUBLIC_PORTFOLIO.linkedinLabel },
+  ]
+  return (
+    <p className="public-socials">
+      {items.map((item, index) => (
+        <span key={item.href}>
+          {index > 0 ? <span className="public-socials-sep" aria-hidden="true"> · </span> : null}
+          <a href={item.href} target="_blank" rel="noopener noreferrer">
+            {item.label}
+          </a>
+        </span>
+      ))}
+    </p>
+  )
+}
+
 function HireDreamSteadBlock() {
   return (
     <section className="public-hire-block" aria-label="Hire me via DreamStead">
@@ -97,6 +117,7 @@ function OverviewIntro({
           See the tools
         </button>
       </div>
+      <SocialLinks />
     </div>
   )
 }
@@ -198,6 +219,9 @@ function ResumePanel({
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
           GitHub
         </a>
+        <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubOrgHref} target="_blank" rel="noopener noreferrer">
+          {PUBLIC_PORTFOLIO.githubOrgLabel}
+        </a>
         <a
           className="cta ghost"
           href={PUBLIC_PORTFOLIO.linkedinHref}
@@ -232,6 +256,9 @@ function ContactPanel({
         <CtaLink link={{ label: 'Hire me via DreamStead', href: 'https://dreamstead.ca/#contact' }} className="cta primary" />
         <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubHref} target="_blank" rel="noreferrer">
           GitHub
+        </a>
+        <a className="cta ghost" href={PUBLIC_PORTFOLIO.githubOrgHref} target="_blank" rel="noopener noreferrer">
+          {PUBLIC_PORTFOLIO.githubOrgLabel}
         </a>
         <a
           className="cta ghost"

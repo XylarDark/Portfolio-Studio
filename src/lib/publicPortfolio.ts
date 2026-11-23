@@ -15,6 +15,8 @@ export const PUBLIC_PORTFOLIO = {
     'I design tools, agent harnesses, and gameplay systems. I built and run DreamFlow, my agentic harness: every change is a small pull request, tests are written first and must fail before the code is written, and CI must pass before a change merges. I have also been developing HomeWorld, a private Unreal Engine 5.8 / C++ prototyping environment for a game I’m planning (in development since February 2026), and I shipped Shift, a playable Phaser 3 shop-and-delivery game. Open to remote Unreal and tools work, or hybrid / on-site in the GTA–Hamilton area.',
   githubHref: 'https://github.com/XylarDark',
   githubLabel: 'github.com/XylarDark',
+  githubOrgHref: 'https://github.com/DreamStead',
+  githubOrgLabel: 'DreamStead on GitHub',
   linkedinHref: 'https://www.linkedin.com/in/stevenlthompson1/',
   linkedinLabel: 'LinkedIn',
   contactBlurb:

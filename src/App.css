@@ -1184,6 +1184,23 @@
   gap: 0.7rem;
 }
 
+.public-socials {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.public-socials a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.public-socials a:hover {
+  color: var(--accent, var(--fg));
+}
+
 .public-hero-media {
   min-width: 0;
 }
